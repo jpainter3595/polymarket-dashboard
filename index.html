@@ -114,16 +114,16 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
 @keyframes walkleft{0%,100%{transform:translateX(0)}40%,60%{transform:translateX(-22px)}}
 @keyframes walktocenter{0%,100%{transform:translateX(0)}40%,60%{transform:translateX(14px)}}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
-@keyframes armwrite{0%,100%{transform:rotate(0)}35%{transform:rotate(-18deg)}65%{transform:rotate(9deg)}}
-@keyframes armgear{0%,100%{transform:rotate(0)}50%{transform:rotate(-25deg)}}
+@keyframes armwrite{0%,100%{transform:translateY(0)}40%{transform:translateY(-3px)}70%{transform:translateY(2px)}}
+@keyframes armgear{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes gearspin{to{transform:rotate(360deg)}}
 
 .walk-r{animation:walkright 3.8s ease-in-out infinite}
 .walk-l{animation:walkleft 4.2s ease-in-out infinite}
 .walk-c{animation:walktocenter 3.2s ease-in-out infinite}
 .bob{animation:bob 2.2s ease-in-out infinite}
-.arm-w{transform-origin:4px 2px;animation:armwrite 1.4s ease-in-out infinite}
-.arm-g{transform-origin:4px 2px;animation:armgear 2.8s ease-in-out infinite}
+.arm-w{animation:armwrite 1.4s ease-in-out infinite}
+.arm-g{animation:armgear 2.8s ease-in-out infinite}
 .gear{transform-origin:50% 50%;animation:gearspin 4s linear infinite}
 .idle{opacity:.45}
 
@@ -407,9 +407,8 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
           <line x1="102" y1="101" x2="113" y2="101" stroke="var(--green)" stroke-width="0.8" opacity=".4"/>
           <line x1="102" y1="104" x2="115" y2="104" stroke="var(--green)" stroke-width="0.8" opacity=".45"/>
           <!-- writing arm -->
-          <g class="arm-w"><rect x="122" y="94" width="7" height="12" rx="3" fill="var(--green-bg)" stroke="var(--green)" stroke-width="1.2"/>
+          <rect class="arm-w" x="122" y="94" width="7" height="12" rx="3" fill="var(--green-bg)" stroke="var(--green)" stroke-width="1.2"/>
           <line x1="126" y1="104" x2="130" y2="112" stroke="#ca8a04" stroke-width="1.6" stroke-linecap="round"/>
-          </g>
           <rect x="87" y="94" width="7" height="12" rx="3" fill="var(--green-bg)" stroke="var(--green)" stroke-width="1.2"/>
           <!-- head oval -->
           <ellipse cx="109" cy="79" rx="14" ry="12" fill="var(--green-bg)" stroke="var(--green)" stroke-width="1.3"/>
@@ -649,8 +648,8 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
           <rect x="147" y="97" width="4" height="12" rx="2" fill="var(--red-border)" opacity=".5"/>
           <rect x="143" y="101" width="12" height="4" rx="2" fill="var(--red-border)" opacity=".5"/>
           <!-- wrench arm -->
-          <g class="arm-g"><rect x="162" y="93" width="7" height="12" rx="3" fill="var(--red-bg)" stroke="var(--red)" stroke-width="1.2"/>
-          <line x1="166" y1="103" x2="170" y2="112" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"/></g>
+          <rect class="arm-g" x="162" y="93" width="7" height="12" rx="3" fill="var(--red-bg)" stroke="var(--red)" stroke-width="1.2"/>
+          <line x1="166" y1="103" x2="170" y2="112" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"/>
           <rect x="127" y="93" width="7" height="12" rx="3" fill="var(--red-bg)" stroke="var(--red)" stroke-width="1.2"/>
           <rect x="138" y="72" width="22" height="18" rx="5" fill="var(--red-bg)" stroke="var(--red)" stroke-width="1.3"/>
           <rect x="141" y="76" width="6" height="7" rx="2.5" fill="#fee2e2" stroke="var(--red-border)" stroke-width="0.8"/>
