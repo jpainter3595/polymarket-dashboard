@@ -233,9 +233,9 @@
   /* ===== ROOMS GRID ===== */
   .rooms-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
+    align-items: start;
   }
 
   .room {
@@ -247,17 +247,9 @@
     flex-direction: column;
     gap: 12px;
     border: 1px solid transparent;
-    transition: border-color 0.3s;
-  }
-
-  .room::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 16px;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s;
+    min-width: 0;
+    min-height: 0;
+    z-index: 1;
   }
 
   /* ===== ROOM HEADERS ===== */
@@ -389,6 +381,7 @@
     background: #fafaf8;
     border-color: #e8e5de;
     color: #2a2820;
+    overflow: hidden;
   }
 
   .room-analyst .agent-name { color: #1a1810; }
@@ -766,10 +759,9 @@
     border-radius: 6px;
     border: 1px solid rgba(255,255,255,0.1);
     cursor: pointer;
-    transition: transform 0.15s;
   }
 
-  .swatch:hover { transform: scale(1.2); }
+  .swatch:hover { opacity: 0.8; }
 
   /* ===== ROOM: DASHBOARD AGENT ===== */
   .room-dashboard {
