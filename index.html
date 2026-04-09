@@ -163,6 +163,49 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
 
 @media(max-width:1100px){.offices{grid-template-columns:repeat(3,minmax(0,1fr))}.charts-grid{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.offices{grid-template-columns:1fr}.charts-grid{grid-template-columns:1fr}.topbar-right .topbar-stat:nth-child(n+3){display:none}.topbar-sep:nth-child(n+3){display:none}}
+
+/* ── AGENT BUILDER ── */
+.ab-grid{display:grid;grid-template-columns:280px 1fr 1fr;gap:20px;margin-bottom:0}
+.ab-panel{border:1px solid var(--border);padding:20px}
+.ab-panel-title{font-size:10px;letter-spacing:.1em;color:var(--faint);font-weight:500;margin-bottom:16px}
+.ab-name{width:100%;border:1px solid var(--border2);padding:9px 12px;font-family:var(--f);font-size:14px;font-weight:500;color:var(--text);outline:none;border-radius:4px;transition:border-color .15s;margin-bottom:16px}
+.ab-name:focus{border-color:var(--text)}
+.ab-preview{display:flex;justify-content:center;align-items:center;height:140px;border:1px solid var(--border);background:#fafafa;margin-bottom:16px}
+.ab-section{margin-bottom:14px}
+.ab-section-label{font-size:9px;letter-spacing:.1em;color:var(--faint);font-weight:500;margin-bottom:7px}
+.ab-opts{display:flex;gap:5px;flex-wrap:wrap}
+.ab-opt{padding:4px 11px;border:1px solid var(--border2);border-radius:20px;font-size:11px;cursor:pointer;font-family:var(--f);background:#fff;color:var(--muted);transition:all .15s}
+.ab-opt:hover{border-color:var(--text);color:var(--text)}
+.ab-opt.on{border-color:var(--text);background:var(--text);color:#fff}
+.ab-swatches{display:flex;gap:7px;flex-wrap:wrap}
+.ab-swatch{width:26px;height:26px;border-radius:5px;cursor:pointer;border:2px solid transparent;transition:all .15s}
+.ab-swatch:hover{transform:scale(1.12)}
+.ab-swatch.on{border-color:var(--text);transform:scale(1.12)}
+.ab-skills{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ab-skill{border:1px solid var(--border);border-radius:6px;padding:11px;cursor:pointer;transition:all .15s;position:relative}
+.ab-skill:hover{border-color:var(--border2);background:#fafafa}
+.ab-skill.on{border-color:var(--text)}
+.ab-skill.on::after{content:'';position:absolute;top:9px;right:9px;width:7px;height:7px;border-radius:50%;background:var(--text)}
+.ab-skill-icon{width:26px;height:26px;border-radius:5px;display:flex;align-items:center;justify-content:center;margin-bottom:7px}
+.ab-skill-name{font-size:11px;font-weight:500;color:var(--text);margin-bottom:2px}
+.ab-skill-desc{font-size:10px;color:var(--muted);line-height:1.4}
+.ab-save{width:100%;padding:11px;background:var(--text);color:#fff;border:none;border-radius:4px;font-family:var(--f);font-size:12px;font-weight:500;cursor:pointer;margin-top:16px;transition:opacity .15s;letter-spacing:.01em}
+.ab-save:hover{opacity:.82}
+.ab-floor{display:flex;gap:12px;margin-top:20px;overflow-x:auto;padding-bottom:6px}
+.ab-floor::-webkit-scrollbar{height:4px}
+.ab-floor::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+.ab-agent{flex-shrink:0;border:1px solid var(--border);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;transition:border-color .15s;min-width:92px}
+.ab-agent:hover{border-color:var(--border2)}
+.ab-agent.live{border-color:var(--text)}
+.ab-agent-name{font-size:11px;font-weight:500;color:var(--text);text-align:center}
+.ab-agent-skills{font-size:9px;color:var(--faint);text-align:center;line-height:1.4}
+.ab-add{flex-shrink:0;border:1px dashed var(--border2);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;min-width:92px;min-height:118px;transition:border-color .15s}
+.ab-add:hover{border-color:var(--text)}
+.ab-add-icon{width:22px;height:22px;border-radius:50%;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--faint);transition:all .15s;line-height:1}
+.ab-add:hover .ab-add-icon{border-color:var(--text);color:var(--text)}
+.ab-add-label{font-size:10px;color:var(--faint)}
+.ab-confirm{font-size:11px;color:#15803d;margin-top:8px;height:16px;transition:opacity .3s;opacity:0}
+.ab-confirm.show{opacity:1}
 </style>
 </head>
 <body>
@@ -821,6 +864,186 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
   </div>
 </div>
 
+<div class="divider" style="margin:24px 32px 0"></div>
+<div style="padding:24px 32px 0">
+  <div class="section-label">Agent builder</div>
+  <div style="font-size:12px;color:var(--muted);margin-bottom:20px">Design a new agent, pick their skills, and add them to your trading floor.</div>
+
+  <div class="ab-grid">
+
+    <!-- APPEARANCE -->
+    <div class="ab-panel">
+      <div class="ab-panel-title">Appearance</div>
+      <div class="ab-section-label" style="margin-bottom:7px">Name</div>
+      <input class="ab-name" id="ab-name" type="text" placeholder="e.g. Scout, Atlas, Nova..." value="Scout" oninput="abUpdatePreview()"/>
+
+      <div class="ab-preview" id="ab-preview"></div>
+
+      <div class="ab-section">
+        <div class="ab-section-label">Body shape</div>
+        <div class="ab-opts">
+          <button class="ab-opt on" data-group="shape" data-val="round" onclick="abSetShape('round')">Round</button>
+          <button class="ab-opt" data-group="shape" data-val="square" onclick="abSetShape('square')">Square</button>
+          <button class="ab-opt" data-group="shape" data-val="tall" onclick="abSetShape('tall')">Tall</button>
+          <button class="ab-opt" data-group="shape" data-val="wide" onclick="abSetShape('wide')">Wide</button>
+        </div>
+      </div>
+
+      <div class="ab-section">
+        <div class="ab-section-label">Head style</div>
+        <div class="ab-opts">
+          <button class="ab-opt on" data-group="head" data-val="visor" onclick="abSetHead('visor')">Visor</button>
+          <button class="ab-opt" data-group="head" data-val="square" onclick="abSetHead('square')">Square</button>
+          <button class="ab-opt" data-group="head" data-val="round" onclick="abSetHead('round')">Round</button>
+          <button class="ab-opt" data-group="head" data-val="dome" onclick="abSetHead('dome')">Dome</button>
+        </div>
+      </div>
+
+      <div class="ab-section">
+        <div class="ab-section-label">Accessory</div>
+        <div class="ab-opts">
+          <button class="ab-opt on" data-group="acc" data-val="antenna" onclick="abSetAcc('antenna')">Antenna</button>
+          <button class="ab-opt" data-group="acc" data-val="beanie" onclick="abSetAcc('beanie')">Beanie</button>
+          <button class="ab-opt" data-group="acc" data-val="halo" onclick="abSetAcc('halo')">Halo</button>
+          <button class="ab-opt" data-group="acc" data-val="cap" onclick="abSetAcc('cap')">Cap</button>
+          <button class="ab-opt" data-group="acc" data-val="none" onclick="abSetAcc('none')">None</button>
+        </div>
+      </div>
+
+      <div class="ab-section">
+        <div class="ab-section-label">Color</div>
+        <div class="ab-swatches">
+          <div class="ab-swatch on" style="background:#3b82f6" data-c="#3b82f6" onclick="abSetColor(this)"></div>
+          <div class="ab-swatch" style="background:#22c55e" data-c="#22c55e" onclick="abSetColor(this)"></div>
+          <div class="ab-swatch" style="background:#f59e0b" data-c="#f59e0b" onclick="abSetColor(this)"></div>
+          <div class="ab-swatch" style="background:#ef4444" data-c="#ef4444" onclick="abSetColor(this)"></div>
+          <div class="ab-swatch" style="background:#8b5cf6" data-c="#8b5cf6" onclick="abSetColor(this)"></div>
+          <div class="ab-swatch" style="background:#ec4899" data-c="#ec4899" onclick="abSetColor(this)"></div>
+          <div class="ab-swatch" style="background:#14b8a6" data-c="#14b8a6" onclick="abSetColor(this)"></div>
+          <div class="ab-swatch" style="background:#f97316" data-c="#f97316" onclick="abSetColor(this)"></div>
+          <div class="ab-swatch" style="background:#64748b" data-c="#64748b" onclick="abSetColor(this)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="ab-panel" style="grid-column:span 2">
+      <div class="ab-panel-title">Skills — select all that apply</div>
+      <div class="ab-skills">
+
+        <div class="ab-skill on" onclick="abToggleSkill(this,'market-research')">
+          <div class="ab-skill-icon" style="background:#eff6ff">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6" cy="6" r="4" stroke="#3b82f6" stroke-width="1.4"/><line x1="9.5" y1="9.5" x2="14" y2="14" stroke="#3b82f6" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <div class="ab-skill-name">Market research</div>
+          <div class="ab-skill-desc">Scan Polymarket for open markets and surface edges vs model</div>
+        </div>
+
+        <div class="ab-skill" onclick="abToggleSkill(this,'edge-detection')">
+          <div class="ab-skill-icon" style="background:#f0fdf4">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><polyline points="2,12 5,8 8,10 11,5 14,7" stroke="#22c55e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="5" r="1.5" fill="#22c55e"/></svg>
+          </div>
+          <div class="ab-skill-name">Edge detection</div>
+          <div class="ab-skill-desc">Compare model probability to market odds and flag mispricings</div>
+        </div>
+
+        <div class="ab-skill" onclick="abToggleSkill(this,'news-sentiment')">
+          <div class="ab-skill-icon" style="background:#faf5ff">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="#8b5cf6" stroke-width="1.4"/><line x1="4" y1="6" x2="12" y2="6" stroke="#8b5cf6" stroke-width="1" opacity=".6"/><line x1="4" y1="9" x2="9" y2="9" stroke="#8b5cf6" stroke-width="1" opacity=".6"/></svg>
+          </div>
+          <div class="ab-skill-name">News sentiment</div>
+          <div class="ab-skill-desc">Pull and analyze news headlines for market-moving signals</div>
+        </div>
+
+        <div class="ab-skill" onclick="abToggleSkill(this,'kelly-sizing')">
+          <div class="ab-skill-icon" style="background:#fffbeb">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="10" width="3" height="4" fill="#f59e0b" opacity=".7"/><rect x="6.5" y="7" width="3" height="7" fill="#f59e0b" opacity=".85"/><rect x="11" y="4" width="3" height="10" fill="#f59e0b"/></svg>
+          </div>
+          <div class="ab-skill-name">Kelly sizing</div>
+          <div class="ab-skill-desc">Calculate optimal stake using Kelly criterion and bankroll</div>
+        </div>
+
+        <div class="ab-skill" onclick="abToggleSkill(this,'bet-execution')">
+          <div class="ab-skill-icon" style="background:#f0fdf4">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#22c55e" stroke-width="1.4"/><polyline points="5,8 7,10 11,6" stroke="#22c55e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="ab-skill-name">Bet execution</div>
+          <div class="ab-skill-desc">Place approved bets on-chain via Polygon USDC wallet</div>
+        </div>
+
+        <div class="ab-skill" onclick="abToggleSkill(this,'outcome-review')">
+          <div class="ab-skill-icon" style="background:#faf5ff">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#8b5cf6" stroke-width="1.4"/><line x1="8" y1="5" x2="8" y2="8.5" stroke="#8b5cf6" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="11" r="0.8" fill="#8b5cf6"/></svg>
+          </div>
+          <div class="ab-skill-name">Outcome review</div>
+          <div class="ab-skill-desc">Analyse resolved bets, calculate ROI, win rate, model drift</div>
+        </div>
+
+        <div class="ab-skill" onclick="abToggleSkill(this,'model-improvement')">
+          <div class="ab-skill-icon" style="background:#fff1f2">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="4" stroke="#ef4444" stroke-width="1.4"/><circle cx="8" cy="8" r="2" stroke="#ef4444" stroke-width="1" opacity=".5"/><line x1="8" y1="2" x2="8" y2="4" stroke="#ef4444" stroke-width="1.2"/><line x1="8" y1="12" x2="8" y2="14" stroke="#ef4444" stroke-width="1.2"/><line x1="2" y1="8" x2="4" y2="8" stroke="#ef4444" stroke-width="1.2"/><line x1="12" y1="8" x2="14" y2="8" stroke="#ef4444" stroke-width="1.2"/></svg>
+          </div>
+          <div class="ab-skill-name">Model improvement</div>
+          <div class="ab-skill-desc">Push parameter updates from review findings to research agents</div>
+        </div>
+
+        <div class="ab-skill" onclick="abToggleSkill(this,'cross-market')">
+          <div class="ab-skill-icon" style="background:#eff6ff">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="#3b82f6" stroke-width="1.2"/><circle cx="12" cy="8" r="2.5" stroke="#3b82f6" stroke-width="1.2"/><line x1="6.5" y1="8" x2="9.5" y2="8" stroke="#3b82f6" stroke-width="1.2"/></svg>
+          </div>
+          <div class="ab-skill-name">Cross-market arb</div>
+          <div class="ab-skill-desc">Compare odds across Polymarket, Metaculus, and Manifold</div>
+        </div>
+
+      </div>
+      <button class="ab-save" onclick="abSave()">Add agent to trading floor</button>
+      <div class="ab-confirm" id="ab-confirm"></div>
+    </div>
+  </div>
+
+  <!-- FLOOR ROW -->
+  <div style="font-size:10px;letter-spacing:.12em;color:var(--faint);font-weight:500;margin:24px 0 12px">Your agents</div>
+  <div class="ab-floor" id="ab-floor">
+
+    <div class="ab-agent live">
+      <svg width="44" height="52" viewBox="0 0 100 120"><circle cx="50" cy="4" r="3.5" fill="#3b82f6" stroke="#1d4ed8" stroke-width="0.8"/><line x1="50" y1="5" x2="50" y2="18" stroke="#1d4ed8" stroke-width="1.2"/><rect x="30" y="18" width="40" height="30" rx="8" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.3"/><ellipse cx="50" cy="34" rx="14" ry="10" fill="#0a0a0a" opacity=".85"/><ellipse cx="44" cy="33" rx="4" ry="4.5" fill="#a8f060"/><ellipse cx="56" cy="33" rx="4" ry="4.5" fill="#a8f060"/><ellipse cx="22" cy="64" rx="8" ry="13" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1"/><ellipse cx="78" cy="64" rx="8" ry="13" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1"/><ellipse cx="50" cy="66" rx="22" ry="20" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.2"/><ellipse cx="50" cy="66" rx="14" ry="11" fill="#1d4ed8" opacity=".14"/><ellipse cx="40" cy="92" rx="8" ry="12" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1"/><ellipse cx="60" cy="92" rx="8" ry="12" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1"/></svg>
+      <div class="ab-agent-name">Researcher</div>
+      <div class="ab-agent-skills">market research · edge</div>
+    </div>
+
+    <div class="ab-agent live">
+      <svg width="44" height="52" viewBox="0 0 100 120"><line x1="50" y1="5" x2="50" y2="18" stroke="#15803d" stroke-width="1.2"/><circle cx="50" cy="4" r="3.5" fill="#4ade80" stroke="#15803d" stroke-width="0.8"/><ellipse cx="50" cy="30" rx="20" ry="18" fill="#22c55e" stroke="#15803d" stroke-width="1.3"/><rect x="36" y="24" width="9" height="10" rx="3" fill="white" stroke="#15803d" stroke-width="0.8" opacity=".9"/><rect x="55" y="24" width="9" height="10" rx="3" fill="white" stroke="#15803d" stroke-width="0.8" opacity=".9"/><circle cx="40" cy="29" r="3" fill="#15803d"/><circle cx="59" cy="29" r="3" fill="#15803d"/><path d="M40 42 Q50 48 60 42" fill="none" stroke="#15803d" stroke-width="1.3"/><ellipse cx="22" cy="64" rx="8" ry="13" fill="#22c55e" stroke="#15803d" stroke-width="1"/><ellipse cx="78" cy="64" rx="8" ry="13" fill="#22c55e" stroke="#15803d" stroke-width="1"/><ellipse cx="50" cy="66" rx="22" ry="20" fill="#22c55e" stroke="#15803d" stroke-width="1.2"/><ellipse cx="40" cy="92" rx="8" ry="12" fill="#22c55e" stroke="#15803d" stroke-width="1"/><ellipse cx="60" cy="92" rx="8" ry="12" fill="#22c55e" stroke="#15803d" stroke-width="1"/></svg>
+      <div class="ab-agent-name">Analyst</div>
+      <div class="ab-agent-skills">kelly sizing · news</div>
+    </div>
+
+    <div class="ab-agent live">
+      <svg width="44" height="52" viewBox="0 0 100 120"><rect x="15" y="8" width="70" height="10" rx="4" fill="#fde68a" stroke="#b45309" stroke-width="0.8"/><ellipse cx="50" cy="14" rx="21" ry="6" fill="#f59e0b"/><ellipse cx="50" cy="8" rx="17" ry="10" fill="#f59e0b" stroke="#d97706" stroke-width="0.5"/><rect x="28" y="16" width="44" height="32" rx="4" fill="#f59e0b" stroke="#d97706" stroke-width="1.3"/><rect x="35" y="22" width="12" height="10" rx="2.5" fill="white" stroke="#d97706" stroke-width="0.8" opacity=".9"/><rect x="53" y="22" width="12" height="10" rx="2.5" fill="white" stroke="#d97706" stroke-width="0.8" opacity=".9"/><circle cx="41" cy="27" r="3.5" fill="#d97706"/><circle cx="59" cy="27" r="3.5" fill="#d97706"/><rect x="11" y="48" width="14" height="24" rx="5" fill="#f59e0b" stroke="#d97706" stroke-width="1"/><rect x="75" y="48" width="14" height="24" rx="5" fill="#f59e0b" stroke="#d97706" stroke-width="1"/><rect x="28" y="46" width="44" height="38" rx="6" fill="#f59e0b" stroke="#d97706" stroke-width="1.2"/><circle cx="50" cy="65" r="10" fill="none" stroke="#fde68a" stroke-width="1.4"/><circle cx="50" cy="65" r="5" fill="none" stroke="#fde68a" stroke-width="0.8"/><circle cx="50" cy="65" r="2" fill="#fde68a"/><rect x="30" y="84" width="14" height="18" rx="4" fill="#f59e0b" stroke="#d97706" stroke-width="1"/><rect x="56" y="84" width="14" height="18" rx="4" fill="#f59e0b" stroke="#d97706" stroke-width="1"/></svg>
+      <div class="ab-agent-name">Banker</div>
+      <div class="ab-agent-skills">bet execution</div>
+    </div>
+
+    <div class="ab-agent live">
+      <svg width="44" height="52" viewBox="0 0 100 120"><circle cx="50" cy="8" r="4" fill="#a78bfa" stroke="#6d28d9" stroke-width="0.8"/><ellipse cx="50" cy="30" rx="20" ry="18" fill="#8b5cf6" stroke="#6d28d9" stroke-width="1.3"/><circle cx="38" cy="28" r="7" fill="none" stroke="#ddd6fe" stroke-width="1.8"/><circle cx="38" cy="28" r="3.5" fill="#6d28d9" opacity=".5"/><circle cx="57" cy="30" r="5.5" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="1.2"/><circle cx="57" cy="30" r="2.5" fill="#6d28d9"/><path d="M36 44 Q50 50 64 44" fill="none" stroke="#ddd6fe" stroke-width="1.3"/><ellipse cx="22" cy="64" rx="8" ry="13" fill="#8b5cf6" stroke="#6d28d9" stroke-width="1"/><ellipse cx="78" cy="64" rx="8" ry="13" fill="#8b5cf6" stroke="#6d28d9" stroke-width="1"/><ellipse cx="50" cy="66" rx="22" ry="20" fill="#8b5cf6" stroke="#6d28d9" stroke-width="1.2"/><rect x="12" y="58" width="18" height="14" rx="2" fill="#6d28d9" opacity=".15"/><ellipse cx="40" cy="92" rx="8" ry="12" fill="#8b5cf6" stroke="#6d28d9" stroke-width="1"/><ellipse cx="60" cy="92" rx="8" ry="12" fill="#8b5cf6" stroke="#6d28d9" stroke-width="1"/></svg>
+      <div class="ab-agent-name">Reviewer</div>
+      <div class="ab-agent-skills">outcome review</div>
+    </div>
+
+    <div class="ab-agent live">
+      <svg width="44" height="52" viewBox="0 0 100 120"><rect x="16" y="3" width="68" height="10" rx="4" fill="#fca5a5" stroke="#b91c1c" stroke-width="0.6"/><rect x="30" y="16" width="40" height="32" rx="4" fill="#ef4444" stroke="#dc2626" stroke-width="1.3"/><rect x="35" y="22" width="12" height="10" rx="2.5" fill="white" stroke="#dc2626" stroke-width="0.8" opacity=".9"/><rect x="53" y="22" width="12" height="10" rx="2.5" fill="white" stroke="#dc2626" stroke-width="0.8" opacity=".9"/><circle cx="41" cy="27" r="3.5" fill="#dc2626"/><circle cx="59" cy="27" r="3.5" fill="#dc2626"/><line x1="38" y1="40" x2="62" y2="40" stroke="#fca5a5" stroke-width="1.2" opacity=".7"/><rect x="11" y="48" width="14" height="24" rx="5" fill="#ef4444" stroke="#dc2626" stroke-width="1"/><rect x="75" y="48" width="14" height="24" rx="5" fill="#ef4444" stroke="#dc2626" stroke-width="1"/><rect x="28" y="46" width="44" height="38" rx="6" fill="#ef4444" stroke="#dc2626" stroke-width="1.2"/><circle cx="50" cy="65" r="10" fill="none" stroke="#fca5a5" stroke-width="1.4"/><circle cx="50" cy="65" r="6" fill="none" stroke="#fca5a5" stroke-width="0.8"/><rect x="48" y="55" width="4" height="20" rx="2" fill="#fca5a5" opacity=".5"/><rect x="40" y="63" width="20" height="4" rx="2" fill="#fca5a5" opacity=".5"/><rect x="30" y="84" width="14" height="18" rx="4" fill="#ef4444" stroke="#dc2626" stroke-width="1"/><rect x="56" y="84" width="14" height="18" rx="4" fill="#ef4444" stroke="#dc2626" stroke-width="1"/></svg>
+      <div class="ab-agent-name">Implementer</div>
+      <div class="ab-agent-skills">model improvement</div>
+    </div>
+
+    <div class="ab-add" onclick="document.getElementById('ab-name').focus()">
+      <div class="ab-add-icon">+</div>
+      <div class="ab-add-label">New agent</div>
+    </div>
+
+  </div>
+</div>
+<div style="height:48px"></div>
+
 <div class="toast-wrap"><div class="toast" id="toast"></div></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -1023,6 +1246,109 @@ function sendMessage(){
 }
 
 document.getElementById('chat-input').addEventListener('keydown',e=>{if(e.key==='Enter')sendMessage()})
+
+/* ── AGENT BUILDER ── */
+const ab={
+  name:'Scout',
+  shape:'round',
+  head:'visor',
+  acc:'antenna',
+  color:'#3b82f6',
+  border:'#1d4ed8',
+  skills:new Set(['market-research'])
+}
+const AB_COLORS={
+  '#3b82f6':'#1d4ed8','#22c55e':'#15803d','#f59e0b':'#b45309',
+  '#ef4444':'#b91c1c','#8b5cf6':'#6d28d9','#ec4899':'#be185d',
+  '#14b8a6':'#0f766e','#f97316':'#c2410c','#64748b':'#334155'
+}
+
+function abRobot(c,brd,shape,head,acc,w,h){
+  const vw=100,vh=120
+  const bodies={
+    round:`<ellipse cx="50" cy="66" rx="22" ry="20" fill="${c}" stroke="${brd}" stroke-width="1.2"/><ellipse cx="50" cy="66" rx="14" ry="11" fill="${brd}" opacity=".14"/>`,
+    square:`<rect x="28" y="46" width="44" height="38" rx="6" fill="${c}" stroke="${brd}" stroke-width="1.2"/><rect x="35" y="53" width="30" height="22" rx="2" fill="${brd}" opacity=".12"/>`,
+    tall:`<rect x="32" y="40" width="36" height="48" rx="8" fill="${c}" stroke="${brd}" stroke-width="1.2"/><rect x="38" y="50" width="24" height="28" rx="2" fill="${brd}" opacity=".12"/>`,
+    wide:`<rect x="18" y="54" width="64" height="30" rx="6" fill="${c}" stroke="${brd}" stroke-width="1.2"/><rect x="26" y="60" width="48" height="18" rx="2" fill="${brd}" opacity=".12"/>`
+  }
+  const heads={
+    visor:`<rect x="30" y="18" width="40" height="30" rx="8" fill="${c}" stroke="${brd}" stroke-width="1.3"/><ellipse cx="50" cy="34" rx="14" ry="10" fill="#0a0a0a" opacity=".85"/><ellipse cx="44" cy="33" rx="4" ry="4.5" fill="#a8f060"/><ellipse cx="56" cy="33" rx="4" ry="4.5" fill="#a8f060"/><ellipse cx="44" cy="32" rx="2.2" ry="2.5" fill="#e0ff90"/><ellipse cx="56" cy="32" rx="2.2" ry="2.5" fill="#e0ff90"/>`,
+    square:`<rect x="30" y="16" width="40" height="32" rx="4" fill="${c}" stroke="${brd}" stroke-width="1.3"/><rect x="35" y="22" width="12" height="10" rx="2.5" fill="white" stroke="${brd}" stroke-width="0.8" opacity=".9"/><rect x="53" y="22" width="12" height="10" rx="2.5" fill="white" stroke="${brd}" stroke-width="0.8" opacity=".9"/><circle cx="41" cy="27" r="3.5" fill="${brd}"/><circle cx="59" cy="27" r="3.5" fill="${brd}"/><line x1="38" y1="40" x2="62" y2="40" stroke="${brd}" stroke-width="1.2" opacity=".6"/>`,
+    round:`<ellipse cx="50" cy="30" rx="20" ry="18" fill="${c}" stroke="${brd}" stroke-width="1.3"/><rect x="36" y="24" width="9" height="10" rx="3" fill="white" stroke="${brd}" stroke-width="0.8" opacity=".9"/><rect x="55" y="24" width="9" height="10" rx="3" fill="white" stroke="${brd}" stroke-width="0.8" opacity=".9"/><circle cx="40" cy="29" r="3" fill="${brd}"/><circle cx="59" cy="29" r="3" fill="${brd}"/><path d="M40 42 Q50 48 60 42" fill="none" stroke="${brd}" stroke-width="1.3"/>`,
+    dome:`<ellipse cx="50" cy="26" rx="22" ry="20" fill="${c}" stroke="${brd}" stroke-width="1.3"/><rect x="28" y="32" width="44" height="12" rx="0" fill="${c}"/><ellipse cx="50" cy="28" rx="14" ry="10" fill="#1e293b" opacity=".8"/><circle cx="44" cy="27" r="3.5" fill="white" opacity=".9"/><circle cx="56" cy="27" r="3.5" fill="white" opacity=".9"/><circle cx="44" cy="27" r="1.8" fill="${c}"/><circle cx="56" cy="27" r="1.8" fill="${c}"/>`
+  }
+  const accs={
+    antenna:`<line x1="50" y1="5" x2="50" y2="18" stroke="${brd}" stroke-width="1.2"/><circle cx="50" cy="4" r="3.5" fill="${c}" stroke="${brd}" stroke-width="0.8"/>`,
+    beanie:`<ellipse cx="50" cy="14" rx="21" ry="6" fill="${c}"/><rect x="30" y="10" width="40" height="8" rx="4" fill="${c}" stroke="${brd}" stroke-width="0.8"/><ellipse cx="50" cy="8" rx="17" ry="10" fill="${c}" stroke="${brd}" stroke-width="0.5"/><circle cx="50" cy="0" r="5" fill="white" stroke="${brd}" stroke-width="0.8"/><line x1="40" y1="2" x2="38" y2="12" stroke="${brd}" stroke-width="0.6" opacity=".5"/><line x1="50" y1="0" x2="50" y2="10" stroke="${brd}" stroke-width="0.6" opacity=".5"/><line x1="60" y1="2" x2="62" y2="12" stroke="${brd}" stroke-width="0.6" opacity=".5"/>`,
+    halo:`<ellipse cx="50" cy="9" rx="16" ry="5" fill="none" stroke="#fbbf24" stroke-width="2"/><line x1="42" y1="9" x2="40" y2="17" stroke="#fde68a" stroke-width="0.8" opacity=".6"/><line x1="58" y1="9" x2="60" y2="17" stroke="#fde68a" stroke-width="0.8" opacity=".6"/>`,
+    cap:`<ellipse cx="50" cy="17" rx="21" ry="5" fill="${brd}"/><rect x="29" y="13" width="42" height="7" rx="3.5" fill="${brd}"/><ellipse cx="50" cy="11" rx="16" ry="8" fill="${brd}"/><rect x="28" y="11" width="14" height="6" rx="2" fill="${brd}" opacity=".7"/>`,
+    none:``
+  }
+  const arms={
+    round:`<ellipse cx="22" cy="64" rx="8" ry="13" fill="${c}" stroke="${brd}" stroke-width="1"/><ellipse cx="78" cy="64" rx="8" ry="13" fill="${c}" stroke="${brd}" stroke-width="1"/>`,
+    square:`<rect x="11" y="48" width="14" height="24" rx="5" fill="${c}" stroke="${brd}" stroke-width="1"/><rect x="75" y="48" width="14" height="24" rx="5" fill="${c}" stroke="${brd}" stroke-width="1"/>`,
+    tall:`<rect x="13" y="44" width="13" height="28" rx="5" fill="${c}" stroke="${brd}" stroke-width="1"/><rect x="74" y="44" width="13" height="28" rx="5" fill="${c}" stroke="${brd}" stroke-width="1"/>`,
+    wide:`<rect x="5" y="56" width="11" height="20" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/><rect x="84" y="56" width="11" height="20" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/>`
+  }
+  const legs={
+    round:`<ellipse cx="40" cy="92" rx="8" ry="12" fill="${c}" stroke="${brd}" stroke-width="1"/><ellipse cx="60" cy="92" rx="8" ry="12" fill="${c}" stroke="${brd}" stroke-width="1"/>`,
+    square:`<rect x="30" y="84" width="14" height="18" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/><rect x="56" y="84" width="14" height="18" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/>`,
+    tall:`<rect x="33" y="88" width="12" height="16" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/><rect x="55" y="88" width="12" height="16" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/>`,
+    wide:`<ellipse cx="36" cy="90" rx="9" ry="10" fill="${c}" stroke="${brd}" stroke-width="1"/><ellipse cx="64" cy="90" rx="9" ry="10" fill="${c}" stroke="${brd}" stroke-width="1"/>`
+  }
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${vw} ${vh}">${accs[acc]}${heads[head]}${arms[shape]}${bodies[shape]}${legs[shape]}</svg>`
+}
+
+function abUpdatePreview(){
+  const el=document.getElementById('ab-preview')
+  if(el) el.innerHTML=abRobot(ab.color,ab.border,ab.shape,ab.head,ab.acc,100,120)
+}
+
+function abSetShape(s){
+  ab.shape=s
+  document.querySelectorAll('.ab-opt[data-group=shape]').forEach(b=>b.classList.remove('on'))
+  document.querySelector(`.ab-opt[data-group=shape][data-val="${s}"]`).classList.add('on')
+  abUpdatePreview()
+}
+function abSetHead(h){
+  ab.head=h
+  document.querySelectorAll('.ab-opt[data-group=head]').forEach(b=>b.classList.remove('on'))
+  document.querySelector(`.ab-opt[data-group=head][data-val="${h}"]`).classList.add('on')
+  abUpdatePreview()
+}
+function abSetAcc(a){
+  ab.acc=a
+  document.querySelectorAll('.ab-opt[data-group=acc]').forEach(b=>b.classList.remove('on'))
+  document.querySelector(`.ab-opt[data-group=acc][data-val="${a}"]`).classList.add('on')
+  abUpdatePreview()
+}
+function abSetColor(el){
+  ab.color=el.dataset.c
+  ab.border=AB_COLORS[ab.color]
+  document.querySelectorAll('.ab-swatch').forEach(s=>s.classList.remove('on'))
+  el.classList.add('on')
+  abUpdatePreview()
+}
+function abToggleSkill(el,id){
+  if(ab.skills.has(id)){ab.skills.delete(id);el.classList.remove('on')}
+  else{ab.skills.add(id);el.classList.add('on')}
+}
+function abSave(){
+  const name=document.getElementById('ab-name').value.trim()||'New Agent'
+  const skillList=Array.from(ab.skills)
+  const skillLabel=skillList.slice(0,2).map(s=>s.replace(/-/g,' ')).join(' · ')||'No skills'
+  const row=document.getElementById('ab-floor')
+  const addBtn=row.querySelector('.ab-add')
+  const card=document.createElement('div')
+  card.className='ab-agent live'
+  card.innerHTML=`${abRobot(ab.color,ab.border,ab.shape,ab.head,ab.acc,44,52)}<div class="ab-agent-name">${name}</div><div class="ab-agent-skills">${skillLabel}</div>`
+  row.insertBefore(card,addBtn)
+  const c=document.getElementById('ab-confirm')
+  c.textContent=`${name} added to trading floor`
+  c.classList.add('show')
+  setTimeout(()=>c.classList.remove('show'),3000)
+}
+window.addEventListener('load',()=>{ setTimeout(abUpdatePreview,100) })
 
 /* cycle thought text in activity logs */
 const researchCycle=[
