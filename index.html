@@ -194,9 +194,10 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
 .ab-floor{display:flex;gap:12px;margin-top:20px;overflow-x:auto;padding-bottom:6px}
 .ab-floor::-webkit-scrollbar{height:4px}
 .ab-floor::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
-.ab-agent{flex-shrink:0;border:1px solid var(--border);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;transition:border-color .15s;min-width:92px}
-.ab-agent:hover{border-color:var(--border2)}
-.ab-agent.live{border-color:var(--text)}
+.ab-agent{flex-shrink:0;border:1px solid var(--border);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;transition:all .15s;min-width:92px;position:relative}
+.ab-agent:hover{border-color:var(--text);background:#fafafa}
+.ab-agent:hover::after{content:'Edit';position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--muted);letter-spacing:.06em;white-space:nowrap}
+.ab-agent.live{border-color:var(--border2)}
 .ab-agent-name{font-size:11px;font-weight:500;color:var(--text);text-align:center}
 .ab-agent-skills{font-size:9px;color:var(--faint);text-align:center;line-height:1.4}
 .ab-add{flex-shrink:0;border:1px dashed var(--border2);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;min-width:92px;min-height:118px;transition:border-color .15s}
@@ -931,7 +932,7 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
       <div class="ab-panel-title">Skills — select all that apply</div>
       <div class="ab-skills">
 
-        <div class="ab-skill on" onclick="abToggleSkill(this,'market-research')">
+        <div class="ab-skill on" data-skill="market-research" onclick="abToggleSkill(this,'market-research')">
           <div class="ab-skill-icon" style="background:#eff6ff">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6" cy="6" r="4" stroke="#3b82f6" stroke-width="1.4"/><line x1="9.5" y1="9.5" x2="14" y2="14" stroke="#3b82f6" stroke-width="1.4" stroke-linecap="round"/></svg>
           </div>
@@ -939,7 +940,7 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
           <div class="ab-skill-desc">Scan Polymarket for open markets and surface edges vs model</div>
         </div>
 
-        <div class="ab-skill" onclick="abToggleSkill(this,'edge-detection')">
+        <div class="ab-skill" data-skill="edge-detection" onclick="abToggleSkill(this,'edge-detection')">
           <div class="ab-skill-icon" style="background:#f0fdf4">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><polyline points="2,12 5,8 8,10 11,5 14,7" stroke="#22c55e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="5" r="1.5" fill="#22c55e"/></svg>
           </div>
@@ -947,7 +948,7 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
           <div class="ab-skill-desc">Compare model probability to market odds and flag mispricings</div>
         </div>
 
-        <div class="ab-skill" onclick="abToggleSkill(this,'news-sentiment')">
+        <div class="ab-skill" data-skill="news-sentiment" onclick="abToggleSkill(this,'news-sentiment')">
           <div class="ab-skill-icon" style="background:#faf5ff">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="#8b5cf6" stroke-width="1.4"/><line x1="4" y1="6" x2="12" y2="6" stroke="#8b5cf6" stroke-width="1" opacity=".6"/><line x1="4" y1="9" x2="9" y2="9" stroke="#8b5cf6" stroke-width="1" opacity=".6"/></svg>
           </div>
@@ -955,7 +956,7 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
           <div class="ab-skill-desc">Pull and analyze news headlines for market-moving signals</div>
         </div>
 
-        <div class="ab-skill" onclick="abToggleSkill(this,'kelly-sizing')">
+        <div class="ab-skill" data-skill="kelly-sizing" onclick="abToggleSkill(this,'kelly-sizing')">
           <div class="ab-skill-icon" style="background:#fffbeb">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="10" width="3" height="4" fill="#f59e0b" opacity=".7"/><rect x="6.5" y="7" width="3" height="7" fill="#f59e0b" opacity=".85"/><rect x="11" y="4" width="3" height="10" fill="#f59e0b"/></svg>
           </div>
@@ -963,7 +964,7 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
           <div class="ab-skill-desc">Calculate optimal stake using Kelly criterion and bankroll</div>
         </div>
 
-        <div class="ab-skill" onclick="abToggleSkill(this,'bet-execution')">
+        <div class="ab-skill" data-skill="bet-execution" onclick="abToggleSkill(this,'bet-execution')">
           <div class="ab-skill-icon" style="background:#f0fdf4">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#22c55e" stroke-width="1.4"/><polyline points="5,8 7,10 11,6" stroke="#22c55e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
@@ -971,7 +972,7 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
           <div class="ab-skill-desc">Place approved bets on-chain via Polygon USDC wallet</div>
         </div>
 
-        <div class="ab-skill" onclick="abToggleSkill(this,'outcome-review')">
+        <div class="ab-skill" data-skill="outcome-review" onclick="abToggleSkill(this,'outcome-review')">
           <div class="ab-skill-icon" style="background:#faf5ff">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#8b5cf6" stroke-width="1.4"/><line x1="8" y1="5" x2="8" y2="8.5" stroke="#8b5cf6" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="11" r="0.8" fill="#8b5cf6"/></svg>
           </div>
@@ -979,7 +980,7 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
           <div class="ab-skill-desc">Analyse resolved bets, calculate ROI, win rate, model drift</div>
         </div>
 
-        <div class="ab-skill" onclick="abToggleSkill(this,'model-improvement')">
+        <div class="ab-skill" data-skill="model-improvement" onclick="abToggleSkill(this,'model-improvement')">
           <div class="ab-skill-icon" style="background:#fff1f2">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="4" stroke="#ef4444" stroke-width="1.4"/><circle cx="8" cy="8" r="2" stroke="#ef4444" stroke-width="1" opacity=".5"/><line x1="8" y1="2" x2="8" y2="4" stroke="#ef4444" stroke-width="1.2"/><line x1="8" y1="12" x2="8" y2="14" stroke="#ef4444" stroke-width="1.2"/><line x1="2" y1="8" x2="4" y2="8" stroke="#ef4444" stroke-width="1.2"/><line x1="12" y1="8" x2="14" y2="8" stroke="#ef4444" stroke-width="1.2"/></svg>
           </div>
@@ -987,7 +988,7 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
           <div class="ab-skill-desc">Push parameter updates from review findings to research agents</div>
         </div>
 
-        <div class="ab-skill" onclick="abToggleSkill(this,'cross-market')">
+        <div class="ab-skill" data-skill="cross-market" onclick="abToggleSkill(this,'cross-market')">
           <div class="ab-skill-icon" style="background:#eff6ff">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="#3b82f6" stroke-width="1.2"/><circle cx="12" cy="8" r="2.5" stroke="#3b82f6" stroke-width="1.2"/><line x1="6.5" y1="8" x2="9.5" y2="8" stroke="#3b82f6" stroke-width="1.2"/></svg>
           </div>
@@ -996,7 +997,10 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
         </div>
 
       </div>
-      <button class="ab-save" onclick="abSave()">Add agent to trading floor</button>
+      <div style="display:flex;gap:8px;margin-top:16px">
+        <button class="ab-save" id="ab-save-btn" onclick="abSave()" style="flex:1">Add agent to trading floor</button>
+        <button class="ab-save" onclick="abNewAgent()" style="flex:0;padding:11px 16px;background:#fff;color:var(--text);border:1px solid var(--border2)">+ New</button>
+      </div>
       <div class="ab-confirm" id="ab-confirm"></div>
     </div>
   </div>
@@ -1035,7 +1039,7 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
       <div class="ab-agent-skills">model improvement</div>
     </div>
 
-    <div class="ab-add" onclick="document.getElementById('ab-name').focus()">
+    <div class="ab-add" onclick="abNewAgent()">
       <div class="ab-add-icon">+</div>
       <div class="ab-add-label">New agent</div>
     </div>
@@ -1248,7 +1252,18 @@ function sendMessage(){
 document.getElementById('chat-input').addEventListener('keydown',e=>{if(e.key==='Enter')sendMessage()})
 
 /* ── AGENT BUILDER ── */
+const AB_COLORS={
+  '#3b82f6':'#1d4ed8','#22c55e':'#15803d','#f59e0b':'#b45309',
+  '#ef4444':'#b91c1c','#8b5cf6':'#6d28d9','#ec4899':'#be185d',
+  '#14b8a6':'#0f766e','#f97316':'#c2410c','#64748b':'#334155'
+}
+
+/* per-agent data store keyed by element index */
+const agentStore = {}
+
+/* current builder state */
 const ab={
+  editingIndex: null,
   name:'Scout',
   shape:'round',
   head:'visor',
@@ -1257,14 +1272,17 @@ const ab={
   border:'#1d4ed8',
   skills:new Set(['market-research'])
 }
-const AB_COLORS={
-  '#3b82f6':'#1d4ed8','#22c55e':'#15803d','#f59e0b':'#b45309',
-  '#ef4444':'#b91c1c','#8b5cf6':'#6d28d9','#ec4899':'#be185d',
-  '#14b8a6':'#0f766e','#f97316':'#c2410c','#64748b':'#334155'
-}
+
+/* seed existing agents with their data so editing works */
+const seedAgents = [
+  {name:'Researcher', shape:'round', head:'visor', acc:'antenna', color:'#3b82f6', border:'#1d4ed8', skills:['market-research','edge-detection']},
+  {name:'Analyst',    shape:'round', head:'round', acc:'antenna', color:'#22c55e', border:'#15803d', skills:['kelly-sizing','news-sentiment']},
+  {name:'Banker',     shape:'square',head:'square',acc:'beanie',  color:'#f59e0b', border:'#b45309', skills:['bet-execution']},
+  {name:'Reviewer',   shape:'round', head:'dome',  acc:'none',    color:'#8b5cf6', border:'#6d28d9', skills:['outcome-review']},
+  {name:'Implementer',shape:'square',head:'square',acc:'cap',     color:'#ef4444', border:'#b91c1c', skills:['model-improvement']},
+]
 
 function abRobot(c,brd,shape,head,acc,w,h){
-  const vw=100,vh=120
   const bodies={
     round:`<ellipse cx="50" cy="66" rx="22" ry="20" fill="${c}" stroke="${brd}" stroke-width="1.2"/><ellipse cx="50" cy="66" rx="14" ry="11" fill="${brd}" opacity=".14"/>`,
     square:`<rect x="28" y="46" width="44" height="38" rx="6" fill="${c}" stroke="${brd}" stroke-width="1.2"/><rect x="35" y="53" width="30" height="22" rx="2" fill="${brd}" opacity=".12"/>`,
@@ -1296,59 +1314,161 @@ function abRobot(c,brd,shape,head,acc,w,h){
     tall:`<rect x="33" y="88" width="12" height="16" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/><rect x="55" y="88" width="12" height="16" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/>`,
     wide:`<ellipse cx="36" cy="90" rx="9" ry="10" fill="${c}" stroke="${brd}" stroke-width="1"/><ellipse cx="64" cy="90" rx="9" ry="10" fill="${c}" stroke="${brd}" stroke-width="1"/>`
   }
-  return `<svg width="${w}" height="${h}" viewBox="0 0 ${vw} ${vh}">${accs[acc]}${heads[head]}${arms[shape]}${bodies[shape]}${legs[shape]}</svg>`
+  return `<svg width="${w}" height="${h}" viewBox="0 0 100 120">${accs[acc]||''}${heads[head]||''}${arms[shape]||''}${bodies[shape]||''}${legs[shape]||''}</svg>`
+}
+
+function abSyncUI(){
+  /* name */
+  document.getElementById('ab-name').value = ab.name
+
+  /* shape buttons */
+  document.querySelectorAll('.ab-opt[data-group=shape]').forEach(b=>{
+    b.classList.toggle('on', b.dataset.val===ab.shape)
+  })
+  /* head buttons */
+  document.querySelectorAll('.ab-opt[data-group=head]').forEach(b=>{
+    b.classList.toggle('on', b.dataset.val===ab.head)
+  })
+  /* acc buttons */
+  document.querySelectorAll('.ab-opt[data-group=acc]').forEach(b=>{
+    b.classList.toggle('on', b.dataset.val===ab.acc)
+  })
+  /* color swatches */
+  document.querySelectorAll('.ab-swatch').forEach(s=>{
+    s.classList.toggle('on', s.dataset.c===ab.color)
+  })
+  /* skill cards */
+  document.querySelectorAll('.ab-skill').forEach(s=>{
+    s.classList.toggle('on', ab.skills.has(s.dataset.skill))
+  })
+  /* save button label */
+  const btn = document.getElementById('ab-save-btn')
+  if(btn) btn.textContent = ab.editingIndex !== null ? 'Save changes' : 'Add agent to trading floor'
+
+  abUpdatePreview()
 }
 
 function abUpdatePreview(){
-  const el=document.getElementById('ab-preview')
-  if(el) el.innerHTML=abRobot(ab.color,ab.border,ab.shape,ab.head,ab.acc,100,120)
+  const el = document.getElementById('ab-preview')
+  if(el) el.innerHTML = abRobot(ab.color, ab.border, ab.shape, ab.head, ab.acc, 100, 120)
 }
 
 function abSetShape(s){
-  ab.shape=s
-  document.querySelectorAll('.ab-opt[data-group=shape]').forEach(b=>b.classList.remove('on'))
-  document.querySelector(`.ab-opt[data-group=shape][data-val="${s}"]`).classList.add('on')
-  abUpdatePreview()
+  ab.shape = s
+  abSyncUI()
 }
 function abSetHead(h){
-  ab.head=h
-  document.querySelectorAll('.ab-opt[data-group=head]').forEach(b=>b.classList.remove('on'))
-  document.querySelector(`.ab-opt[data-group=head][data-val="${h}"]`).classList.add('on')
-  abUpdatePreview()
+  ab.head = h
+  abSyncUI()
 }
 function abSetAcc(a){
-  ab.acc=a
-  document.querySelectorAll('.ab-opt[data-group=acc]').forEach(b=>b.classList.remove('on'))
-  document.querySelector(`.ab-opt[data-group=acc][data-val="${a}"]`).classList.add('on')
-  abUpdatePreview()
+  ab.acc = a
+  abSyncUI()
 }
 function abSetColor(el){
-  ab.color=el.dataset.c
-  ab.border=AB_COLORS[ab.color]
-  document.querySelectorAll('.ab-swatch').forEach(s=>s.classList.remove('on'))
-  el.classList.add('on')
+  ab.color = el.dataset.c
+  ab.border = AB_COLORS[ab.color] || '#000'
+  abSyncUI()
+}
+function abToggleSkill(el, id){
+  if(ab.skills.has(id)){ ab.skills.delete(id) }
+  else { ab.skills.add(id) }
+  el.classList.toggle('on', ab.skills.has(id))
   abUpdatePreview()
 }
-function abToggleSkill(el,id){
-  if(ab.skills.has(id)){ab.skills.delete(id);el.classList.remove('on')}
-  else{ab.skills.add(id);el.classList.add('on')}
+
+/* load an existing agent into the builder for editing */
+function abLoadAgent(idx){
+  const data = agentStore[idx]
+  if(!data) return
+  ab.editingIndex = idx
+  ab.name = data.name
+  ab.shape = data.shape
+  ab.head = data.head
+  ab.acc = data.acc
+  ab.color = data.color
+  ab.border = data.border
+  ab.skills = new Set(data.skills)
+  /* highlight selected card */
+  document.querySelectorAll('.ab-agent').forEach((c,i)=>{
+    c.style.outline = i===idx ? '2px solid #0a0a0a' : 'none'
+    c.style.outlineOffset = '2px'
+  })
+  abSyncUI()
+  /* scroll builder into view */
+  document.getElementById('ab-name').scrollIntoView({behavior:'smooth',block:'center'})
+  document.getElementById('ab-name').focus()
 }
+
 function abSave(){
-  const name=document.getElementById('ab-name').value.trim()||'New Agent'
-  const skillList=Array.from(ab.skills)
-  const skillLabel=skillList.slice(0,2).map(s=>s.replace(/-/g,' ')).join(' · ')||'No skills'
-  const row=document.getElementById('ab-floor')
-  const addBtn=row.querySelector('.ab-add')
-  const card=document.createElement('div')
-  card.className='ab-agent live'
-  card.innerHTML=`${abRobot(ab.color,ab.border,ab.shape,ab.head,ab.acc,44,52)}<div class="ab-agent-name">${name}</div><div class="ab-agent-skills">${skillLabel}</div>`
-  row.insertBefore(card,addBtn)
-  const c=document.getElementById('ab-confirm')
-  c.textContent=`${name} added to trading floor`
-  c.classList.add('show')
-  setTimeout(()=>c.classList.remove('show'),3000)
+  const name = document.getElementById('ab-name').value.trim() || 'New Agent'
+  const skillList = Array.from(ab.skills)
+  const skillLabel = skillList.slice(0,2).map(s=>s.replace(/-/g,' ')).join(' · ') || 'No skills'
+  const svgSmall = abRobot(ab.color, ab.border, ab.shape, ab.head, ab.acc, 44, 52)
+  const row = document.getElementById('ab-floor')
+  const addBtn = row.querySelector('.ab-add')
+
+  if(ab.editingIndex !== null){
+    /* UPDATE existing card */
+    const cards = row.querySelectorAll('.ab-agent')
+    const card = cards[ab.editingIndex]
+    if(card){
+      agentStore[ab.editingIndex] = {name, shape:ab.shape, head:ab.head, acc:ab.acc, color:ab.color, border:ab.border, skills:skillList}
+      card.querySelector('svg').outerHTML = svgSmall
+      /* replace svg properly */
+      card.innerHTML = `${svgSmall}<div class="ab-agent-name">${name}</div><div class="ab-agent-skills">${skillLabel}</div>`
+      card.style.outline = 'none'
+    }
+    ab.editingIndex = null
+    abShowConfirm(`${name} updated`)
+  } else {
+    /* ADD new card */
+    const idx = row.querySelectorAll('.ab-agent').length
+    agentStore[idx] = {name, shape:ab.shape, head:ab.head, acc:ab.acc, color:ab.color, border:ab.border, skills:skillList}
+    const card = document.createElement('div')
+    card.className = 'ab-agent live'
+    card.dataset.idx = idx
+    card.innerHTML = `${svgSmall}<div class="ab-agent-name">${name}</div><div class="ab-agent-skills">${skillLabel}</div>`
+    card.onclick = ()=>abLoadAgent(parseInt(card.dataset.idx))
+    row.insertBefore(card, addBtn)
+    abShowConfirm(`${name} added to trading floor`)
+  }
+
+  /* reset builder to blank new state */
+  ab.name=''; ab.shape='round'; ab.head='visor'; ab.acc='antenna'
+  ab.color='#3b82f6'; ab.border='#1d4ed8'; ab.skills=new Set()
+  document.querySelectorAll('.ab-agent').forEach(c=>{ c.style.outline='none' })
+  abSyncUI()
 }
-window.addEventListener('load',()=>{ setTimeout(abUpdatePreview,100) })
+
+function abShowConfirm(msg){
+  const c = document.getElementById('ab-confirm')
+  if(!c) return
+  c.textContent = msg
+  c.classList.add('show')
+  setTimeout(()=>c.classList.remove('show'), 3000)
+}
+
+function abNewAgent(){
+  ab.editingIndex = null
+  ab.name=''; ab.shape='round'; ab.head='visor'; ab.acc='antenna'
+  ab.color='#3b82f6'; ab.border='#1d4ed8'; ab.skills=new Set()
+  document.querySelectorAll('.ab-agent').forEach(c=>{ c.style.outline='none' })
+  abSyncUI()
+  document.getElementById('ab-name').scrollIntoView({behavior:'smooth',block:'center'})
+  document.getElementById('ab-name').focus()
+}
+
+window.addEventListener('load',()=>{
+  /* seed existing agent cards with data and click handlers */
+  const cards = document.querySelectorAll('#ab-floor .ab-agent')
+  cards.forEach((card,i)=>{
+    agentStore[i] = seedAgents[i] || {name:'Agent',shape:'round',head:'visor',acc:'antenna',color:'#64748b',border:'#334155',skills:[]}
+    card.dataset.idx = i
+    card.onclick = ()=>abLoadAgent(i)
+  })
+  abSyncUI()
+})
 
 /* cycle thought text in activity logs */
 const researchCycle=[
