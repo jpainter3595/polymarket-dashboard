@@ -7,42 +7,29 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --border:#f0f0f0;--border2:#e8e8e8;--text:#0a0a0a;--muted:#999;--faint:#ccc;
-  --f:'Geist','DM Sans',sans-serif;
-}
+:root{--border:#f0f0f0;--border2:#e8e8e8;--text:#0a0a0a;--muted:#999;--faint:#ccc;--f:'Geist','DM Sans',sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
-
-/* TOPBAR */
 .topbar{height:52px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 32px;position:sticky;top:0;background:#fff;z-index:100}
 .topbar-logo{font-size:15px;font-weight:500;letter-spacing:-.03em}
 .topbar-logo span{font-weight:300;color:var(--muted)}
 .topbar-right{display:flex;align-items:center;gap:20px}
-.ts{text-align:right}
-.ts-v{font-size:15px;font-weight:500;letter-spacing:-.03em}
+.ts{text-align:right}.ts-v{font-size:15px;font-weight:500;letter-spacing:-.03em}
 .ts-v.g{color:#15803d}.ts-v.b{color:#1d4ed8}.ts-v.r{color:#b91c1c}
 .ts-l{font-size:10px;color:var(--faint);letter-spacing:.04em;margin-top:1px}
 .tsep{width:1px;height:24px;background:var(--border)}
 .live{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--faint);letter-spacing:.08em}
 .ld{width:6px;height:6px;border-radius:50%;background:#22c55e;animation:blink 2s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-
-/* LAYOUT */
 .section{padding:28px 32px 0}
 .slabel{font-size:10px;letter-spacing:.14em;color:var(--faint);font-weight:500;margin-bottom:14px}
 .divider{height:1px;background:var(--border);margin:28px 32px 0}
-
-/* METRICS */
 .metrics{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--border);margin-bottom:24px}
-.metric{padding:16px 18px;border-right:1px solid var(--border)}
-.metric:last-child{border-right:none}
+.metric{padding:16px 18px;border-right:1px solid var(--border)}.metric:last-child{border-right:none}
 .metric-v{font-size:22px;font-weight:500;letter-spacing:-.04em;line-height:1}
 .metric-v.g{color:#15803d}.metric-v.b{color:#1d4ed8}.metric-v.a{color:#b45309}.metric-v.r{color:#b91c1c}
 .metric-l{font-size:10px;color:var(--muted);margin-top:5px;letter-spacing:.03em}
-
-/* CHARTS */
-.charts-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:0}
+.charts-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
 .chart-card{border:1px solid var(--border);padding:18px}
 .chart-title{font-size:11px;font-weight:500;margin-bottom:3px}
 .chart-sub{font-size:10px;color:var(--muted);margin-bottom:14px}
@@ -54,12 +41,10 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
 .scatter-area{height:100px;position:relative;border-left:1px solid var(--border);border-bottom:1px solid var(--border)}
 .scatter-dot{position:absolute;border-radius:50%;transform:translate(-50%,50%)}
 .spark-area{height:100px;position:relative}
-
-/* APPROVAL */
 .approval-card{border:1px solid #fde68a;background:#fffbeb;padding:18px 22px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
 .approval-market{font-size:14px;font-weight:500;letter-spacing:-.02em;margin-bottom:4px}
 .approval-meta{font-size:12px;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap}
-.approval-pill{padding:2px 7px;border-radius:3px;font-size:10px;font-weight:500;letter-spacing:.03em}
+.approval-pill{padding:2px 7px;border-radius:3px;font-size:10px;font-weight:500}
 .approval-summary{font-size:12px;color:#7a5c00;margin-top:8px;line-height:1.6;max-width:500px}
 .approval-actions{display:flex;gap:8px;flex-shrink:0;margin-top:2px}
 .btn-approve{background:#0a0a0a;color:#fff;border:none;padding:9px 18px;font-family:var(--f);font-size:12px;font-weight:500;cursor:pointer;border-radius:3px;transition:opacity .15s}
@@ -67,52 +52,32 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
 .btn-reject{background:transparent;color:var(--muted);border:1px solid var(--border2);padding:9px 18px;font-family:var(--f);font-size:12px;font-weight:500;cursor:pointer;border-radius:3px}
 .btn-reject:hover{background:var(--border);color:var(--text)}
 .no-pending{padding:14px 18px;border:1px solid var(--border);color:var(--muted);font-size:12px;display:flex;align-items:center;gap:8px}
-
-/* OFFICES GRID */
 .offices{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
 .office{background:#fff;display:flex;flex-direction:column;min-width:0}
 .office-header{padding:10px 12px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:6px;flex-shrink:0}
 .office-name{font-size:12px;font-weight:500;letter-spacing:-.01em}
 .office-badge{font-size:9px;padding:2px 7px;border-radius:3px;letter-spacing:.06em;font-weight:500}
-
-/* OFFICE ROOM — now just shows the deployed agent centered */
-.office-room{height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border-bottom:1px solid var(--border);position:relative;background:#fafafa}
-.office-room.empty{background:#fff;border:none}
-.office-room.empty-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;height:100%}
+.office-room{height:190px;position:relative;border-bottom:1px solid var(--border);overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;background:#fafafa}
 .office-empty-hint{font-size:10px;color:var(--faint);text-align:center;line-height:1.5}
 .office-empty-icon{width:32px;height:32px;border-radius:50%;border:1px dashed var(--border2);display:flex;align-items:center;justify-content:center;color:var(--faint);font-size:16px}
-.deployed-name{font-size:11px;font-weight:500;color:var(--text)}
-.deployed-skills{font-size:9px;color:var(--muted);text-align:center;line-height:1.4}
-
-/* walking animation for deployed agents */
-@keyframes walkpace{0%,100%{transform:translateX(0)}40%,60%{transform:translateX(16px)}}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-.agent-walking{animation:walkpace 3.2s ease-in-out infinite}
-.agent-bobbing{animation:bob 2s ease-in-out infinite}
-
-/* office activity log */
+.deployed-name{font-size:11px;font-weight:500;position:absolute;bottom:20px;left:0;right:0;text-align:center;pointer-events:none}
+.deployed-skills{font-size:9px;color:var(--muted);position:absolute;bottom:6px;left:0;right:0;text-align:center;pointer-events:none}
 .office-log{padding:8px 12px;flex:1}
 .office-log-title{font-size:9px;letter-spacing:.1em;color:var(--faint);font-weight:500;margin-bottom:6px}
 .log-line{font-size:11px;color:var(--text);line-height:1.55;padding:2px 0;border-bottom:1px solid var(--border);display:flex;gap:7px}
 .log-line:last-child{border-bottom:none}
 .log-time{color:var(--faint);flex-shrink:0;font-size:10px;padding-top:1px}
 .log-active{font-weight:500}
-
-/* deploy button on office room */
-.deploy-hint{font-size:10px;color:var(--faint);cursor:pointer;padding:4px 8px;border:1px dashed var(--border2);border-radius:3px;transition:all .15s;display:none}
-.office-room:hover .deploy-hint{display:block}
-
-/* CHAT */
-.chat-wrap{margin:0 32px 0;border:1px solid var(--border)}
+@keyframes walkpace{0%,100%{transform:translateX(0)}40%,60%{transform:translateX(18px)}}
+.agent-working{animation:walkpace 3s ease-in-out infinite}
+.chat-wrap{margin:0 32px;border:1px solid var(--border)}
 .chat-header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
-.chat-header-name{font-size:12px;font-weight:500}
-.chat-header-sub{font-size:10px;color:var(--muted)}
-.chat-messages{height:240px;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.chat-header-name{font-size:12px;font-weight:500}.chat-header-sub{font-size:10px;color:var(--muted)}
+.chat-messages{height:220px;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
 .chat-messages::-webkit-scrollbar{width:4px}
 .chat-messages::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 .msg{max-width:72%;display:flex;flex-direction:column;gap:3px}
-.msg.user{align-self:flex-end;align-items:flex-end}
-.msg.agent{align-self:flex-start}
+.msg.user{align-self:flex-end;align-items:flex-end}.msg.agent{align-self:flex-start}
 .msg-bubble{padding:9px 12px;border-radius:8px;font-size:12px;line-height:1.65}
 .msg.user .msg-bubble{background:#0a0a0a;color:#fff}
 .msg.agent .msg-bubble{background:#f0fdf4;border:1px solid #86efac;color:#14532d}
@@ -120,23 +85,21 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
 .chat-input-row{border-top:1px solid var(--border);display:flex}
 .chat-input{flex:1;border:none;padding:12px 16px;font-family:var(--f);font-size:13px;color:var(--text);outline:none}
 .chat-input::placeholder{color:var(--faint)}
-.chat-send{padding:12px 18px;background:transparent;border:none;border-left:1px solid var(--border);font-family:var(--f);font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;transition:color .15s}
+.chat-send{padding:12px 18px;background:transparent;border:none;border-left:1px solid var(--border);font-family:var(--f);font-size:12px;font-weight:500;color:var(--muted);cursor:pointer}
 .chat-send:hover{color:var(--text)}
 .typing{display:flex;align-items:center;gap:4px;padding:8px 10px;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;width:fit-content}
 .typing-dot{width:5px;height:5px;border-radius:50%;background:#22c55e;animation:tdot 1.2s ease-in-out infinite}
 .typing-dot:nth-child(2){animation-delay:.2s}.typing-dot:nth-child(3){animation-delay:.4s}
 @keyframes tdot{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
-
-/* ── AGENT BUILDER ── */
 .builder-wrap{padding:24px 32px 0}
-.builder-grid{display:grid;grid-template-columns:260px 1fr;gap:20px;margin-bottom:0}
+.builder-grid{display:grid;grid-template-columns:260px 1fr;gap:20px}
 .builder-panel{border:1px solid var(--border);padding:18px}
 .bp-title{font-size:10px;letter-spacing:.1em;color:var(--faint);font-weight:500;margin-bottom:14px}
 .bp-label{font-size:9px;letter-spacing:.09em;color:var(--faint);font-weight:500;margin-bottom:7px}
 .bp-section{margin-bottom:14px}
 .bp-name{width:100%;border:1px solid var(--border2);padding:8px 11px;font-family:var(--f);font-size:14px;font-weight:500;color:var(--text);outline:none;border-radius:4px;transition:border-color .15s;margin-bottom:14px}
 .bp-name:focus{border-color:var(--text)}
-.bp-preview{display:flex;flex-direction:column;align-items:center;justify-content:center;height:150px;border:1px solid var(--border);background:#fafafa;margin-bottom:14px;gap:6px}
+.bp-preview{display:flex;flex-direction:column;align-items:center;justify-content:center;height:150px;border:1px solid var(--border);background:#fafafa;margin-bottom:14px;gap:6px;position:relative;overflow:hidden}
 .bp-preview-name{font-size:11px;font-weight:500;color:var(--text)}
 .bp-opts{display:flex;gap:5px;flex-wrap:wrap}
 .bp-opt{padding:4px 11px;border:1px solid var(--border2);border-radius:20px;font-size:11px;cursor:pointer;font-family:var(--f);background:#fff;color:var(--muted);transition:all .15s}
@@ -144,45 +107,39 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
 .bp-opt.on{border-color:var(--text);background:var(--text);color:#fff}
 .bp-swatches{display:flex;gap:6px;flex-wrap:wrap}
 .bp-swatch{width:24px;height:24px;border-radius:5px;cursor:pointer;border:2px solid transparent;transition:all .15s}
-.bp-swatch:hover{transform:scale(1.1)}
-.bp-swatch.on{border-color:#0a0a0a;transform:scale(1.12)}
-.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
-.skill-card{border:1px solid var(--border);border-radius:6px;padding:10px;cursor:pointer;transition:all .15s;position:relative}
-.skill-card:hover{border-color:var(--border2);background:#fafafa}
-.skill-card.on{border-color:#0a0a0a}
-.skill-card.on::after{content:'';position:absolute;top:8px;right:8px;width:7px;height:7px;border-radius:50%;background:#0a0a0a}
-.skill-icon{width:24px;height:24px;border-radius:5px;display:flex;align-items:center;justify-content:center;margin-bottom:6px}
-.skill-name{font-size:11px;font-weight:500;margin-bottom:2px}
-.skill-desc{font-size:10px;color:var(--muted);line-height:1.4}
+.bp-swatch:hover{transform:scale(1.1)}.bp-swatch.on{border-color:#0a0a0a;transform:scale(1.12)}
+.item-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.item-card{border:1px solid var(--border);border-radius:6px;padding:10px;cursor:pointer;transition:all .15s;position:relative}
+.item-card:hover{border-color:var(--border2);background:#fafafa}
+.item-card.on{border-color:#0a0a0a}
+.item-card.on::after{content:'';position:absolute;top:8px;right:8px;width:7px;height:7px;border-radius:50%;background:#0a0a0a}
+.item-icon{width:24px;height:24px;border-radius:5px;display:flex;align-items:center;justify-content:center;margin-bottom:6px}
+.item-name{font-size:11px;font-weight:500;margin-bottom:2px}
+.item-desc{font-size:10px;color:var(--muted);line-height:1.4}
 .builder-actions{display:flex;gap:8px;margin-top:4px}
-.btn-deploy{flex:1;padding:11px;background:#0a0a0a;color:#fff;border:none;border-radius:4px;font-family:var(--f);font-size:12px;font-weight:500;cursor:pointer;letter-spacing:.01em;transition:opacity .15s}
-.btn-deploy:hover{opacity:.82}
-.btn-new{padding:11px 16px;background:#fff;color:var(--text);border:1px solid var(--border2);border-radius:4px;font-family:var(--f);font-size:12px;font-weight:500;cursor:pointer;transition:all .15s}
+.btn-save{flex:1;padding:11px;background:#0a0a0a;color:#fff;border:none;border-radius:4px;font-family:var(--f);font-size:12px;font-weight:500;cursor:pointer;transition:opacity .15s}
+.btn-save:hover{opacity:.82}
+.btn-new{padding:11px 16px;background:#fff;color:var(--text);border:1px solid var(--border2);border-radius:4px;font-family:var(--f);font-size:12px;font-weight:500;cursor:pointer}
 .btn-new:hover{border-color:var(--text)}
 .bp-confirm{font-size:11px;color:#15803d;margin-top:8px;min-height:16px;transition:opacity .3s;opacity:0}
 .bp-confirm.show{opacity:1}
-
-/* UNDEPLOYED AGENTS TRAY */
 .tray-wrap{padding:16px 32px 0}
 .tray{display:flex;gap:10px;flex-wrap:wrap;min-height:40px}
-.tray-agent{border:1px solid var(--border);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:all .15s;position:relative}
-.tray-agent:hover{border-color:#0a0a0a;background:#fafafa}
-.tray-agent.editing{border-color:#0a0a0a;outline:2px solid #0a0a0a;outline-offset:2px}
-.tray-agent-info{}
-.tray-agent-name{font-size:12px;font-weight:500}
-.tray-agent-skills{font-size:10px;color:var(--muted)}
-.tray-agent-btns{display:flex;gap:4px;margin-left:4px}
+.tray-card{border:1px solid var(--border);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px;transition:all .15s}
+.tray-card:hover{border-color:#0a0a0a;background:#fafafa}
+.tray-card.editing{border-color:#0a0a0a;outline:2px solid #0a0a0a;outline-offset:2px}
+.tray-card-name{font-size:12px;font-weight:500}
+.tray-card-sub{font-size:10px;color:var(--muted)}
+.tray-btns{display:flex;gap:4px;margin-left:4px}
 .tray-btn{font-size:10px;padding:3px 8px;border-radius:20px;cursor:pointer;font-family:var(--f);border:1px solid var(--border2);background:#fff;color:var(--muted);transition:all .15s;white-space:nowrap}
 .tray-btn:hover{border-color:var(--text);color:var(--text)}
-.tray-btn.deploy{background:#0a0a0a;color:#fff;border-color:#0a0a0a}
-.tray-btn.deploy:hover{opacity:.8}
+.tray-btn.primary{background:#0a0a0a;color:#fff;border-color:#0a0a0a}
+.tray-btn.primary:hover{opacity:.8}
+.tray-btn.danger{color:#ef4444;border-color:#fca5a5}
 .tray-empty{font-size:11px;color:var(--faint);padding:8px 0}
-
-/* TOAST */
 .toast-wrap{position:fixed;bottom:24px;right:24px;z-index:500}
 .toast{background:#0a0a0a;color:#fff;padding:11px 16px;font-size:12px;border-radius:4px;opacity:0;transform:translateY(8px);transition:all .25s ease;pointer-events:none;max-width:280px;line-height:1.5}
 .toast.show{opacity:1;transform:translateY(0)}
-
 @media(max-width:1100px){.offices{grid-template-columns:repeat(3,minmax(0,1fr))}.charts-grid{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.offices{grid-template-columns:1fr}.charts-grid{grid-template-columns:1fr}.builder-grid{grid-template-columns:1fr}}
 </style>
@@ -204,7 +161,6 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
   </div>
 </div>
 
-<!-- DASHBOARD -->
 <div class="section">
   <div class="slabel">Dashboard</div>
   <div class="metrics">
@@ -224,10 +180,7 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
       <div class="chart-title">Confidence vs market price</div>
       <div class="chart-sub">Each dot = one open market</div>
       <div class="scatter-area" id="scatter-area"></div>
-      <div style="display:flex;justify-content:space-between;margin-top:5px">
-        <span style="font-size:9px;color:var(--faint)">Market price (¢)</span>
-        <span style="font-size:9px;color:var(--faint)">Model confidence →</span>
-      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:5px"><span style="font-size:9px;color:var(--faint)">Market price (¢)</span><span style="font-size:9px;color:var(--faint)">Model confidence →</span></div>
     </div>
     <div class="chart-card">
       <div class="chart-title">ROI per resolved bet</div>
@@ -237,7 +190,6 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
   </div>
 </div>
 
-<!-- APPROVAL -->
 <div class="divider"></div>
 <div class="section" style="padding-top:20px">
   <div class="slabel">Your approval</div>
@@ -262,108 +214,27 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
   </div>
 </div>
 
-<!-- OFFICES -->
 <div class="divider"></div>
 <div class="section" style="padding-top:20px">
   <div class="slabel">Agent offices</div>
   <div class="offices" id="offices-grid">
-
-    <div class="office" id="office-0">
-      <div class="office-header">
-        <div class="office-name" id="oname-0" style="color:var(--muted)">Office 1</div>
-        <div class="office-badge" id="obadge-0" style="background:#f5f5f5;color:var(--faint);border:1px solid var(--border)">Empty</div>
-      </div>
-      <div class="office-room" id="oroom-0">
-        <div class="office-empty-icon">+</div>
-        <div class="office-empty-hint">No agent deployed<br>Build one below</div>
-      </div>
-      <div class="office-log" id="olog-0">
-        <div class="office-log-title">Activity</div>
-        <div class="log-line"><span class="log-time">—</span><span class="log-msg" style="color:var(--faint)">Waiting for agent</span></div>
-      </div>
-    </div>
-
-    <div class="office" id="office-1">
-      <div class="office-header">
-        <div class="office-name" id="oname-1" style="color:var(--muted)">Office 2</div>
-        <div class="office-badge" id="obadge-1" style="background:#f5f5f5;color:var(--faint);border:1px solid var(--border)">Empty</div>
-      </div>
-      <div class="office-room" id="oroom-1">
-        <div class="office-empty-icon">+</div>
-        <div class="office-empty-hint">No agent deployed<br>Build one below</div>
-      </div>
-      <div class="office-log" id="olog-1">
-        <div class="office-log-title">Activity</div>
-        <div class="log-line"><span class="log-time">—</span><span class="log-msg" style="color:var(--faint)">Waiting for agent</span></div>
-      </div>
-    </div>
-
-    <div class="office" id="office-2">
-      <div class="office-header">
-        <div class="office-name" id="oname-2" style="color:var(--muted)">Office 3</div>
-        <div class="office-badge" id="obadge-2" style="background:#f5f5f5;color:var(--faint);border:1px solid var(--border)">Empty</div>
-      </div>
-      <div class="office-room" id="oroom-2">
-        <div class="office-empty-icon">+</div>
-        <div class="office-empty-hint">No agent deployed<br>Build one below</div>
-      </div>
-      <div class="office-log" id="olog-2">
-        <div class="office-log-title">Activity</div>
-        <div class="log-line"><span class="log-time">—</span><span class="log-msg" style="color:var(--faint)">Waiting for agent</span></div>
-      </div>
-    </div>
-
-    <div class="office" id="office-3">
-      <div class="office-header">
-        <div class="office-name" id="oname-3" style="color:var(--muted)">Office 4</div>
-        <div class="office-badge" id="obadge-3" style="background:#f5f5f5;color:var(--faint);border:1px solid var(--border)">Empty</div>
-      </div>
-      <div class="office-room" id="oroom-3">
-        <div class="office-empty-icon">+</div>
-        <div class="office-empty-hint">No agent deployed<br>Build one below</div>
-      </div>
-      <div class="office-log" id="olog-3">
-        <div class="office-log-title">Activity</div>
-        <div class="log-line"><span class="log-time">—</span><span class="log-msg" style="color:var(--faint)">Waiting for agent</span></div>
-      </div>
-    </div>
-
-    <div class="office" id="office-4">
-      <div class="office-header">
-        <div class="office-name" id="oname-4" style="color:var(--muted)">Office 5</div>
-        <div class="office-badge" id="obadge-4" style="background:#f5f5f5;color:var(--faint);border:1px solid var(--border)">Empty</div>
-      </div>
-      <div class="office-room" id="oroom-4">
-        <div class="office-empty-icon">+</div>
-        <div class="office-empty-hint">No agent deployed<br>Build one below</div>
-      </div>
-      <div class="office-log" id="olog-4">
-        <div class="office-log-title">Activity</div>
-        <div class="log-line"><span class="log-time">—</span><span class="log-msg" style="color:var(--faint)">Waiting for agent</span></div>
-      </div>
-    </div>
-
+    <div class="office" id="office-0"><div class="office-header"><div class="office-name" id="oname-0" style="color:var(--muted)">Office 1</div><div class="office-badge" id="obadge-0" style="background:#f5f5f5;color:var(--faint);border:1px solid var(--border)">Empty</div></div><div class="office-room" id="oroom-0"><div class="office-empty-icon">+</div><div class="office-empty-hint">No agent or room<br>Build below</div></div><div class="office-log" id="olog-0"><div class="office-log-title">Activity</div><div class="log-line"><span class="log-time">—</span><span class="log-msg" style="color:var(--faint)">Waiting for agent</span></div></div></div>
+    <div class="office" id="office-1"><div class="office-header"><div class="office-name" id="oname-1" style="color:var(--muted)">Office 2</div><div class="office-badge" id="obadge-1" style="background:#f5f5f5;color:var(--faint);border:1px solid var(--border)">Empty</div></div><div class="office-room" id="oroom-1"><div class="office-empty-icon">+</div><div class="office-empty-hint">No agent or room<br>Build below</div></div><div class="office-log" id="olog-1"><div class="office-log-title">Activity</div><div class="log-line"><span class="log-time">—</span><span class="log-msg" style="color:var(--faint)">Waiting for agent</span></div></div></div>
+    <div class="office" id="office-2"><div class="office-header"><div class="office-name" id="oname-2" style="color:var(--muted)">Office 3</div><div class="office-badge" id="obadge-2" style="background:#f5f5f5;color:var(--faint);border:1px solid var(--border)">Empty</div></div><div class="office-room" id="oroom-2"><div class="office-empty-icon">+</div><div class="office-empty-hint">No agent or room<br>Build below</div></div><div class="office-log" id="olog-2"><div class="office-log-title">Activity</div><div class="log-line"><span class="log-time">—</span><span class="log-msg" style="color:var(--faint)">Waiting for agent</span></div></div></div>
+    <div class="office" id="office-3"><div class="office-header"><div class="office-name" id="oname-3" style="color:var(--muted)">Office 4</div><div class="office-badge" id="obadge-3" style="background:#f5f5f5;color:var(--faint);border:1px solid var(--border)">Empty</div></div><div class="office-room" id="oroom-3"><div class="office-empty-icon">+</div><div class="office-empty-hint">No agent or room<br>Build below</div></div><div class="office-log" id="olog-3"><div class="office-log-title">Activity</div><div class="log-line"><span class="log-time">—</span><span class="log-msg" style="color:var(--faint)">Waiting for agent</span></div></div></div>
+    <div class="office" id="office-4"><div class="office-header"><div class="office-name" id="oname-4" style="color:var(--muted)">Office 5</div><div class="office-badge" id="obadge-4" style="background:#f5f5f5;color:var(--faint);border:1px solid var(--border)">Empty</div></div><div class="office-room" id="oroom-4"><div class="office-empty-icon">+</div><div class="office-empty-hint">No agent or room<br>Build below</div></div><div class="office-log" id="olog-4"><div class="office-log-title">Activity</div><div class="log-line"><span class="log-time">—</span><span class="log-msg" style="color:var(--faint)">Waiting for agent</span></div></div></div>
   </div>
 </div>
 
-<!-- ANALYST CHAT -->
 <div class="divider"></div>
-<div class="section" style="padding-top:20px;padding-bottom:0">
-  <div class="slabel">Ask the analyst</div>
-</div>
+<div class="section" style="padding-top:20px;padding-bottom:0"><div class="slabel">Ask the analyst</div></div>
 <div class="chat-wrap">
   <div class="chat-header">
     <svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/><rect x="7" y="7" width="3.5" height="4" rx="1.5" fill="#dcfce7" stroke="#86efac" stroke-width="0.7"/><rect x="11.5" y="7" width="3.5" height="4" rx="1.5" fill="#dcfce7" stroke="#86efac" stroke-width="0.7"/><circle cx="8.7" cy="9.2" r="1.2" fill="#22c55e"/><circle cx="13.3" cy="9.2" r="1.2" fill="#22c55e"/><path d="M8 15 Q11 17 14 15" fill="none" stroke="#22c55e" stroke-width="1"/></svg>
-    <div>
-      <div class="chat-header-name">Analyst Agent</div>
-      <div class="chat-header-sub">Ask about any market, edge, or bet rationale</div>
-    </div>
+    <div><div class="chat-header-name">Analyst Agent</div><div class="chat-header-sub">Ask about any market, edge, or bet rationale</div></div>
   </div>
   <div class="chat-messages" id="chat-messages">
-    <div class="msg agent">
-      <div class="msg-bubble">Hello. I'm watching 4 markets today. The strongest edge is the Fed rate cut in July — market at 34¢, my model says 52%, an 18-point edge. Kelly suggests a 3.2% bankroll stake. Want me to walk through the reasoning?</div>
-      <div class="msg-time">09:41</div>
-    </div>
+    <div class="msg agent"><div class="msg-bubble">Hello. Strongest edge today: Fed rate cut in July — market 34¢, model 52%, 18-point edge. Kelly suggests 3.2% bankroll stake.</div><div class="msg-time">09:41</div></div>
   </div>
   <div class="chat-input-row">
     <input class="chat-input" id="chat-input" type="text" placeholder="Ask about a market, edge, or bet rationale..."/>
@@ -373,128 +244,154 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
 
 <!-- AGENT BUILDER -->
 <div class="divider"></div>
-<div class="builder-wrap" id="builder-section">
+<div class="builder-wrap" id="agent-builder-section">
   <div class="slabel">Agent builder</div>
-  <div style="font-size:12px;color:var(--muted);margin-bottom:18px">Design your agent below, then deploy them to an office above.</div>
-
+  <div style="font-size:12px;color:var(--muted);margin-bottom:18px">Design your agent — name, look, and skills. Save then deploy to an office above.</div>
   <div class="builder-grid">
-
-    <!-- LEFT: APPEARANCE -->
     <div class="builder-panel">
       <div class="bp-title">Appearance</div>
       <div class="bp-label">Name</div>
-      <input class="bp-name" id="bp-name" type="text" placeholder="e.g. Scout, Atlas, Nexus..." oninput="bpUpdatePreview()"/>
-      <div class="bp-preview" id="bp-preview"></div>
-
+      <input class="bp-name" id="ab-name" type="text" placeholder="e.g. Scout, Atlas, Nova..." oninput="abUpdatePreview()"/>
+      <div class="bp-preview" id="ab-preview"></div>
       <div class="bp-section">
         <div class="bp-label">Body shape</div>
         <div class="bp-opts">
-          <button class="bp-opt on" data-group="shape" data-val="round" onclick="bpSet('shape','round',this)">Round</button>
-          <button class="bp-opt" data-group="shape" data-val="square" onclick="bpSet('shape','square',this)">Square</button>
-          <button class="bp-opt" data-group="shape" data-val="tall" onclick="bpSet('shape','tall',this)">Tall</button>
-          <button class="bp-opt" data-group="shape" data-val="wide" onclick="bpSet('shape','wide',this)">Wide</button>
+          <button class="bp-opt on" data-group="shape" data-val="round" onclick="abSet('shape','round',this)">Round</button>
+          <button class="bp-opt" data-group="shape" data-val="square" onclick="abSet('shape','square',this)">Square</button>
+          <button class="bp-opt" data-group="shape" data-val="tall" onclick="abSet('shape','tall',this)">Tall</button>
+          <button class="bp-opt" data-group="shape" data-val="wide" onclick="abSet('shape','wide',this)">Wide</button>
         </div>
       </div>
-
       <div class="bp-section">
         <div class="bp-label">Head style</div>
         <div class="bp-opts">
-          <button class="bp-opt on" data-group="head" data-val="visor" onclick="bpSet('head','visor',this)">Visor</button>
-          <button class="bp-opt" data-group="head" data-val="square" onclick="bpSet('head','square',this)">Square</button>
-          <button class="bp-opt" data-group="head" data-val="round" onclick="bpSet('head','round',this)">Round</button>
-          <button class="bp-opt" data-group="head" data-val="dome" onclick="bpSet('head','dome',this)">Dome</button>
+          <button class="bp-opt on" data-group="head" data-val="visor" onclick="abSet('head','visor',this)">Visor</button>
+          <button class="bp-opt" data-group="head" data-val="square" onclick="abSet('head','square',this)">Square</button>
+          <button class="bp-opt" data-group="head" data-val="round" onclick="abSet('head','round',this)">Round</button>
+          <button class="bp-opt" data-group="head" data-val="dome" onclick="abSet('head','dome',this)">Dome</button>
         </div>
       </div>
-
       <div class="bp-section">
         <div class="bp-label">Accessory</div>
         <div class="bp-opts">
-          <button class="bp-opt on" data-group="acc" data-val="antenna" onclick="bpSet('acc','antenna',this)">Antenna</button>
-          <button class="bp-opt" data-group="acc" data-val="beanie" onclick="bpSet('acc','beanie',this)">Beanie</button>
-          <button class="bp-opt" data-group="acc" data-val="halo" onclick="bpSet('acc','halo',this)">Halo</button>
-          <button class="bp-opt" data-group="acc" data-val="cap" onclick="bpSet('acc','cap',this)">Cap</button>
-          <button class="bp-opt" data-group="acc" data-val="none" onclick="bpSet('acc','none',this)">None</button>
+          <button class="bp-opt on" data-group="acc" data-val="antenna" onclick="abSet('acc','antenna',this)">Antenna</button>
+          <button class="bp-opt" data-group="acc" data-val="beanie" onclick="abSet('acc','beanie',this)">Beanie</button>
+          <button class="bp-opt" data-group="acc" data-val="halo" onclick="abSet('acc','halo',this)">Halo</button>
+          <button class="bp-opt" data-group="acc" data-val="cap" onclick="abSet('acc','cap',this)">Cap</button>
+          <button class="bp-opt" data-group="acc" data-val="none" onclick="abSet('acc','none',this)">None</button>
         </div>
       </div>
-
       <div class="bp-section">
         <div class="bp-label">Color</div>
-        <div class="bp-swatches">
-          <div class="bp-swatch on" style="background:#3b82f6" data-c="#3b82f6" onclick="bpSetColor(this)"></div>
-          <div class="bp-swatch" style="background:#22c55e" data-c="#22c55e" onclick="bpSetColor(this)"></div>
-          <div class="bp-swatch" style="background:#f59e0b" data-c="#f59e0b" onclick="bpSetColor(this)"></div>
-          <div class="bp-swatch" style="background:#ef4444" data-c="#ef4444" onclick="bpSetColor(this)"></div>
-          <div class="bp-swatch" style="background:#8b5cf6" data-c="#8b5cf6" onclick="bpSetColor(this)"></div>
-          <div class="bp-swatch" style="background:#ec4899" data-c="#ec4899" onclick="bpSetColor(this)"></div>
-          <div class="bp-swatch" style="background:#14b8a6" data-c="#14b8a6" onclick="bpSetColor(this)"></div>
-          <div class="bp-swatch" style="background:#f97316" data-c="#f97316" onclick="bpSetColor(this)"></div>
-          <div class="bp-swatch" style="background:#64748b" data-c="#64748b" onclick="bpSetColor(this)"></div>
+        <div class="bp-swatches" id="ab-swatches">
+          <div class="bp-swatch on" style="background:#3b82f6" data-c="#3b82f6" onclick="abSetColor(this)"></div>
+          <div class="bp-swatch" style="background:#22c55e" data-c="#22c55e" onclick="abSetColor(this)"></div>
+          <div class="bp-swatch" style="background:#f59e0b" data-c="#f59e0b" onclick="abSetColor(this)"></div>
+          <div class="bp-swatch" style="background:#ef4444" data-c="#ef4444" onclick="abSetColor(this)"></div>
+          <div class="bp-swatch" style="background:#8b5cf6" data-c="#8b5cf6" onclick="abSetColor(this)"></div>
+          <div class="bp-swatch" style="background:#ec4899" data-c="#ec4899" onclick="abSetColor(this)"></div>
+          <div class="bp-swatch" style="background:#14b8a6" data-c="#14b8a6" onclick="abSetColor(this)"></div>
+          <div class="bp-swatch" style="background:#f97316" data-c="#f97316" onclick="abSetColor(this)"></div>
+          <div class="bp-swatch" style="background:#64748b" data-c="#64748b" onclick="abSetColor(this)"></div>
         </div>
       </div>
     </div>
-
-    <!-- RIGHT: SKILLS -->
     <div class="builder-panel">
       <div class="bp-title">Skills — select all that apply</div>
-      <div class="skills-grid">
-        <div class="skill-card on" data-skill="market-research" onclick="bpToggleSkill(this)">
-          <div class="skill-icon" style="background:#eff6ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6" cy="6" r="4" stroke="#3b82f6" stroke-width="1.4"/><line x1="9.5" y1="9.5" x2="14" y2="14" stroke="#3b82f6" stroke-width="1.4" stroke-linecap="round"/></svg></div>
-          <div class="skill-name">Market research</div>
-          <div class="skill-desc">Scan Polymarket for open markets and surface edges vs model</div>
-        </div>
-        <div class="skill-card" data-skill="edge-detection" onclick="bpToggleSkill(this)">
-          <div class="skill-icon" style="background:#f0fdf4"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><polyline points="2,12 5,8 8,10 11,5 14,7" stroke="#22c55e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="5" r="1.5" fill="#22c55e"/></svg></div>
-          <div class="skill-name">Edge detection</div>
-          <div class="skill-desc">Compare model probability to market odds and flag mispricings</div>
-        </div>
-        <div class="skill-card" data-skill="news-sentiment" onclick="bpToggleSkill(this)">
-          <div class="skill-icon" style="background:#faf5ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="#8b5cf6" stroke-width="1.4"/><line x1="4" y1="6" x2="12" y2="6" stroke="#8b5cf6" stroke-width="1" opacity=".6"/><line x1="4" y1="9" x2="9" y2="9" stroke="#8b5cf6" stroke-width="1" opacity=".6"/></svg></div>
-          <div class="skill-name">News sentiment</div>
-          <div class="skill-desc">Pull and analyze news headlines for market-moving signals</div>
-        </div>
-        <div class="skill-card" data-skill="kelly-sizing" onclick="bpToggleSkill(this)">
-          <div class="skill-icon" style="background:#fffbeb"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="10" width="3" height="4" fill="#f59e0b" opacity=".7"/><rect x="6.5" y="7" width="3" height="7" fill="#f59e0b" opacity=".85"/><rect x="11" y="4" width="3" height="10" fill="#f59e0b"/></svg></div>
-          <div class="skill-name">Kelly sizing</div>
-          <div class="skill-desc">Calculate optimal stake using Kelly criterion and bankroll</div>
-        </div>
-        <div class="skill-card" data-skill="bet-execution" onclick="bpToggleSkill(this)">
-          <div class="skill-icon" style="background:#f0fdf4"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#22c55e" stroke-width="1.4"/><polyline points="5,8 7,10 11,6" stroke="#22c55e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="skill-name">Bet execution</div>
-          <div class="skill-desc">Place approved bets on-chain via Polygon USDC wallet</div>
-        </div>
-        <div class="skill-card" data-skill="outcome-review" onclick="bpToggleSkill(this)">
-          <div class="skill-icon" style="background:#faf5ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#8b5cf6" stroke-width="1.4"/><line x1="8" y1="5" x2="8" y2="8.5" stroke="#8b5cf6" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="11" r=".8" fill="#8b5cf6"/></svg></div>
-          <div class="skill-name">Outcome review</div>
-          <div class="skill-desc">Analyse resolved bets, calculate ROI, win rate, model drift</div>
-        </div>
-        <div class="skill-card" data-skill="model-improvement" onclick="bpToggleSkill(this)">
-          <div class="skill-icon" style="background:#fff1f2"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="4" stroke="#ef4444" stroke-width="1.4"/><circle cx="8" cy="8" r="2" stroke="#ef4444" stroke-width="1" opacity=".5"/><line x1="8" y1="2" x2="8" y2="4" stroke="#ef4444" stroke-width="1.2"/><line x1="8" y1="12" x2="8" y2="14" stroke="#ef4444" stroke-width="1.2"/><line x1="2" y1="8" x2="4" y2="8" stroke="#ef4444" stroke-width="1.2"/><line x1="12" y1="8" x2="14" y2="8" stroke="#ef4444" stroke-width="1.2"/></svg></div>
-          <div class="skill-name">Model improvement</div>
-          <div class="skill-desc">Push parameter updates from review findings to research agents</div>
-        </div>
-        <div class="skill-card" data-skill="cross-market" onclick="bpToggleSkill(this)">
-          <div class="skill-icon" style="background:#eff6ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="#3b82f6" stroke-width="1.2"/><circle cx="12" cy="8" r="2.5" stroke="#3b82f6" stroke-width="1.2"/><line x1="6.5" y1="8" x2="9.5" y2="8" stroke="#3b82f6" stroke-width="1.2"/></svg></div>
-          <div class="skill-name">Cross-market arb</div>
-          <div class="skill-desc">Compare odds across Polymarket, Metaculus, and Manifold</div>
-        </div>
+      <div class="item-grid" id="ab-skills-grid">
+        <div class="item-card on" data-skill="market-research" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#eff6ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6" cy="6" r="4" stroke="#3b82f6" stroke-width="1.4"/><line x1="9.5" y1="9.5" x2="14" y2="14" stroke="#3b82f6" stroke-width="1.4" stroke-linecap="round"/></svg></div><div class="item-name">Market research</div><div class="item-desc">Scan Polymarket for open markets and surface edges</div></div>
+        <div class="item-card" data-skill="edge-detection" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#f0fdf4"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><polyline points="2,12 5,8 8,10 11,5 14,7" stroke="#22c55e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="5" r="1.5" fill="#22c55e"/></svg></div><div class="item-name">Edge detection</div><div class="item-desc">Compare model probability to market odds</div></div>
+        <div class="item-card" data-skill="news-sentiment" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#faf5ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="#8b5cf6" stroke-width="1.4"/><line x1="4" y1="6" x2="12" y2="6" stroke="#8b5cf6" stroke-width="1" opacity=".6"/><line x1="4" y1="9" x2="9" y2="9" stroke="#8b5cf6" stroke-width="1" opacity=".6"/></svg></div><div class="item-name">News sentiment</div><div class="item-desc">Analyze headlines for market-moving signals</div></div>
+        <div class="item-card" data-skill="kelly-sizing" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#fffbeb"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="10" width="3" height="4" fill="#f59e0b" opacity=".7"/><rect x="6.5" y="7" width="3" height="7" fill="#f59e0b" opacity=".85"/><rect x="11" y="4" width="3" height="10" fill="#f59e0b"/></svg></div><div class="item-name">Kelly sizing</div><div class="item-desc">Calculate optimal stake using Kelly criterion</div></div>
+        <div class="item-card" data-skill="bet-execution" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#f0fdf4"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#22c55e" stroke-width="1.4"/><polyline points="5,8 7,10 11,6" stroke="#22c55e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-name">Bet execution</div><div class="item-desc">Place approved bets on-chain via Polygon</div></div>
+        <div class="item-card" data-skill="outcome-review" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#faf5ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#8b5cf6" stroke-width="1.4"/><line x1="8" y1="5" x2="8" y2="8.5" stroke="#8b5cf6" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="11" r=".8" fill="#8b5cf6"/></svg></div><div class="item-name">Outcome review</div><div class="item-desc">Analyse resolved bets, ROI, win rate, drift</div></div>
+        <div class="item-card" data-skill="model-improvement" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#fff1f2"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="4" stroke="#ef4444" stroke-width="1.4"/><line x1="8" y1="2" x2="8" y2="4" stroke="#ef4444" stroke-width="1.2"/><line x1="8" y1="12" x2="8" y2="14" stroke="#ef4444" stroke-width="1.2"/><line x1="2" y1="8" x2="4" y2="8" stroke="#ef4444" stroke-width="1.2"/><line x1="12" y1="8" x2="14" y2="8" stroke="#ef4444" stroke-width="1.2"/></svg></div><div class="item-name">Model improvement</div><div class="item-desc">Push parameter updates to research agents</div></div>
+        <div class="item-card" data-skill="cross-market" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#eff6ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="#3b82f6" stroke-width="1.2"/><circle cx="12" cy="8" r="2.5" stroke="#3b82f6" stroke-width="1.2"/><line x1="6.5" y1="8" x2="9.5" y2="8" stroke="#3b82f6" stroke-width="1.2"/></svg></div><div class="item-name">Cross-market arb</div><div class="item-desc">Compare odds across Polymarket, Metaculus</div></div>
       </div>
-
       <div class="builder-actions">
-        <button class="btn-deploy" id="bp-save-btn" onclick="bpSave()">Save agent</button>
-        <button class="btn-new" onclick="bpNew()">+ New agent</button>
+        <button class="btn-save" id="ab-save-btn" onclick="abSave()">Save agent</button>
+        <button class="btn-new" onclick="abNew()">+ New</button>
       </div>
-      <div class="bp-confirm" id="bp-confirm"></div>
+      <div class="bp-confirm" id="ab-confirm"></div>
     </div>
   </div>
 </div>
 
-<!-- AGENT TRAY -->
 <div class="divider" style="margin-top:20px"></div>
 <div class="tray-wrap">
-  <div class="slabel">Your agents — click to edit, deploy to send to an office</div>
-  <div class="tray" id="agent-tray">
-    <div class="tray-empty" id="tray-empty">No agents yet — build your first one above.</div>
+  <div class="slabel">Your agents — Edit to modify · Deploy to send to office · ▶ Work / ⏸ Idle to toggle animation</div>
+  <div class="tray" id="agent-tray"><div class="tray-empty">No agents yet — build your first one above.</div></div>
+</div>
+
+<!-- ROOM BUILDER -->
+<div class="divider" style="margin-top:20px"></div>
+<div class="builder-wrap" id="room-builder-section">
+  <div class="slabel">Room builder</div>
+  <div style="font-size:12px;color:var(--muted);margin-bottom:18px">Design each office room — wall color, floor, desk, and decorations. Save then assign to an office slot.</div>
+  <div class="builder-grid">
+    <div class="builder-panel">
+      <div class="bp-title">Room appearance</div>
+      <div class="bp-label">Room name</div>
+      <input class="bp-name" id="rb-name" type="text" placeholder="e.g. Research Lab, War Room..." oninput="rbUpdatePreview()"/>
+      <div class="bp-preview" id="rb-preview" style="height:170px;padding:0;overflow:hidden;background:#fff;align-items:stretch;justify-content:stretch"></div>
+      <div class="bp-section">
+        <div class="bp-label">Wall color</div>
+        <div class="bp-swatches" id="rb-wall-swatches">
+          <div class="bp-swatch on" style="background:#ffffff;border:1px solid #e8e8e8" data-c="#ffffff" onclick="rbSetWall(this)" title="White"></div>
+          <div class="bp-swatch" style="background:#fdf3e3" data-c="#fdf3e3" onclick="rbSetWall(this)" title="Warm"></div>
+          <div class="bp-swatch" style="background:#f0f6ff" data-c="#f0f6ff" onclick="rbSetWall(this)" title="Blue"></div>
+          <div class="bp-swatch" style="background:#f0fdf4" data-c="#f0fdf4" onclick="rbSetWall(this)" title="Green"></div>
+          <div class="bp-swatch" style="background:#faf5ff" data-c="#faf5ff" onclick="rbSetWall(this)" title="Purple"></div>
+          <div class="bp-swatch" style="background:#fff1f2" data-c="#fff1f2" onclick="rbSetWall(this)" title="Red"></div>
+          <div class="bp-swatch" style="background:#fffbeb" data-c="#fffbeb" onclick="rbSetWall(this)" title="Amber"></div>
+          <div class="bp-swatch" style="background:#1e293b" data-c="#1e293b" onclick="rbSetWall(this)" title="Night"></div>
+          <div class="bp-swatch" style="background:#f1f5f9" data-c="#f1f5f9" onclick="rbSetWall(this)" title="Slate"></div>
+        </div>
+      </div>
+      <div class="bp-section">
+        <div class="bp-label">Floor style</div>
+        <div class="bp-opts" id="rb-floor-opts">
+          <button class="bp-opt on" data-group="floor" data-val="wood" onclick="rbSet('floor','wood',this)">Wood</button>
+          <button class="bp-opt" data-group="floor" data-val="tile" onclick="rbSet('floor','tile',this)">Tile</button>
+          <button class="bp-opt" data-group="floor" data-val="carpet" onclick="rbSet('floor','carpet',this)">Carpet</button>
+          <button class="bp-opt" data-group="floor" data-val="concrete" onclick="rbSet('floor','concrete',this)">Concrete</button>
+        </div>
+      </div>
+      <div class="bp-section">
+        <div class="bp-label">Desk style</div>
+        <div class="bp-opts" id="rb-desk-opts">
+          <button class="bp-opt on" data-group="desk" data-val="standard" onclick="rbSet('desk','standard',this)">Standard</button>
+          <button class="bp-opt" data-group="desk" data-val="l-shape" onclick="rbSet('desk','l-shape',this)">L-shape</button>
+          <button class="bp-opt" data-group="desk" data-val="standing" onclick="rbSet('desk','standing',this)">Standing</button>
+          <button class="bp-opt" data-group="desk" data-val="none" onclick="rbSet('desk','none',this)">None</button>
+        </div>
+      </div>
+    </div>
+    <div class="builder-panel">
+      <div class="bp-title">Decorations &amp; furniture</div>
+      <div class="item-grid" id="rb-items-grid">
+        <div class="item-card on" data-item="monitor" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#eff6ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="10" rx="1.5" stroke="#3b82f6" stroke-width="1.3"/><line x1="5" y1="12" x2="11" y2="12" stroke="#3b82f6" stroke-width="1.3"/><line x1="8" y1="12" x2="8" y2="14" stroke="#3b82f6" stroke-width="1.3"/></svg></div><div class="item-name">Monitor</div><div class="item-desc">Desktop screen for data and charts</div></div>
+        <div class="item-card" data-item="bookshelf" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#fffbeb"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="3" height="14" rx="0.5" stroke="#f59e0b" stroke-width="1.2"/><rect x="5" y="4" width="3" height="11" rx="0.5" stroke="#f59e0b" stroke-width="1.2"/><rect x="9" y="2" width="3" height="13" rx="0.5" stroke="#f59e0b" stroke-width="1.2"/><rect x="13" y="5" width="2" height="10" rx="0.5" stroke="#f59e0b" stroke-width="1.2"/></svg></div><div class="item-name">Bookshelf</div><div class="item-desc">Wall shelves with research materials</div></div>
+        <div class="item-card" data-item="plant" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#f0fdf4"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><ellipse cx="8" cy="6" rx="5" ry="4" stroke="#22c55e" stroke-width="1.3"/><line x1="8" y1="10" x2="8" y2="15" stroke="#22c55e" stroke-width="1.3"/><line x1="8" y1="12" x2="5" y2="10" stroke="#22c55e" stroke-width="1"/></svg></div><div class="item-name">Plant</div><div class="item-desc">A small potted plant</div></div>
+        <div class="item-card" data-item="whiteboard" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#faf5ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="10" rx="1" stroke="#8b5cf6" stroke-width="1.3"/><line x1="4" y1="6" x2="12" y2="6" stroke="#8b5cf6" stroke-width="0.8" opacity=".5"/><line x1="4" y1="9" x2="9" y2="9" stroke="#8b5cf6" stroke-width="0.8" opacity=".5"/><line x1="3" y1="12" x2="13" y2="12" stroke="#8b5cf6" stroke-width="1.3"/></svg></div><div class="item-name">Whiteboard</div><div class="item-desc">Wall whiteboard for analysis</div></div>
+        <div class="item-card" data-item="window" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#f0f6ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="1" width="12" height="11" rx="1" stroke="#3b82f6" stroke-width="1.3"/><line x1="8" y1="1" x2="8" y2="12" stroke="#3b82f6" stroke-width="1"/><line x1="2" y1="6" x2="14" y2="6" stroke="#3b82f6" stroke-width="1"/><line x1="5" y1="14" x2="11" y2="14" stroke="#3b82f6" stroke-width="1.3"/></svg></div><div class="item-name">Window</div><div class="item-desc">Back wall window with outside view</div></div>
+        <div class="item-card" data-item="lamp" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#fffbeb"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 8 L8 2 L11 8 Z" stroke="#f59e0b" stroke-width="1.2" fill="none"/><line x1="8" y1="8" x2="8" y2="14" stroke="#f59e0b" stroke-width="1.3"/><line x1="5" y1="14" x2="11" y2="14" stroke="#f59e0b" stroke-width="1.3"/></svg></div><div class="item-name">Floor lamp</div><div class="item-desc">Standing lamp for warm lighting</div></div>
+        <div class="item-card" data-item="rug" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#fff1f2"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><ellipse cx="8" cy="10" rx="6" ry="3" stroke="#ef4444" stroke-width="1.2"/><ellipse cx="8" cy="10" rx="4" ry="2" stroke="#ef4444" stroke-width="0.7" opacity=".5"/></svg></div><div class="item-name">Rug</div><div class="item-desc">Decorative center rug</div></div>
+        <div class="item-card" data-item="corkboard" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#fffbeb"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="10" rx="1" stroke="#f59e0b" stroke-width="1.2"/><circle cx="5" cy="5" r="1" fill="#ef4444"/><circle cx="11" cy="4" r="1" fill="#3b82f6"/><line x1="4" y1="7" x2="8" y2="7" stroke="#f59e0b" stroke-width="0.7" opacity=".6"/></svg></div><div class="item-name">Cork board</div><div class="item-desc">Pinboard with notes and charts</div></div>
+      </div>
+      <div class="builder-actions">
+        <button class="btn-save" id="rb-save-btn" onclick="rbSave()">Save room</button>
+        <button class="btn-new" onclick="rbNew()">+ New</button>
+      </div>
+      <div class="bp-confirm" id="rb-confirm"></div>
+    </div>
   </div>
+</div>
+
+<div class="divider" style="margin-top:20px"></div>
+<div class="tray-wrap">
+  <div class="slabel">Your rooms — Edit to modify · Assign to put in an office</div>
+  <div class="tray" id="room-tray"><div class="tray-empty">No rooms yet — design your first one above.</div></div>
 </div>
 
 <div style="height:60px"></div>
@@ -502,358 +399,110 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
-/* ── CHARTS ── */
-const bets=[
-  {name:'Fed cut Jul',short:'Fed Jul',edge:18,model:52,market:34,color:'#22c55e'},
-  {name:'AI Exec Order',short:'AI EO',edge:13,model:74,market:61,color:'#3b82f6'},
-  {name:'BTC $100K Q2',short:'BTC Q2',edge:13,model:55,market:42,color:'#8b5cf6'},
-  {name:'Senate Rec.',short:'Senate',edge:6,model:28,market:22,color:'#f59e0b'},
-]
+const bets=[{name:'Fed cut Jul',short:'Fed Jul',edge:18,model:52,market:34,color:'#22c55e'},{name:'AI Exec Order',short:'AI EO',edge:13,model:74,market:61,color:'#3b82f6'},{name:'BTC $100K Q2',short:'BTC Q2',edge:13,model:55,market:42,color:'#8b5cf6'},{name:'Senate Rec.',short:'Senate',edge:6,model:28,market:22,color:'#f59e0b'}]
 function now(){const d=new Date();return`${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`}
-function buildBars(){
-  const el=document.getElementById('bar-chart');if(!el)return
-  const max=Math.max(...bets.map(b=>b.edge))
-  el.innerHTML=bets.map(b=>`<div class="bar-col"><div class="bar-val" style="color:${b.color}">+${b.edge}%</div><div class="bar-fill" style="height:${Math.round(b.edge/max*88)}px;background:${b.color}"></div><div class="bar-label">${b.short}</div></div>`).join('')
-}
-function buildScatter(){
-  const el=document.getElementById('scatter-area');if(!el)return
-  const W=el.offsetWidth||200,H=100
-  bets.forEach(b=>{
-    const x=Math.round((b.market/100)*W*0.85+W*0.07),y=Math.round(H-(b.model/100)*H*0.85-H*0.07),size=10+b.edge*0.5
-    const d=document.createElement('div');d.className='scatter-dot'
-    d.style.cssText=`width:${size}px;height:${size}px;background:${b.color};opacity:.7;left:${x}px;bottom:${H-y}px;`
-    el.appendChild(d)
-  })
-}
-function buildSpark(){
-  const canvas=document.getElementById('spark-canvas');if(!canvas)return
-  const W=canvas.parentElement.offsetWidth||300;canvas.width=W
-  const ctx=canvas.getContext('2d'),rois=[0.05,0.12,-0.04,0.18,0.08,0.22,-0.06,0.15,0.19,0.07,0.25,0.14]
-  const pad=14,H=100,xStep=(W-pad*2)/(rois.length-1),min=Math.min(...rois),max2=Math.max(...rois)
-  const scale=v=>Math.round(pad+(H-pad*2)*(1-(v-min)/(max2-min)))
-  ctx.clearRect(0,0,W,H)
-  const zy=scale(0);ctx.strokeStyle='#f0f0f0';ctx.lineWidth=1;ctx.setLineDash([4,4])
-  ctx.beginPath();ctx.moveTo(pad,zy);ctx.lineTo(W-pad,zy);ctx.stroke();ctx.setLineDash([])
-  ctx.beginPath();ctx.moveTo(pad,scale(rois[0]));rois.forEach((v,i)=>{if(i>0)ctx.lineTo(pad+i*xStep,scale(v))})
-  ctx.lineTo(pad+(rois.length-1)*xStep,H-pad);ctx.lineTo(pad,H-pad);ctx.closePath()
-  ctx.fillStyle='rgba(139,92,246,0.07)';ctx.fill()
-  ctx.beginPath();ctx.moveTo(pad,scale(rois[0]));rois.forEach((v,i)=>{if(i>0)ctx.lineTo(pad+i*xStep,scale(v))})
-  ctx.strokeStyle='#8b5cf6';ctx.lineWidth=1.5;ctx.stroke()
-  rois.forEach((v,i)=>{ctx.beginPath();ctx.arc(pad+i*xStep,scale(v),3,0,Math.PI*2);ctx.fillStyle=v>=0?'#22c55e':'#ef4444';ctx.fill()})
-  let sum=0;ctx.beginPath()
-  rois.forEach((v,i)=>{sum+=v;const avg=sum/(i+1);i===0?ctx.moveTo(pad,scale(avg)):ctx.lineTo(pad+i*xStep,scale(avg))})
-  ctx.strokeStyle='#f59e0b';ctx.lineWidth=1;ctx.setLineDash([3,3]);ctx.stroke();ctx.setLineDash([])
-}
-window.addEventListener('load',()=>{buildBars();setTimeout(()=>{buildScatter();buildSpark()},50)})
+function buildBars(){const el=document.getElementById('bar-chart');if(!el)return;const max=Math.max(...bets.map(b=>b.edge));el.innerHTML=bets.map(b=>`<div class="bar-col"><div class="bar-val" style="color:${b.color}">+${b.edge}%</div><div class="bar-fill" style="height:${Math.round(b.edge/max*88)}px;background:${b.color}"></div><div class="bar-label">${b.short}</div></div>`).join('')}
+function buildScatter(){const el=document.getElementById('scatter-area');if(!el)return;const W=el.offsetWidth||200,H=100;bets.forEach(b=>{const x=Math.round((b.market/100)*W*0.85+W*0.07),y=Math.round(H-(b.model/100)*H*0.85-H*0.07),size=10+b.edge*0.5;const d=document.createElement('div');d.className='scatter-dot';d.style.cssText=`width:${size}px;height:${size}px;background:${b.color};opacity:.7;left:${x}px;bottom:${H-y}px;`;el.appendChild(d)})}
+function buildSpark(){const canvas=document.getElementById('spark-canvas');if(!canvas)return;const W=canvas.parentElement.offsetWidth||300;canvas.width=W;const ctx=canvas.getContext('2d'),rois=[0.05,0.12,-0.04,0.18,0.08,0.22,-0.06,0.15,0.19,0.07,0.25,0.14];const pad=14,H=100,xStep=(W-pad*2)/(rois.length-1),min=Math.min(...rois),max2=Math.max(...rois);const scale=v=>Math.round(pad+(H-pad*2)*(1-(v-min)/(max2-min)));ctx.clearRect(0,0,W,H);ctx.strokeStyle='#f0f0f0';ctx.lineWidth=1;ctx.setLineDash([4,4]);ctx.beginPath();ctx.moveTo(pad,scale(0));ctx.lineTo(W-pad,scale(0));ctx.stroke();ctx.setLineDash([]);ctx.beginPath();ctx.moveTo(pad,scale(rois[0]));rois.forEach((v,i)=>{if(i>0)ctx.lineTo(pad+i*xStep,scale(v))});ctx.lineTo(pad+(rois.length-1)*xStep,H-pad);ctx.lineTo(pad,H-pad);ctx.closePath();ctx.fillStyle='rgba(139,92,246,0.07)';ctx.fill();ctx.beginPath();ctx.moveTo(pad,scale(rois[0]));rois.forEach((v,i)=>{if(i>0)ctx.lineTo(pad+i*xStep,scale(v))});ctx.strokeStyle='#8b5cf6';ctx.lineWidth=1.5;ctx.stroke();rois.forEach((v,i)=>{ctx.beginPath();ctx.arc(pad+i*xStep,scale(v),3,0,Math.PI*2);ctx.fillStyle=v>=0?'#22c55e':'#ef4444';ctx.fill()});let sum=0;ctx.beginPath();rois.forEach((v,i)=>{sum+=v;const avg=sum/(i+1);i===0?ctx.moveTo(pad,scale(avg)):ctx.lineTo(pad+i*xStep,scale(avg))});ctx.strokeStyle='#f59e0b';ctx.lineWidth=1;ctx.setLineDash([3,3]);ctx.stroke();ctx.setLineDash([])}
+window.addEventListener('load',()=>{buildBars();setTimeout(()=>{buildScatter();buildSpark();abUpdatePreview();setTimeout(rbUpdatePreview,100)},50)})
 window.addEventListener('resize',()=>{document.getElementById('scatter-area').innerHTML='';buildScatter();buildSpark()})
-
-/* ── APPROVAL ── */
-function approveBet(){
-  document.getElementById('approval-zone').innerHTML=`<div class="no-pending"><div class="ld" style="flex-shrink:0"></div>No bets awaiting approval</div>`
-  document.getElementById('t-pending').textContent='0'
-  document.getElementById('t-bal').textContent='$1,192'
-  showToast('Banker deployed — $48.00 USDC placed on Polygon.')
-}
-function rejectBet(){
-  document.getElementById('approval-zone').innerHTML=`<div class="no-pending">Bet rejected — research agent notified.</div>`
-  document.getElementById('t-pending').textContent='0'
-  showToast('Bet rejected.')
-}
-function showToast(m){
-  const t=document.getElementById('toast');t.textContent=m;t.classList.add('show')
-  setTimeout(()=>t.classList.remove('show'),4000)
-}
-
-/* ── CHAT ── */
-const responses={
-  default:["Based on my analysis, the Fed cut at 34¢ is the strongest edge on the board — 18 points below my model estimate.","The Kelly criterion suggests 3.2% of bankroll for this bet, balancing the edge with variance from a macro event.","I cross-reference Polymarket against CME FedWatch, Metaculus, and news sentiment. All three point the same direction here."],
-  fed:["Fed cut: market 34¢, model 52%. Two regional Fed presidents have softened their hawkish stance. This is a textbook mispriced macro event.","CME FedWatch has moved meaningfully over two weeks. The evidence stack — CPI trajectory, dissenting Fed voices, futures — all align."],
-  kelly:["Kelly optimal for the Fed cut is 3.2% of bankroll — that's $39.68 on $1,240. I'm recommending $48 for slightly higher conviction.","Kelly fraction = (edge × odds) / variance. For the Fed cut: edge 0.18, odds 1.94. Kelly says ~3.2%."],
-  btc:["BTC $100K Q2 shows a 13-point edge — market 42¢, model 55%. Lower conviction than the Fed cut, size it around 2% of bankroll."],
-  confidence:["My confidence model weighs market divergence, 48-hour news sentiment shift, and cross-market Metaculus calibration. The Fed cut scores highly on all three."],
-}
-function getResponse(q){
-  const l=q.toLowerCase()
-  if(l.includes('fed')||l.includes('rate')||l.includes('cut'))return responses.fed[Math.floor(Math.random()*responses.fed.length)]
-  if(l.includes('kelly'))return responses.kelly[Math.floor(Math.random()*responses.kelly.length)]
-  if(l.includes('btc')||l.includes('bitcoin'))return responses.btc[0]
-  if(l.includes('confidence')||l.includes('model'))return responses.confidence[0]
-  return responses.default[Math.floor(Math.random()*responses.default.length)]
-}
-function sendMessage(){
-  const input=document.getElementById('chat-input'),msg=input.value.trim();if(!msg)return
-  input.value=''
-  const c=document.getElementById('chat-messages')
-  const u=document.createElement('div');u.className='msg user'
-  u.innerHTML=`<div class="msg-bubble">${msg}</div><div class="msg-time">${now()}</div>`;c.appendChild(u)
-  const ty=document.createElement('div');ty.className='msg agent'
-  ty.innerHTML=`<div class="typing"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;c.appendChild(ty)
-  c.scrollTop=c.scrollHeight
-  setTimeout(()=>{
-    ty.remove()
-    const a=document.createElement('div');a.className='msg agent'
-    a.innerHTML=`<div class="msg-bubble">${getResponse(msg)}</div><div class="msg-time">${now()}</div>`;c.appendChild(a)
-    c.scrollTop=c.scrollHeight
-  },800+Math.random()*600)
-}
+function approveBet(){document.getElementById('approval-zone').innerHTML=`<div class="no-pending"><div class="ld" style="flex-shrink:0"></div>No bets awaiting approval</div>`;document.getElementById('t-pending').textContent='0';document.getElementById('t-bal').textContent='$1,192';showToast('Banker deployed — $48.00 USDC placed on Polygon.')}
+function rejectBet(){document.getElementById('approval-zone').innerHTML=`<div class="no-pending">Bet rejected.</div>`;document.getElementById('t-pending').textContent='0';showToast('Bet rejected.')}
+function showToast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4000)}
+function showConfirm(id,msg){const c=document.getElementById(id);if(!c)return;c.textContent=msg;c.classList.add('show');setTimeout(()=>c.classList.remove('show'),3000)}
+const chatR={default:["Fed cut at 34¢ is the strongest edge — 18 pts below model.","Kelly says 3.2% of bankroll.","Cross-referencing Polymarket, CME FedWatch, Metaculus — all aligned."],fed:["Fed cut: market 34¢, model 52%. Classic mispriced macro event."],kelly:["Kelly optimal: 3.2% of bankroll — $39.68 on $1,240."],btc:["BTC $100K Q2 shows +13pt edge. Size around 2% of bankroll."],confidence:["Model weighs market divergence, 48hr news sentiment, Metaculus calibration."]}
+function getResp(q){const l=q.toLowerCase();if(l.includes('fed')||l.includes('rate'))return chatR.fed[0];if(l.includes('kelly'))return chatR.kelly[0];if(l.includes('btc'))return chatR.btc[0];if(l.includes('confidence')||l.includes('model'))return chatR.confidence[0];return chatR.default[Math.floor(Math.random()*chatR.default.length)]}
+function sendMessage(){const input=document.getElementById('chat-input'),msg=input.value.trim();if(!msg)return;input.value='';const c=document.getElementById('chat-messages');const u=document.createElement('div');u.className='msg user';u.innerHTML=`<div class="msg-bubble">${msg}</div><div class="msg-time">${now()}</div>`;c.appendChild(u);const ty=document.createElement('div');ty.className='msg agent';ty.innerHTML=`<div class="typing"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;c.appendChild(ty);c.scrollTop=c.scrollHeight;setTimeout(()=>{ty.remove();const a=document.createElement('div');a.className='msg agent';a.innerHTML=`<div class="msg-bubble">${getResp(msg)}</div><div class="msg-time">${now()}</div>`;c.appendChild(a);c.scrollTop=c.scrollHeight},800+Math.random()*500)}
 document.getElementById('chat-input').addEventListener('keydown',e=>{if(e.key==='Enter')sendMessage()})
 
-/* ── AGENT BUILDER ── */
-const BP_COLORS={
-  '#3b82f6':'#1d4ed8','#22c55e':'#15803d','#f59e0b':'#b45309',
-  '#ef4444':'#b91c1c','#8b5cf6':'#6d28d9','#ec4899':'#be185d',
-  '#14b8a6':'#0f766e','#f97316':'#c2410c','#64748b':'#334155'
-}
-
-const bp={editingId:null,name:'',shape:'round',head:'visor',acc:'antenna',color:'#3b82f6',border:'#1d4ed8',skills:new Set(['market-research'])}
-let agents=[] /* [{id,name,shape,head,acc,color,border,skills,officeIdx}] */
-let nextId=1
-let nextOffice=0
-
-/* office slot data */
-const offices=Array(5).fill(null).map((_,i)=>({idx:i,agentId:null}))
-
-function bpRobot(c,brd,shape,head,acc,w,h){
-  const bodies={
-    round:`<ellipse cx="50" cy="66" rx="22" ry="20" fill="${c}" stroke="${brd}" stroke-width="1.2"/><ellipse cx="50" cy="66" rx="14" ry="11" fill="${brd}" opacity=".14"/>`,
-    square:`<rect x="28" y="46" width="44" height="38" rx="6" fill="${c}" stroke="${brd}" stroke-width="1.2"/><rect x="35" y="53" width="30" height="22" rx="2" fill="${brd}" opacity=".12"/>`,
-    tall:`<rect x="32" y="40" width="36" height="48" rx="8" fill="${c}" stroke="${brd}" stroke-width="1.2"/><rect x="38" y="50" width="24" height="28" rx="2" fill="${brd}" opacity=".12"/>`,
-    wide:`<rect x="18" y="54" width="64" height="30" rx="6" fill="${c}" stroke="${brd}" stroke-width="1.2"/><rect x="26" y="60" width="48" height="18" rx="2" fill="${brd}" opacity=".12"/>`
-  }
-  const heads={
-    visor:`<rect x="30" y="18" width="40" height="30" rx="8" fill="${c}" stroke="${brd}" stroke-width="1.3"/><ellipse cx="50" cy="34" rx="14" ry="10" fill="#0a0a0a" opacity=".85"/><ellipse cx="44" cy="33" rx="4" ry="4.5" fill="#a8f060"/><ellipse cx="56" cy="33" rx="4" ry="4.5" fill="#a8f060"/><ellipse cx="44" cy="32" rx="2.2" ry="2.5" fill="#e0ff90"/><ellipse cx="56" cy="32" rx="2.2" ry="2.5" fill="#e0ff90"/>`,
-    square:`<rect x="30" y="16" width="40" height="32" rx="4" fill="${c}" stroke="${brd}" stroke-width="1.3"/><rect x="35" y="22" width="12" height="10" rx="2.5" fill="white" stroke="${brd}" stroke-width="0.8" opacity=".9"/><rect x="53" y="22" width="12" height="10" rx="2.5" fill="white" stroke="${brd}" stroke-width="0.8" opacity=".9"/><circle cx="41" cy="27" r="3.5" fill="${brd}"/><circle cx="59" cy="27" r="3.5" fill="${brd}"/><line x1="38" y1="40" x2="62" y2="40" stroke="${brd}" stroke-width="1.2" opacity=".6"/>`,
-    round:`<ellipse cx="50" cy="30" rx="20" ry="18" fill="${c}" stroke="${brd}" stroke-width="1.3"/><rect x="36" y="24" width="9" height="10" rx="3" fill="white" stroke="${brd}" stroke-width="0.8" opacity=".9"/><rect x="55" y="24" width="9" height="10" rx="3" fill="white" stroke="${brd}" stroke-width="0.8" opacity=".9"/><circle cx="40" cy="29" r="3" fill="${brd}"/><circle cx="59" cy="29" r="3" fill="${brd}"/><path d="M40 42 Q50 48 60 42" fill="none" stroke="${brd}" stroke-width="1.3"/>`,
-    dome:`<ellipse cx="50" cy="26" rx="22" ry="20" fill="${c}" stroke="${brd}" stroke-width="1.3"/><rect x="28" y="32" width="44" height="12" fill="${c}"/><ellipse cx="50" cy="28" rx="14" ry="10" fill="#1e293b" opacity=".8"/><circle cx="44" cy="27" r="3.5" fill="white" opacity=".9"/><circle cx="56" cy="27" r="3.5" fill="white" opacity=".9"/><circle cx="44" cy="27" r="1.8" fill="${c}"/><circle cx="56" cy="27" r="1.8" fill="${c}"/>`
-  }
-  const accs={
-    antenna:`<line x1="50" y1="5" x2="50" y2="18" stroke="${brd}" stroke-width="1.2"/><circle cx="50" cy="4" r="3.5" fill="${c}" stroke="${brd}" stroke-width="0.8"/>`,
-    beanie:`<ellipse cx="50" cy="14" rx="21" ry="6" fill="${c}"/><rect x="30" y="10" width="40" height="8" rx="4" fill="${c}" stroke="${brd}" stroke-width="0.8"/><ellipse cx="50" cy="8" rx="17" ry="10" fill="${c}" stroke="${brd}" stroke-width="0.5"/><circle cx="50" cy="0" r="5" fill="white" stroke="${brd}" stroke-width="0.8"/><line x1="50" y1="0" x2="50" y2="10" stroke="${brd}" stroke-width="0.6" opacity=".5"/>`,
-    halo:`<ellipse cx="50" cy="9" rx="16" ry="5" fill="none" stroke="#fbbf24" stroke-width="2"/>`,
-    cap:`<ellipse cx="50" cy="17" rx="21" ry="5" fill="${brd}"/><rect x="29" y="13" width="42" height="7" rx="3.5" fill="${brd}"/><ellipse cx="50" cy="11" rx="16" ry="8" fill="${brd}"/>`,
-    none:``
-  }
-  const arms={
-    round:`<ellipse cx="22" cy="64" rx="8" ry="13" fill="${c}" stroke="${brd}" stroke-width="1"/><ellipse cx="78" cy="64" rx="8" ry="13" fill="${c}" stroke="${brd}" stroke-width="1"/>`,
-    square:`<rect x="11" y="48" width="14" height="24" rx="5" fill="${c}" stroke="${brd}" stroke-width="1"/><rect x="75" y="48" width="14" height="24" rx="5" fill="${c}" stroke="${brd}" stroke-width="1"/>`,
-    tall:`<rect x="13" y="44" width="13" height="28" rx="5" fill="${c}" stroke="${brd}" stroke-width="1"/><rect x="74" y="44" width="13" height="28" rx="5" fill="${c}" stroke="${brd}" stroke-width="1"/>`,
-    wide:`<rect x="5" y="56" width="11" height="20" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/><rect x="84" y="56" width="11" height="20" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/>`
-  }
-  const legs={
-    round:`<ellipse cx="40" cy="92" rx="8" ry="12" fill="${c}" stroke="${brd}" stroke-width="1"/><ellipse cx="60" cy="92" rx="8" ry="12" fill="${c}" stroke="${brd}" stroke-width="1"/>`,
-    square:`<rect x="30" y="84" width="14" height="18" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/><rect x="56" y="84" width="14" height="18" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/>`,
-    tall:`<rect x="33" y="88" width="12" height="16" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/><rect x="55" y="88" width="12" height="16" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/>`,
-    wide:`<ellipse cx="36" cy="90" rx="9" ry="10" fill="${c}" stroke="${brd}" stroke-width="1"/><ellipse cx="64" cy="90" rx="9" ry="10" fill="${c}" stroke="${brd}" stroke-width="1"/>`
-  }
+/* ROBOT */
+const AB_COLORS={'#3b82f6':'#1d4ed8','#22c55e':'#15803d','#f59e0b':'#b45309','#ef4444':'#b91c1c','#8b5cf6':'#6d28d9','#ec4899':'#be185d','#14b8a6':'#0f766e','#f97316':'#c2410c','#64748b':'#334155'}
+function drawRobot(c,brd,shape,head,acc,w,h){
+  const bodies={round:`<ellipse cx="50" cy="66" rx="22" ry="20" fill="${c}" stroke="${brd}" stroke-width="1.2"/><ellipse cx="50" cy="66" rx="14" ry="11" fill="${brd}" opacity=".14"/>`,square:`<rect x="28" y="46" width="44" height="38" rx="6" fill="${c}" stroke="${brd}" stroke-width="1.2"/><rect x="35" y="53" width="30" height="22" rx="2" fill="${brd}" opacity=".12"/>`,tall:`<rect x="32" y="40" width="36" height="48" rx="8" fill="${c}" stroke="${brd}" stroke-width="1.2"/><rect x="38" y="50" width="24" height="28" rx="2" fill="${brd}" opacity=".12"/>`,wide:`<rect x="18" y="54" width="64" height="30" rx="6" fill="${c}" stroke="${brd}" stroke-width="1.2"/><rect x="26" y="60" width="48" height="18" rx="2" fill="${brd}" opacity=".12"/>`}
+  const heads={visor:`<rect x="30" y="18" width="40" height="30" rx="8" fill="${c}" stroke="${brd}" stroke-width="1.3"/><ellipse cx="50" cy="34" rx="14" ry="10" fill="#0a0a0a" opacity=".85"/><ellipse cx="44" cy="33" rx="4" ry="4.5" fill="#a8f060"/><ellipse cx="56" cy="33" rx="4" ry="4.5" fill="#a8f060"/><ellipse cx="44" cy="32" rx="2.2" ry="2.5" fill="#e0ff90"/><ellipse cx="56" cy="32" rx="2.2" ry="2.5" fill="#e0ff90"/>`,square:`<rect x="30" y="16" width="40" height="32" rx="4" fill="${c}" stroke="${brd}" stroke-width="1.3"/><rect x="35" y="22" width="12" height="10" rx="2.5" fill="white" stroke="${brd}" stroke-width="0.8" opacity=".9"/><rect x="53" y="22" width="12" height="10" rx="2.5" fill="white" stroke="${brd}" stroke-width="0.8" opacity=".9"/><circle cx="41" cy="27" r="3.5" fill="${brd}"/><circle cx="59" cy="27" r="3.5" fill="${brd}"/>`,round:`<ellipse cx="50" cy="30" rx="20" ry="18" fill="${c}" stroke="${brd}" stroke-width="1.3"/><rect x="36" y="24" width="9" height="10" rx="3" fill="white" stroke="${brd}" stroke-width="0.8" opacity=".9"/><rect x="55" y="24" width="9" height="10" rx="3" fill="white" stroke="${brd}" stroke-width="0.8" opacity=".9"/><circle cx="40" cy="29" r="3" fill="${brd}"/><circle cx="59" cy="29" r="3" fill="${brd}"/><path d="M40 42 Q50 48 60 42" fill="none" stroke="${brd}" stroke-width="1.3"/>`,dome:`<ellipse cx="50" cy="26" rx="22" ry="20" fill="${c}" stroke="${brd}" stroke-width="1.3"/><rect x="28" y="32" width="44" height="12" fill="${c}"/><ellipse cx="50" cy="28" rx="14" ry="10" fill="#1e293b" opacity=".8"/><circle cx="44" cy="27" r="3.5" fill="white" opacity=".9"/><circle cx="56" cy="27" r="3.5" fill="white" opacity=".9"/><circle cx="44" cy="27" r="1.8" fill="${c}"/><circle cx="56" cy="27" r="1.8" fill="${c}"/>`}
+  const accs={antenna:`<line x1="50" y1="5" x2="50" y2="18" stroke="${brd}" stroke-width="1.2"/><circle cx="50" cy="4" r="3.5" fill="${c}" stroke="${brd}" stroke-width="0.8"/>`,beanie:`<ellipse cx="50" cy="14" rx="21" ry="6" fill="${c}"/><rect x="30" y="10" width="40" height="8" rx="4" fill="${c}" stroke="${brd}" stroke-width="0.8"/><ellipse cx="50" cy="8" rx="17" ry="10" fill="${c}" stroke="${brd}" stroke-width="0.5"/><circle cx="50" cy="0" r="5" fill="white" stroke="${brd}" stroke-width="0.8"/>`,halo:`<ellipse cx="50" cy="9" rx="16" ry="5" fill="none" stroke="#fbbf24" stroke-width="2"/>`,cap:`<ellipse cx="50" cy="17" rx="21" ry="5" fill="${brd}"/><rect x="29" y="13" width="42" height="7" rx="3.5" fill="${brd}"/><ellipse cx="50" cy="11" rx="16" ry="8" fill="${brd}"/>`,none:``}
+  const arms={round:`<ellipse cx="22" cy="64" rx="8" ry="13" fill="${c}" stroke="${brd}" stroke-width="1"/><ellipse cx="78" cy="64" rx="8" ry="13" fill="${c}" stroke="${brd}" stroke-width="1"/>`,square:`<rect x="11" y="48" width="14" height="24" rx="5" fill="${c}" stroke="${brd}" stroke-width="1"/><rect x="75" y="48" width="14" height="24" rx="5" fill="${c}" stroke="${brd}" stroke-width="1"/>`,tall:`<rect x="13" y="44" width="13" height="28" rx="5" fill="${c}" stroke="${brd}" stroke-width="1"/><rect x="74" y="44" width="13" height="28" rx="5" fill="${c}" stroke="${brd}" stroke-width="1"/>`,wide:`<rect x="5" y="56" width="11" height="20" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/><rect x="84" y="56" width="11" height="20" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/>`}
+  const legs={round:`<ellipse cx="40" cy="92" rx="8" ry="12" fill="${c}" stroke="${brd}" stroke-width="1"/><ellipse cx="60" cy="92" rx="8" ry="12" fill="${c}" stroke="${brd}" stroke-width="1"/>`,square:`<rect x="30" y="84" width="14" height="18" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/><rect x="56" y="84" width="14" height="18" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/>`,tall:`<rect x="33" y="88" width="12" height="16" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/><rect x="55" y="88" width="12" height="16" rx="4" fill="${c}" stroke="${brd}" stroke-width="1"/>`,wide:`<ellipse cx="36" cy="90" rx="9" ry="10" fill="${c}" stroke="${brd}" stroke-width="1"/><ellipse cx="64" cy="90" rx="9" ry="10" fill="${c}" stroke="${brd}" stroke-width="1"/>`}
   return `<svg width="${w}" height="${h}" viewBox="0 0 100 120">${accs[acc]||''}${heads[head]||''}${arms[shape]||''}${bodies[shape]||''}${legs[shape]||''}</svg>`
 }
 
-function bpUpdatePreview(){
-  const el=document.getElementById('bp-preview');if(!el)return
-  const name=document.getElementById('bp-name').value.trim()
-  el.innerHTML=`${bpRobot(bp.color,bp.border,bp.shape,bp.head,bp.acc,90,110)}<div class="bp-preview-name">${name||'Unnamed'}</div>`
-}
-
-function bpSet(group,val,btn){
-  bp[group]=val
-  document.querySelectorAll(`.bp-opt[data-group="${group}"]`).forEach(b=>b.classList.remove('on'))
-  btn.classList.add('on')
-  bpUpdatePreview()
-}
-
-function bpSetColor(el){
-  bp.color=el.dataset.c
-  bp.border=BP_COLORS[bp.color]||'#000'
-  document.querySelectorAll('.bp-swatch').forEach(s=>s.classList.remove('on'))
-  el.classList.add('on')
-  bpUpdatePreview()
-}
-
-function bpToggleSkill(el){
-  const id=el.dataset.skill
-  if(bp.skills.has(id)){bp.skills.delete(id);el.classList.remove('on')}
-  else{bp.skills.add(id);el.classList.add('on')}
-}
-
-function bpSyncUI(){
-  document.getElementById('bp-name').value=bp.name
-  document.querySelectorAll('.bp-opt').forEach(b=>{
-    b.classList.toggle('on',b.dataset.val===bp[b.dataset.group])
-  })
-  document.querySelectorAll('.bp-swatch').forEach(s=>s.classList.toggle('on',s.dataset.c===bp.color))
-  document.querySelectorAll('.skill-card').forEach(s=>s.classList.toggle('on',bp.skills.has(s.dataset.skill)))
-  document.getElementById('bp-save-btn').textContent=bp.editingId!==null?'Save changes':'Save agent'
-  bpUpdatePreview()
-}
-
-function bpSave(){
-  const name=document.getElementById('bp-name').value.trim()||'Agent'
-  const skillArr=Array.from(bp.skills)
-  if(bp.editingId!==null){
-    const agent=agents.find(a=>a.id===bp.editingId)
-    if(agent){
-      Object.assign(agent,{name,shape:bp.shape,head:bp.head,acc:bp.acc,color:bp.color,border:bp.border,skills:skillArr})
-      renderTray()
-      /* if deployed, update office */
-      if(agent.officeIdx!==null&&agent.officeIdx!==undefined) deployAgentToOffice(agent,agent.officeIdx)
-      showConfirm(`${name} updated`)
-    }
-    bp.editingId=null
-  } else {
-    const agent={id:nextId++,name,shape:bp.shape,head:bp.head,acc:bp.acc,color:bp.color,border:bp.border,skills:skillArr,officeIdx:null}
-    agents.push(agent)
-    renderTray()
-    showConfirm(`${name} saved — deploy them to an office above`)
+/* ROOM */
+function drawRoom(wall,floor,desk,items,w,h){
+  const iset=new Set(Array.isArray(items)?items:Array.from(items))
+  const floors={wood:{fill:'#c8a46a',stroke:'#b08848'},tile:{fill:'#e8e8e8',stroke:'#d0d0d0',tile:true},carpet:{fill:'#c4b5fd',stroke:'#a78bfa'},concrete:{fill:'#94a3b8',stroke:'#7c8ea6'}}
+  const f=floors[floor]||floors.wood
+  const dark=wall==='#1e293b'
+  const fh=Math.round(h*0.28),fy=h-fh
+  let s=`<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg"><rect width="${w}" height="${h}" fill="${wall}"/>`
+  s+=`<rect x="0" y="${fy}" width="${w}" height="${fh}" fill="${f.fill}"/><line x1="0" y1="${fy}" x2="${w}" y2="${fy}" stroke="${f.stroke}" stroke-width="1"/>`
+  if(f.tile){const ts=Math.round(w/5);for(let x=0;x<w;x+=ts)s+=`<line x1="${x}" y1="${fy}" x2="${x}" y2="${h}" stroke="${f.stroke}" stroke-width="0.4"/>`;for(let y=fy;y<h;y+=ts)s+=`<line x1="0" y1="${y}" x2="${w}" y2="${y}" stroke="${f.stroke}" stroke-width="0.4"/>`}
+  else{for(let i=1;i<4;i++)s+=`<line x1="${Math.round(w*i/4)}" y1="${fy}" x2="${Math.round(w*i/4)}" y2="${h}" stroke="${f.stroke}" stroke-width="0.4"/>`}
+  if(iset.has('window')){const wc=dark?'#1a2a4a':'#dbeafe',ws=dark?'#2a4a6a':'#93c5fd',wx=Math.round(w*0.56),ww=Math.round(w*0.33),wh=Math.round(h*0.3);s+=`<rect x="${wx}" y="5" width="${ww}" height="${wh}" rx="2" fill="${wc}" stroke="${ws}" stroke-width="1.2"/><line x1="${wx+Math.round(ww/2)}" y1="5" x2="${wx+Math.round(ww/2)}" y2="${5+wh}" stroke="${ws}" stroke-width="1"/><line x1="${wx}" y1="${5+Math.round(wh/2)}" x2="${wx+ww}" y2="${5+Math.round(wh/2)}" stroke="${ws}" stroke-width="1"/>`;s+=dark?`<circle cx="${wx+8}" cy="${Math.round(h*0.1)}" r="5" fill="#fde68a" opacity=".7"/>`:`<ellipse cx="${wx+8}" cy="${Math.round(h*0.1)}" rx="8" ry="6" fill="#fde68a" opacity=".4"/>`}
+  if(iset.has('corkboard')){s+=`<rect x="4" y="6" width="${Math.round(w*0.28)}" height="${Math.round(h*0.3)}" rx="1.5" fill="#c8a060" stroke="#a07840" stroke-width="1"/><rect x="7" y="9" width="${Math.round(w*0.28-6)}" height="${Math.round(h*0.3-6)}" rx="1" fill="#d4b07a"/><rect x="9" y="12" width="16" height="10" rx="1" fill="#fef3c7" stroke="#fde68a" stroke-width="0.5"/><circle cx="17" cy="12" r="1.5" fill="#ef4444"/><rect x="28" y="11" width="16" height="12" rx="1" fill="#dbeafe" stroke="#93c5fd" stroke-width="0.5"/><circle cx="36" cy="11" r="1.5" fill="#3b82f6"/><rect x="9" y="25" width="14" height="8" rx="1" fill="#fefce8" stroke="#fde68a" stroke-width="0.5"/>`}
+  if(iset.has('bookshelf')){const bx=iset.has('corkboard')?Math.round(w*0.33):4,bw=Math.round(w*0.16);s+=`<rect x="${bx}" y="6" width="${bw}" height="${Math.round(h*0.36)}" rx="1" fill="#e0d4bc" stroke="#c8b890" stroke-width="0.8"/>`;let bxo=bx+2;[['#ef4444',8],['#3b82f6',7],['#22c55e',9],['#f59e0b',6],['#8b5cf6',8],['#ef4444',7]].forEach(([bc,bw2])=>{s+=`<rect x="${bxo}" y="8" width="${bw2}" height="${Math.round(h*0.32)}" rx="0.5" fill="${bc}" opacity=".6"/>`;bxo+=bw2+1})}
+  if(iset.has('whiteboard')){const wbw=Math.round(w*0.3),wbx=w-wbw-4;s+=`<rect x="${wbx}" y="6" width="${wbw}" height="${Math.round(h*0.32)}" rx="1" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/><rect x="${wbx+2}" y="8" width="${wbw-4}" height="${Math.round(h*0.28)}" rx="0.5" fill="#fff"/><polyline points="${wbx+4},${Math.round(h*0.28)} ${wbx+10},${Math.round(h*0.2)} ${wbx+16},${Math.round(h*0.24)} ${wbx+22},${Math.round(h*0.15)} ${wbx+28},${Math.round(h*0.2)}" fill="none" stroke="#22c55e" stroke-width="1" opacity=".6"/><rect x="${wbx}" y="${Math.round(h*0.33)}" width="${wbw}" height="3" rx="0.5" fill="#f0f0f0"/>`}
+  const dc='#c8b890',ds='#b0a070',deskH=Math.round(h*0.065),deskW=Math.round(w*0.68),deskX=Math.round((w-deskW)/2),deskY=fy-Math.round(h*0.1),legH=Math.round(h*0.1)
+  if(desk==='standard'||desk==='l-shape'||desk==='standing'){
+    const dy=desk==='standing'?fy-Math.round(h*0.26):deskY
+    s+=`<rect x="${deskX}" y="${dy}" width="${deskW}" height="${deskH}" rx="1" fill="${dc}" stroke="${ds}" stroke-width="0.8"/><rect x="${deskX+4}" y="${dy+deskH}" width="4" height="${legH}" rx="1" fill="${ds}"/><rect x="${deskX+deskW-8}" y="${dy+deskH}" width="4" height="${legH}" rx="1" fill="${ds}"/>`
+    if(desk==='l-shape'){const lh=Math.round(h*0.16);s+=`<rect x="${deskX}" y="${dy-lh}" width="${Math.round(deskW*0.38)}" height="${lh}" rx="1" fill="${dc}" stroke="${ds}" stroke-width="0.8"/><rect x="${deskX+4}" y="${dy-lh}" width="4" height="${lh}" rx="1" fill="${ds}"/>`}
+    if(iset.has('monitor')){const mc=dark?'#1e293b':'#f0f6ff',ms=dark?'#334155':'#bfdbfe',mw=Math.round(w*0.24),mh=Math.round(h*0.15),mx=Math.round((w-mw)/2),my=dy-mh-2;s+=`<rect x="${mx}" y="${my}" width="${mw}" height="${mh}" rx="1.5" fill="${mc}" stroke="${ms}" stroke-width="1"/><rect x="${mx+2}" y="${my+2}" width="${mw-4}" height="${mh-4}" rx="0.5" fill="${dark?'#0f172a':'#fff'}" stroke="${ms}" stroke-width="0.4"/><line x1="${mx+4}" y1="${my+Math.round(mh*0.4)}" x2="${mx+mw-4}" y2="${my+Math.round(mh*0.4)}" stroke="${dark?'#38bdf8':'#93c5fd'}" stroke-width="0.8" opacity=".6"/><line x1="${mx+4}" y1="${my+Math.round(mh*0.65)}" x2="${mx+mw-8}" y2="${my+Math.round(mh*0.65)}" stroke="${dark?'#38bdf8':'#93c5fd'}" stroke-width="0.8" opacity=".4"/><rect x="${mx+Math.round(mw/2)-2}" y="${dy}" width="4" height="3" rx="0.5" fill="${ms}"/>`}
   }
-  document.querySelectorAll('.tray-agent').forEach(c=>c.classList.remove('editing'))
-  document.getElementById('bp-save-btn').textContent='Save agent'
+  if(iset.has('plant')){const px=6;s+=`<rect x="${px}" y="${fy-14}" width="12" height="12" rx="2" fill="#6b4c2a" stroke="#4a3018" stroke-width="0.8"/><line x1="${px+6}" y1="${fy-14}" x2="${px+4}" y2="${fy-30}" stroke="#4a7c28" stroke-width="1.5"/><line x1="${px+6}" y1="${fy-24}" x2="${px+14}" y2="${fy-33}" stroke="#4a7c28" stroke-width="1.2"/><ellipse cx="${px+3}" cy="${fy-31}" rx="7" ry="5" fill="#5a9a30" opacity=".9" transform="rotate(-20 ${px+3} ${fy-31})"/><ellipse cx="${px+14}" cy="${fy-34}" rx="6" ry="4" fill="#4a8a28" opacity=".9" transform="rotate(15 ${px+14} ${fy-34})"/>`}
+  if(iset.has('lamp')){const lpx=w-12;s+=`<line x1="${lpx}" y1="${fy-2}" x2="${lpx}" y2="${fy-Math.round(h*0.48)}" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/><path d="M${lpx-10} ${fy-Math.round(h*0.48)} L${lpx} ${fy-Math.round(h*0.36)} L${lpx+10} ${fy-Math.round(h*0.48)} Z" fill="#fde68a" stroke="#f59e0b" stroke-width="0.8"/><line x1="${lpx-6}" y1="${fy-2}" x2="${lpx+6}" y2="${fy-2}" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>`}
+  if(iset.has('rug')){s+=`<ellipse cx="${Math.round(w/2)}" cy="${fy+Math.round(fh*0.55)}" rx="${Math.round(w*0.3)}" ry="${Math.round(fh*0.27)}" fill="${f.fill}" stroke="${f.stroke}" stroke-width="2.5" opacity=".7"/><ellipse cx="${Math.round(w/2)}" cy="${fy+Math.round(fh*0.55)}" rx="${Math.round(w*0.2)}" ry="${Math.round(fh*0.17)}" fill="none" stroke="${f.stroke}" stroke-width="1" opacity=".45"/>`}
+  return s+`</svg>`
 }
 
-function bpNew(){
-  bp.editingId=null;bp.name='';bp.shape='round';bp.head='visor';bp.acc='antenna'
-  bp.color='#3b82f6';bp.border='#1d4ed8';bp.skills=new Set()
-  document.querySelectorAll('.tray-agent').forEach(c=>c.classList.remove('editing'))
-  bpSyncUI()
-  document.getElementById('bp-name').focus()
-}
+/* AGENT BUILDER */
+const ab={editingId:null,name:'',shape:'round',head:'visor',acc:'antenna',color:'#3b82f6',border:'#1d4ed8',skills:new Set(['market-research'])}
+let agents=[],nextAgentId=1
+const officeSlots=Array(5).fill(null).map((_,i)=>({idx:i,agentId:null,roomId:null}))
+function abUpdatePreview(){const el=document.getElementById('ab-preview');if(!el)return;el.innerHTML=`${drawRobot(ab.color,ab.border,ab.shape,ab.head,ab.acc,90,110)}<div class="bp-preview-name">${document.getElementById('ab-name').value.trim()||'Unnamed'}</div>`}
+function abSet(g,v,btn){ab[g]=v;document.querySelectorAll(`.bp-opt[data-group="${g}"]`).forEach(b=>b.classList.remove('on'));btn.classList.add('on');abUpdatePreview()}
+function abSetColor(el){ab.color=el.dataset.c;ab.border=AB_COLORS[ab.color]||'#000';document.querySelectorAll('#ab-swatches .bp-swatch').forEach(s=>s.classList.remove('on'));el.classList.add('on');abUpdatePreview()}
+function abToggleSkill(el){const id=el.dataset.skill;ab.skills.has(id)?(ab.skills.delete(id),el.classList.remove('on')):(ab.skills.add(id),el.classList.add('on'))}
+function abSyncUI(){document.getElementById('ab-name').value=ab.name;document.querySelectorAll('#agent-builder-section .bp-opt').forEach(b=>{if(['shape','head','acc'].includes(b.dataset.group))b.classList.toggle('on',b.dataset.val===ab[b.dataset.group])});document.querySelectorAll('#ab-swatches .bp-swatch').forEach(s=>s.classList.toggle('on',s.dataset.c===ab.color));document.querySelectorAll('#ab-skills-grid .item-card').forEach(s=>s.classList.toggle('on',ab.skills.has(s.dataset.skill)));document.getElementById('ab-save-btn').textContent=ab.editingId!==null?'Save changes':'Save agent';abUpdatePreview()}
+function abSave(){const name=document.getElementById('ab-name').value.trim()||'Agent',skillArr=Array.from(ab.skills);if(ab.editingId!==null){const agent=agents.find(a=>a.id===ab.editingId);if(agent){Object.assign(agent,{name,shape:ab.shape,head:ab.head,acc:ab.acc,color:ab.color,border:ab.border,skills:skillArr});renderAgentTray();if(agent.officeIdx!==null&&agent.officeIdx!==undefined)renderOffice(agent.officeIdx);showConfirm('ab-confirm',`${name} updated`)};ab.editingId=null}else{const agent={id:nextAgentId++,name,shape:ab.shape,head:ab.head,acc:ab.acc,color:ab.color,border:ab.border,skills:skillArr,officeIdx:null,working:false};agents.push(agent);renderAgentTray();showConfirm('ab-confirm',`${name} saved — deploy to an office above`)};document.querySelectorAll('#agent-tray .tray-card').forEach(c=>c.classList.remove('editing'));document.getElementById('ab-save-btn').textContent='Save agent'}
+function abNew(){ab.editingId=null;ab.name='';ab.shape='round';ab.head='visor';ab.acc='antenna';ab.color='#3b82f6';ab.border='#1d4ed8';ab.skills=new Set();document.querySelectorAll('#agent-tray .tray-card').forEach(c=>c.classList.remove('editing'));abSyncUI();document.getElementById('ab-name').focus()}
+function abEditAgent(id){const a=agents.find(a=>a.id===id);if(!a)return;ab.editingId=id;ab.name=a.name;ab.shape=a.shape;ab.head=a.head;ab.acc=a.acc;ab.color=a.color;ab.border=a.border;ab.skills=new Set(a.skills);document.querySelectorAll('#agent-tray .tray-card').forEach(c=>c.classList.remove('editing'));document.querySelector(`#agent-tray .tray-card[data-id="${id}"]`)?.classList.add('editing');abSyncUI();document.getElementById('agent-builder-section').scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>document.getElementById('ab-name').focus(),400)}
+function abDeployAgent(id){const a=agents.find(a=>a.id===id);if(!a)return;let slot=officeSlots.find(o=>o.agentId===null);if(!slot){slot=officeSlots[0];const old=agents.find(a=>a.id===slot.agentId);if(old)old.officeIdx=null};if(a.officeIdx!==null&&a.officeIdx!==undefined)officeSlots[a.officeIdx].agentId=null;slot.agentId=id;a.officeIdx=slot.idx;a.working=false;renderOffice(slot.idx);renderAgentTray();showToast(`${a.name} deployed to Office ${slot.idx+1}`)}
+function abRecallAgent(id){const a=agents.find(a=>a.id===id);if(!a)return;if(a.officeIdx!==null&&a.officeIdx!==undefined){officeSlots[a.officeIdx].agentId=null;renderOffice(a.officeIdx);a.officeIdx=null};renderAgentTray();showToast(`${a.name} recalled`)}
+function abDeleteAgent(id){const a=agents.find(a=>a.id===id);if(!a)return;if(a.officeIdx!==null&&a.officeIdx!==undefined){officeSlots[a.officeIdx].agentId=null;renderOffice(a.officeIdx)};agents=agents.filter(x=>x.id!==id);if(ab.editingId===id){ab.editingId=null;abNew()};renderAgentTray();showToast(`${a.name} deleted`)}
+function abToggleWorking(id){const a=agents.find(a=>a.id===id);if(!a||a.officeIdx===null||a.officeIdx===undefined)return;a.working=!a.working;renderOffice(a.officeIdx);renderAgentTray()}
+function renderAgentTray(){const tray=document.getElementById('agent-tray');if(agents.length===0){tray.innerHTML='<div class="tray-empty">No agents yet — build your first one above.</div>';return};tray.innerHTML=agents.map(a=>`<div class="tray-card${ab.editingId===a.id?' editing':''}" data-id="${a.id}">${drawRobot(a.color,a.border,a.shape,a.head,a.acc,36,44)}<div><div class="tray-card-name">${a.name}</div><div class="tray-card-sub">${a.skills.slice(0,2).map(s=>s.replace(/-/g,' ')).join(' · ')||'No skills'}${a.officeIdx!==null&&a.officeIdx!==undefined?' · Office '+(a.officeIdx+1):''}</div></div><div class="tray-btns"><button class="tray-btn" onclick="event.stopPropagation();abEditAgent(${a.id})">Edit</button>${a.officeIdx!==null&&a.officeIdx!==undefined?`<button class="tray-btn${a.working?' primary':''}" onclick="event.stopPropagation();abToggleWorking(${a.id})">${a.working?'⏸ Idle':'▶ Work'}</button><button class="tray-btn" onclick="event.stopPropagation();abRecallAgent(${a.id})">Recall</button>`:`<button class="tray-btn primary" onclick="event.stopPropagation();abDeployAgent(${a.id})">Deploy →</button>`}<button class="tray-btn danger" onclick="event.stopPropagation();abDeleteAgent(${a.id})">Delete</button></div></div>`).join('')}
 
-function bpEditAgent(id){
-  const agent=agents.find(a=>a.id===id);if(!agent)return
-  bp.editingId=id;bp.name=agent.name;bp.shape=agent.shape;bp.head=agent.head
-  bp.acc=agent.acc;bp.color=agent.color;bp.border=agent.border;bp.skills=new Set(agent.skills)
-  document.querySelectorAll('.tray-agent').forEach(c=>c.classList.remove('editing'))
-  const card=document.querySelector(`.tray-agent[data-id="${id}"]`)
-  if(card)card.classList.add('editing')
-  bpSyncUI()
-  document.getElementById('builder-section').scrollIntoView({behavior:'smooth',block:'start'})
-  setTimeout(()=>document.getElementById('bp-name').focus(),400)
-}
+/* ROOM BUILDER */
+const rb={editingId:null,name:'',wall:'#ffffff',floor:'wood',desk:'standard',items:new Set(['monitor'])}
+let rooms=[],nextRoomId=1
+function rbUpdatePreview(){const el=document.getElementById('rb-preview');if(!el)return;const name=document.getElementById('rb-name').value.trim();const w=el.offsetWidth||240,h=160;el.style.position='relative';el.innerHTML=`${drawRoom(rb.wall,rb.floor,rb.desk,Array.from(rb.items),w,h)}<div style="position:absolute;bottom:6px;left:0;right:0;text-align:center;font-size:11px;font-weight:500;color:${rb.wall==='#1e293b'?'#e2e8f0':'var(--text)'};pointer-events:none">${name||'Unnamed room'}</div>`}
+function rbSet(g,v,btn){rb[g]=v;document.querySelectorAll(`#room-builder-section .bp-opt[data-group="${g}"]`).forEach(b=>b.classList.remove('on'));btn.classList.add('on');rbUpdatePreview()}
+function rbSetWall(el){rb.wall=el.dataset.c;document.querySelectorAll('#rb-wall-swatches .bp-swatch').forEach(s=>s.classList.remove('on'));el.classList.add('on');rbUpdatePreview()}
+function rbToggleItem(el){const id=el.dataset.item;rb.items.has(id)?(rb.items.delete(id),el.classList.remove('on')):(rb.items.add(id),el.classList.add('on'));rbUpdatePreview()}
+function rbSyncUI(){document.getElementById('rb-name').value=rb.name;document.querySelectorAll('#rb-floor-opts .bp-opt').forEach(b=>b.classList.toggle('on',b.dataset.val===rb.floor));document.querySelectorAll('#rb-desk-opts .bp-opt').forEach(b=>b.classList.toggle('on',b.dataset.val===rb.desk));document.querySelectorAll('#rb-wall-swatches .bp-swatch').forEach(s=>s.classList.toggle('on',s.dataset.c===rb.wall));document.querySelectorAll('#rb-items-grid .item-card').forEach(s=>s.classList.toggle('on',rb.items.has(s.dataset.item)));document.getElementById('rb-save-btn').textContent=rb.editingId!==null?'Save changes':'Save room';rbUpdatePreview()}
+function rbSave(){const name=document.getElementById('rb-name').value.trim()||'Room',itemArr=Array.from(rb.items);if(rb.editingId!==null){const r=rooms.find(r=>r.id===rb.editingId);if(r){Object.assign(r,{name,wall:rb.wall,floor:rb.floor,desk:rb.desk,items:itemArr});renderRoomTray();const slot=officeSlots.find(o=>o.roomId===rb.editingId);if(slot)renderOffice(slot.idx);showConfirm('rb-confirm',`${name} updated`)};rb.editingId=null}else{const r={id:nextRoomId++,name,wall:rb.wall,floor:rb.floor,desk:rb.desk,items:itemArr,officeIdx:null};rooms.push(r);renderRoomTray();showConfirm('rb-confirm',`${name} saved — assign to an office above`)};document.querySelectorAll('#room-tray .tray-card').forEach(c=>c.classList.remove('editing'));document.getElementById('rb-save-btn').textContent='Save room'}
+function rbNew(){rb.editingId=null;rb.name='';rb.wall='#ffffff';rb.floor='wood';rb.desk='standard';rb.items=new Set();document.querySelectorAll('#room-tray .tray-card').forEach(c=>c.classList.remove('editing'));rbSyncUI();document.getElementById('rb-name').focus()}
+function rbEditRoom(id){const r=rooms.find(r=>r.id===id);if(!r)return;rb.editingId=id;rb.name=r.name;rb.wall=r.wall;rb.floor=r.floor;rb.desk=r.desk;rb.items=new Set(r.items);document.querySelectorAll('#room-tray .tray-card').forEach(c=>c.classList.remove('editing'));document.querySelector(`#room-tray .tray-card[data-id="${id}"]`)?.classList.add('editing');rbSyncUI();document.getElementById('room-builder-section').scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>document.getElementById('rb-name').focus(),400)}
+function rbAssignRoom(id){const r=rooms.find(r=>r.id===id);if(!r)return;let slot=officeSlots.find(o=>o.roomId===null);if(!slot){slot=officeSlots[0];const old=rooms.find(r=>r.id===slot.roomId);if(old)old.officeIdx=null};if(r.officeIdx!==null&&r.officeIdx!==undefined)officeSlots[r.officeIdx].roomId=null;slot.roomId=id;r.officeIdx=slot.idx;renderOffice(slot.idx);renderRoomTray();showToast(`${r.name} assigned to Office ${slot.idx+1}`)}
+function rbUnassignRoom(id){const r=rooms.find(r=>r.id===id);if(!r)return;if(r.officeIdx!==null&&r.officeIdx!==undefined){officeSlots[r.officeIdx].roomId=null;renderOffice(r.officeIdx);r.officeIdx=null};renderRoomTray();showToast(`${r.name} unassigned`)}
+function rbDeleteRoom(id){const r=rooms.find(r=>r.id===id);if(!r)return;if(r.officeIdx!==null&&r.officeIdx!==undefined){officeSlots[r.officeIdx].roomId=null;renderOffice(r.officeIdx)};rooms=rooms.filter(x=>x.id!==id);if(rb.editingId===id){rb.editingId=null;rbNew()};renderRoomTray();showToast(`${r.name} deleted`)}
+function renderRoomTray(){const tray=document.getElementById('room-tray');if(rooms.length===0){tray.innerHTML='<div class="tray-empty">No rooms yet — design your first one above.</div>';return};tray.innerHTML=rooms.map(r=>`<div class="tray-card${rb.editingId===r.id?' editing':''}" data-id="${r.id}"><div style="flex-shrink:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;line-height:0">${drawRoom(r.wall,r.floor,r.desk,r.items,60,40)}</div><div><div class="tray-card-name">${r.name}</div><div class="tray-card-sub">${r.floor} · ${r.desk} desk${r.officeIdx!==null&&r.officeIdx!==undefined?' · Office '+(r.officeIdx+1):''}</div></div><div class="tray-btns"><button class="tray-btn" onclick="event.stopPropagation();rbEditRoom(${r.id})">Edit</button>${r.officeIdx!==null&&r.officeIdx!==undefined?`<button class="tray-btn" onclick="event.stopPropagation();rbUnassignRoom(${r.id})">Unassign</button>`:`<button class="tray-btn primary" onclick="event.stopPropagation();rbAssignRoom(${r.id})">Assign →</button>`}<button class="tray-btn danger" onclick="event.stopPropagation();rbDeleteRoom(${r.id})">Delete</button></div></div>`).join('')}
 
-function bpDeployAgent(id){
-  const agent=agents.find(a=>a.id===id);if(!agent)return
-  /* find next free office */
-  let slot=offices.find(o=>o.agentId===null)
-  if(!slot){
-    /* all offices full — replace the oldest */
-    slot=offices[0]
-    const old=agents.find(a=>a.id===slot.agentId)
-    if(old)old.officeIdx=null
-  }
-  /* remove from any current office */
-  if(agent.officeIdx!==null&&agent.officeIdx!==undefined){
-    const prev=offices[agent.officeIdx]
-    if(prev)prev.agentId=null
-    clearOffice(agent.officeIdx)
-  }
-  slot.agentId=id
-  agent.officeIdx=slot.idx
-  deployAgentToOffice(agent,slot.idx)
-  renderTray()
-  showToast(`${agent.name} deployed to Office ${slot.idx+1}`)
-}
-
-function bpRecallAgent(id){
-  const agent=agents.find(a=>a.id===id);if(!agent)return
-  if(agent.officeIdx!==null&&agent.officeIdx!==undefined){
-    offices[agent.officeIdx].agentId=null
-    clearOffice(agent.officeIdx)
-    agent.officeIdx=null
-  }
-  renderTray()
-  showToast(`${agent.name} recalled from office`)
-}
-
-function bpDeleteAgent(id){
-  const agent=agents.find(a=>a.id===id);if(!agent)return
-  if(agent.officeIdx!==null&&agent.officeIdx!==undefined){
-    offices[agent.officeIdx].agentId=null
-    clearOffice(agent.officeIdx)
-  }
-  agents=agents.filter(a=>a.id!==id)
-  if(bp.editingId===id){bp.editingId=null;bpNew()}
-  renderTray()
-  showToast(`${agent.name} deleted`)
-}
-
-function deployAgentToOffice(agent,idx){
-  const nameEl=document.getElementById(`oname-${idx}`)
-  const badgeEl=document.getElementById(`obadge-${idx}`)
-  const roomEl=document.getElementById(`oroom-${idx}`)
-  const logEl=document.getElementById(`olog-${idx}`)
+/* OFFICE RENDERER */
+function renderOffice(idx){
+  const slot=officeSlots[idx],agent=agents.find(a=>a.id===slot.agentId),room=rooms.find(r=>r.id===slot.roomId)
+  const nameEl=document.getElementById(`oname-${idx}`),badgeEl=document.getElementById(`obadge-${idx}`),roomEl=document.getElementById(`oroom-${idx}`),logEl=document.getElementById(`olog-${idx}`)
   if(!nameEl)return
-  nameEl.textContent=agent.name
-  nameEl.style.color=agent.color
-  badgeEl.textContent='Active'
-  badgeEl.style.background=`${agent.color}15`
-  badgeEl.style.color=agent.color
-  badgeEl.style.borderColor=`${agent.color}40`
-  const skillLabel=agent.skills.slice(0,2).map(s=>s.replace(/-/g,' ')).join(', ')||'No skills'
-  roomEl.innerHTML=`
-    <div class="agent-walking">${bpRobot(agent.color,agent.border,agent.shape,agent.head,agent.acc,70,84)}</div>
-    <div class="deployed-name">${agent.name}</div>
-    <div class="deployed-skills">${skillLabel}</div>
-  `
-  roomEl.style.background='#fff'
-  logEl.innerHTML=`
-    <div class="office-log-title">Activity</div>
-    <div class="log-line"><span class="log-time">${now()}</span><span class="log-msg log-active">Agent deployed — ${agent.name}</span></div>
-    <div class="log-line"><span class="log-time">${now()}</span><span class="log-msg">Skills: ${skillLabel}</span></div>
-    <div class="log-line"><span class="log-time">${now()}</span><span class="log-msg" style="color:var(--muted)">Awaiting task assignment</span></div>
-  `
+  if(agent){nameEl.textContent=agent.name;nameEl.style.color=agent.color;badgeEl.textContent=agent.working?'Working':'Idle';badgeEl.style.cssText=`background:${agent.color}18;color:${agent.color};border:1px solid ${agent.color}44;font-size:9px;padding:2px 7px;border-radius:3px;letter-spacing:.06em;font-weight:500`}
+  else{nameEl.textContent=`Office ${idx+1}`;nameEl.style.color='var(--muted)';badgeEl.textContent=room?'Room set':'Empty';badgeEl.style.cssText='background:#f5f5f5;color:var(--faint);border:1px solid var(--border);font-size:9px;padding:2px 7px;border-radius:3px;letter-spacing:.06em;font-weight:500'}
+  const rw=roomEl.offsetWidth||190,rh=190
+  if(room&&agent){const aw=54,ah=66,ax=Math.round((rw-aw)/2),ay=Math.round(rh*0.3);const robotInner=drawRobot(agent.color,agent.border,agent.shape,agent.head,agent.acc,aw,ah).replace(/<svg[^>]*>/,'').replace('</svg>','');const anim=agent.working?'animation:walkpace 3s ease-in-out infinite':'animation:none';const combined=drawRoom(room.wall,room.floor,room.desk,room.items,rw,rh).replace('</svg>',`<g transform="translate(${ax},${ay})" style="${anim}">${robotInner}</g></svg>`);roomEl.innerHTML=combined+`<div class="deployed-name" style="color:${agent.color}">${agent.name}</div><div class="deployed-skills">${agent.skills.slice(0,2).map(s=>s.replace(/-/g,' ')).join(', ')||'no skills'}</div>`;roomEl.style.background='transparent'}
+  else if(room&&!agent){roomEl.innerHTML=drawRoom(room.wall,room.floor,room.desk,room.items,rw,rh)+`<div class="office-empty-hint" style="position:absolute;bottom:28px;left:0;right:0;text-align:center">Room ready — no agent</div>`;roomEl.style.background='transparent'}
+  else if(!room&&agent){const anim=agent.working?'agent-working':'';roomEl.innerHTML=`<div class="${anim}">${drawRobot(agent.color,agent.border,agent.shape,agent.head,agent.acc,70,84)}</div><div class="deployed-name">${agent.name}</div><div class="deployed-skills">${agent.skills.slice(0,2).map(s=>s.replace(/-/g,' ')).join(', ')||'no skills'}</div>`;roomEl.style.background='#fafafa'}
+  else{roomEl.innerHTML=`<div class="office-empty-icon">+</div><div class="office-empty-hint">No agent or room<br>Build below</div>`;roomEl.style.background='#fafafa'}
+  if(agent){logEl.innerHTML=`<div class="office-log-title">Activity</div><div class="log-line"><span class="log-time">${now()}</span><span class="log-msg log-active">${agent.working?'Working: '+(agent.skills[0]||'task').replace(/-/g,' '):'Idle — awaiting task'}</span></div><div class="log-line"><span class="log-time">${now()}</span><span class="log-msg">Skills: ${agent.skills.slice(0,2).map(s=>s.replace(/-/g,' ')).join(', ')||'none'}</span></div><div class="log-line"><span class="log-time">${now()}</span><span class="log-msg" style="color:var(--muted)">${room?'Room: '+room.name:'No room assigned'}</span></div>`}
+  else{logEl.innerHTML=`<div class="office-log-title">Activity</div><div class="log-line"><span class="log-time">—</span><span class="log-msg" style="color:var(--faint)">Waiting for agent</span></div>`}
 }
-
-function clearOffice(idx){
-  const nameEl=document.getElementById(`oname-${idx}`)
-  const badgeEl=document.getElementById(`obadge-${idx}`)
-  const roomEl=document.getElementById(`oroom-${idx}`)
-  const logEl=document.getElementById(`olog-${idx}`)
-  if(!nameEl)return
-  nameEl.textContent=`Office ${idx+1}`
-  nameEl.style.color='var(--muted)'
-  badgeEl.textContent='Empty'
-  badgeEl.style.background='#f5f5f5'
-  badgeEl.style.color='var(--faint)'
-  badgeEl.style.borderColor='var(--border)'
-  roomEl.innerHTML=`<div class="office-empty-icon">+</div><div class="office-empty-hint">No agent deployed<br>Build one below</div>`
-  roomEl.style.background='#fafafa'
-  logEl.innerHTML=`<div class="office-log-title">Activity</div><div class="log-line"><span class="log-time">—</span><span class="log-msg" style="color:var(--faint)">Waiting for agent</span></div>`
-}
-
-function renderTray(){
-  const tray=document.getElementById('agent-tray')
-  const empty=document.getElementById('tray-empty')
-  if(agents.length===0){
-    tray.innerHTML='<div class="tray-empty" id="tray-empty">No agents yet — build your first one above.</div>'
-    return
-  }
-  tray.innerHTML=agents.map(a=>`
-    <div class="tray-agent" data-id="${a.id}" onclick="">
-      ${bpRobot(a.color,a.border,a.shape,a.head,a.acc,36,44)}
-      <div class="tray-agent-info">
-        <div class="tray-agent-name">${a.name}</div>
-        <div class="tray-agent-skills">${a.skills.slice(0,2).map(s=>s.replace(/-/g,' ')).join(' · ')||'No skills'}${a.officeIdx!==null&&a.officeIdx!==undefined?' · Office '+(a.officeIdx+1):''}</div>
-      </div>
-      <div class="tray-agent-btns">
-        <button class="tray-btn" onclick="event.stopPropagation();bpEditAgent(${a.id})">Edit</button>
-        ${a.officeIdx!==null&&a.officeIdx!==undefined
-          ?`<button class="tray-btn" onclick="event.stopPropagation();bpRecallAgent(${a.id})">Recall</button>`
-          :`<button class="tray-btn deploy" onclick="event.stopPropagation();bpDeployAgent(${a.id})">Deploy →</button>`
-        }
-        <button class="tray-btn" onclick="event.stopPropagation();bpDeleteAgent(${a.id})" style="color:#ef4444;border-color:#fca5a5">Delete</button>
-      </div>
-    </div>
-  `).join('')
-}
-
-function showConfirm(msg){
-  const c=document.getElementById('bp-confirm');if(!c)return
-  c.textContent=msg;c.classList.add('show')
-  setTimeout(()=>c.classList.remove('show'),3000)
-}
-
-window.addEventListener('load',()=>{
-  bpUpdatePreview()
-})
 </script>
 </body>
 </html>
