@@ -33,14 +33,14 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
 .chart-card{border:1px solid var(--border);padding:18px}
 .chart-title{font-size:11px;font-weight:500;margin-bottom:3px}
 .chart-sub{font-size:10px;color:var(--muted);margin-bottom:14px}
-.bar-chart{display:flex;align-items:flex-end;gap:8px;height:100px}
+.bar-chart{display:flex;align-items:flex-end;gap:8px;height:160px}
 .bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
 .bar-fill{width:100%;border-radius:2px 2px 0 0;min-height:4px}
 .bar-label{font-size:9px;color:var(--muted);text-align:center;white-space:nowrap}
 .bar-val{font-size:9px;font-weight:500;text-align:center;margin-bottom:2px}
-.scatter-area{height:100px;position:relative;border-left:1px solid var(--border);border-bottom:1px solid var(--border)}
+.scatter-area{height:160px;position:relative;border-left:1px solid var(--border);border-bottom:1px solid var(--border)}
 .scatter-dot{position:absolute;border-radius:50%;transform:translate(-50%,50%)}
-.spark-area{height:100px;position:relative}
+.spark-area{height:160px;position:relative}
 .approval-card{border:1px solid #fde68a;background:#fffbeb;padding:18px 22px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
 .approval-market{font-size:14px;font-weight:500;letter-spacing:-.02em;margin-bottom:4px}
 .approval-meta{font-size:12px;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap}
@@ -142,6 +142,58 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
 .toast.show{opacity:1;transform:translateY(0)}
 @media(max-width:1100px){.offices{grid-template-columns:repeat(3,minmax(0,1fr))}.charts-grid{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.offices{grid-template-columns:1fr}.charts-grid{grid-template-columns:1fr}.builder-grid{grid-template-columns:1fr}}
+
+/* COLLAPSIBLE SECTIONS */
+.section-header{padding:20px 32px 0;display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none}
+.section-header:hover .section-toggle{color:var(--text)}
+.section-toggle{font-size:10px;color:var(--faint);letter-spacing:.08em;display:flex;align-items:center;gap:6px;transition:color .15s}
+.section-toggle svg{transition:transform .2s ease}
+.section-toggle.open svg{transform:rotate(180deg)}
+.collapsible{overflow:hidden;transition:max-height .3s ease, opacity .2s ease}
+.collapsible.collapsed{max-height:0!important;opacity:0;pointer-events:none}
+
+/* SIMULATION */
+.sim-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:0}
+.sim-card{border:1px solid var(--border);padding:18px}
+.sim-title{font-size:11px;font-weight:500;margin-bottom:3px}
+.sim-sub{font-size:10px;color:var(--muted);margin-bottom:14px}
+.sim-market-list{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.sim-market-row{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border:1px solid var(--border);border-radius:4px;gap:10px;cursor:pointer;transition:border-color .15s}
+.sim-market-row:hover{border-color:var(--border2)}
+.sim-market-row.selected{border-color:#3b82f6;background:#eff6ff}
+.sim-market-name{font-size:12px;font-weight:500;flex:1}
+.sim-market-meta{display:flex;gap:10px;align-items:center;flex-shrink:0}
+.sim-tag{font-size:10px;padding:2px 7px;border-radius:3px;font-weight:500;letter-spacing:.03em}
+.sim-bet-panel{border:1px solid var(--border);padding:16px;margin-bottom:14px}
+.sim-bet-title{font-size:11px;font-weight:500;margin-bottom:12px}
+.sim-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.sim-label{font-size:11px;color:var(--muted);width:110px;flex-shrink:0}
+.sim-val{font-size:13px;font-weight:500;letter-spacing:-.02em}
+.sim-input{flex:1;border:1px solid var(--border2);padding:6px 10px;font-family:var(--f);font-size:13px;font-weight:500;border-radius:3px;outline:none;color:var(--text)}
+.sim-input:focus{border-color:var(--text)}
+.sim-btn-row{display:flex;gap:8px}
+.sim-btn{padding:9px 18px;font-family:var(--f);font-size:12px;font-weight:500;cursor:pointer;border-radius:3px;transition:all .15s}
+.sim-btn.primary{background:#0a0a0a;color:#fff;border:none}
+.sim-btn.primary:hover{opacity:.82}
+.sim-btn.secondary{background:#fff;color:var(--muted);border:1px solid var(--border2)}
+.sim-btn.secondary:hover{border-color:var(--text);color:var(--text)}
+.sim-results{display:flex;flex-direction:column;gap:6px}
+.sim-result-row{padding:10px 12px;border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.sim-result-row.win{border-color:#86efac;background:#f0fdf4}
+.sim-result-row.loss{border-color:#fca5a5;background:#fff1f2}
+.sim-result-row.pending{border-color:#fde68a;background:#fffbeb}
+.sim-result-name{font-size:12px;font-weight:500;flex:1}
+.sim-result-meta{display:flex;gap:12px;font-size:11px;color:var(--muted)}
+.sim-result-pnl{font-size:13px;font-weight:500;letter-spacing:-.02em}
+.sim-result-pnl.pos{color:#15803d}
+.sim-result-pnl.neg{color:#b91c1c}
+.sim-result-pnl.neu{color:#b45309}
+.sim-stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:14px}
+.sim-stat{background:#fff;padding:12px 14px}
+.sim-stat-v{font-size:18px;font-weight:500;letter-spacing:-.03em}
+.sim-stat-v.g{color:#15803d}.sim-stat-v.r{color:#b91c1c}.sim-stat-v.b{color:#1d4ed8}.sim-stat-v.a{color:#b45309}
+.sim-stat-l{font-size:9px;color:var(--muted);margin-top:3px;letter-spacing:.03em}
+
 </style>
 </head>
 <body>
@@ -153,22 +205,23 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
     <div class="tsep"></div>
     <div class="ts"><div class="ts-v b" id="t-bal">$1,240</div><div class="ts-l">Bankroll</div></div>
     <div class="tsep"></div>
-    <div class="ts"><div class="ts-v g">+14.2%</div><div class="ts-l">Avg ROI</div></div>
+    <div class="ts"><div class="ts-v g" id="t-roi">+14.2%</div><div class="ts-l">Sim ROI</div></div>
     <div class="tsep"></div>
-    <div class="ts"><div class="ts-v">68%</div><div class="ts-l">Win rate</div></div>
+    <div class="ts"><div class="ts-v" id="t-wr">68%</div><div class="ts-l">Win rate</div></div>
     <div class="tsep"></div>
     <div class="ts"><div class="ts-v r" id="t-pending">1</div><div class="ts-l">Pending</div></div>
   </div>
 </div>
 
+<!-- DASHBOARD -->
 <div class="section">
   <div class="slabel">Dashboard</div>
   <div class="metrics">
-    <div class="metric"><div class="metric-v g">+14.2%</div><div class="metric-l">Rolling ROI</div></div>
-    <div class="metric"><div class="metric-v b">$1,240</div><div class="metric-l">Bankroll</div></div>
-    <div class="metric"><div class="metric-v a">3 open</div><div class="metric-l">Active positions</div></div>
-    <div class="metric"><div class="metric-v">12</div><div class="metric-l">Resolved bets</div></div>
-    <div class="metric"><div class="metric-v g">+18%</div><div class="metric-l">Top edge today</div></div>
+    <div class="metric"><div class="metric-v g" id="m-roi">+14.2%</div><div class="metric-l">Sim ROI</div></div>
+    <div class="metric"><div class="metric-v b" id="m-bal">$1,240</div><div class="metric-l">Paper bankroll</div></div>
+    <div class="metric"><div class="metric-v a" id="m-open">0 open</div><div class="metric-l">Sim positions</div></div>
+    <div class="metric"><div class="metric-v" id="m-resolved">0</div><div class="metric-l">Sim bets placed</div></div>
+    <div class="metric"><div class="metric-v g" id="m-edge">—</div><div class="metric-l">Best edge found</div></div>
   </div>
   <div class="charts-grid">
     <div class="chart-card">
@@ -183,13 +236,85 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
       <div style="display:flex;justify-content:space-between;margin-top:5px"><span style="font-size:9px;color:var(--faint)">Market price (¢)</span><span style="font-size:9px;color:var(--faint)">Model confidence →</span></div>
     </div>
     <div class="chart-card">
-      <div class="chart-title">ROI per resolved bet</div>
-      <div class="chart-sub">Last 12 bets — running average</div>
-      <div class="spark-area"><canvas id="spark-canvas" width="0" height="100" style="width:100%;height:100px"></canvas></div>
+      <div class="chart-title">Simulated P&amp;L over time</div>
+      <div class="chart-sub">Running bankroll across all paper bets</div>
+      <div class="spark-area"><canvas id="spark-canvas" width="0" height="160" style="width:100%;height:160px"></canvas></div>
     </div>
   </div>
 </div>
 
+<!-- ANALYST CHAT (moved above approval) -->
+<div class="divider"></div>
+<div class="section" style="padding-top:20px;padding-bottom:0"><div class="slabel">Ask the analyst</div></div>
+<div class="chat-wrap">
+  <div class="chat-header">
+    <svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/><rect x="7" y="7" width="3.5" height="4" rx="1.5" fill="#dcfce7" stroke="#86efac" stroke-width="0.7"/><rect x="11.5" y="7" width="3.5" height="4" rx="1.5" fill="#dcfce7" stroke="#86efac" stroke-width="0.7"/><circle cx="8.7" cy="9.2" r="1.2" fill="#22c55e"/><circle cx="13.3" cy="9.2" r="1.2" fill="#22c55e"/><path d="M8 15 Q11 17 14 15" fill="none" stroke="#22c55e" stroke-width="1"/></svg>
+    <div><div class="chat-header-name">Analyst Agent</div><div class="chat-header-sub">Ask about any market, edge, or bet rationale</div></div>
+  </div>
+  <div class="chat-messages" id="chat-messages">
+    <div class="msg agent"><div class="msg-bubble">Hello. I'm running simulations on live Polymarket odds. Strongest edge right now: Fed rate cut in July — market 34¢, my model 52%, an 18-point edge. Run a simulation to see how it would perform.</div><div class="msg-time">09:41</div></div>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chat-input" type="text" placeholder="Ask about a market, edge, simulation result..."/>
+    <button class="chat-send" onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<!-- SIMULATION ENGINE -->
+<div class="divider"></div>
+<div class="section" style="padding-top:20px">
+  <div class="slabel">Simulation engine — paper trading</div>
+  <div class="sim-stats-row" id="sim-stats-row">
+    <div class="sim-stat"><div class="sim-stat-v b" id="ss-bankroll">$1,240</div><div class="sim-stat-l">Paper bankroll</div></div>
+    <div class="sim-stat"><div class="sim-stat-v g" id="ss-pnl">$0</div><div class="sim-stat-l">Total P&amp;L</div></div>
+    <div class="sim-stat"><div class="sim-stat-v" id="ss-bets">0</div><div class="sim-stat-l">Bets placed</div></div>
+    <div class="sim-stat"><div class="sim-stat-v a" id="ss-wr">—</div><div class="sim-stat-l">Win rate</div></div>
+  </div>
+  <div class="sim-grid">
+    <!-- LEFT: market picker -->
+    <div class="sim-card">
+      <div class="sim-title">Select a market to simulate</div>
+      <div class="sim-sub">Agent-recommended markets ranked by edge. Click to load into bet panel.</div>
+      <div class="sim-market-list" id="sim-market-list">
+        <!-- populated by JS -->
+      </div>
+      <div style="font-size:10px;color:var(--faint);margin-top:4px">Markets sourced from agent research · updated on each simulation run</div>
+    </div>
+    <!-- RIGHT: bet panel + results -->
+    <div>
+      <div class="sim-bet-panel" id="sim-bet-panel">
+        <div class="sim-bet-title" id="sim-bet-title">No market selected</div>
+        <div class="sim-row"><span class="sim-label">Market price</span><span class="sim-val" id="sim-mkt-price">—</span></div>
+        <div class="sim-row"><span class="sim-label">Model confidence</span><span class="sim-val" id="sim-model-conf">—</span></div>
+        <div class="sim-row"><span class="sim-label">Edge</span><span class="sim-val" id="sim-edge-val">—</span></div>
+        <div class="sim-row"><span class="sim-label">Kelly stake</span><span class="sim-val" id="sim-kelly">—</span></div>
+        <div class="sim-row">
+          <span class="sim-label">Stake ($)</span>
+          <input class="sim-input" id="sim-stake-input" type="number" placeholder="48.00" min="1" max="1000" value="48"/>
+        </div>
+        <div class="sim-row">
+          <span class="sim-label">Your call</span>
+          <div style="display:flex;gap:8px">
+            <button class="sim-btn secondary" id="sim-yes-btn" onclick="simPlaceBet('YES')" style="flex:1">YES</button>
+            <button class="sim-btn secondary" id="sim-no-btn" onclick="simPlaceBet('NO')" style="flex:1">NO</button>
+          </div>
+        </div>
+        <div class="sim-btn-row" style="margin-top:4px">
+          <button class="sim-btn primary" style="flex:1" onclick="simRun()">▶ Run simulation</button>
+          <button class="sim-btn secondary" onclick="simReset()">Reset</button>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;letter-spacing:.1em;color:var(--faint);font-weight:500;margin-bottom:10px">Simulation results</div>
+        <div class="sim-results" id="sim-results">
+          <div style="font-size:11px;color:var(--faint);padding:8px 0">No bets placed yet — select a market and run a simulation above.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- APPROVAL -->
 <div class="divider"></div>
 <div class="section" style="padding-top:20px">
   <div class="slabel">Your approval</div>
@@ -214,6 +339,7 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
   </div>
 </div>
 
+<!-- OFFICES -->
 <div class="divider"></div>
 <div class="section" style="padding-top:20px">
   <div class="slabel">Agent offices</div>
@@ -226,93 +352,85 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
   </div>
 </div>
 
+<!-- AGENT BUILDER — collapsible -->
 <div class="divider"></div>
-<div class="section" style="padding-top:20px;padding-bottom:0"><div class="slabel">Ask the analyst</div></div>
-<div class="chat-wrap">
-  <div class="chat-header">
-    <svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/><rect x="7" y="7" width="3.5" height="4" rx="1.5" fill="#dcfce7" stroke="#86efac" stroke-width="0.7"/><rect x="11.5" y="7" width="3.5" height="4" rx="1.5" fill="#dcfce7" stroke="#86efac" stroke-width="0.7"/><circle cx="8.7" cy="9.2" r="1.2" fill="#22c55e"/><circle cx="13.3" cy="9.2" r="1.2" fill="#22c55e"/><path d="M8 15 Q11 17 14 15" fill="none" stroke="#22c55e" stroke-width="1"/></svg>
-    <div><div class="chat-header-name">Analyst Agent</div><div class="chat-header-sub">Ask about any market, edge, or bet rationale</div></div>
-  </div>
-  <div class="chat-messages" id="chat-messages">
-    <div class="msg agent"><div class="msg-bubble">Hello. Strongest edge today: Fed rate cut in July — market 34¢, model 52%, 18-point edge. Kelly suggests 3.2% bankroll stake.</div><div class="msg-time">09:41</div></div>
-  </div>
-  <div class="chat-input-row">
-    <input class="chat-input" id="chat-input" type="text" placeholder="Ask about a market, edge, or bet rationale..."/>
-    <button class="chat-send" onclick="sendMessage()">Send</button>
+<div class="section-header" onclick="toggleSection('agent-builder-body','agent-builder-toggle')">
+  <div class="slabel" style="margin-bottom:0">Agent builder</div>
+  <div class="section-toggle open" id="agent-builder-toggle">
+    <span id="agent-builder-toggle-label">Collapse</span>
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4 L6 8 L10 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </div>
 </div>
-
-<!-- AGENT BUILDER -->
-<div class="divider"></div>
-<div class="builder-wrap" id="agent-builder-section">
-  <div class="slabel">Agent builder</div>
-  <div style="font-size:12px;color:var(--muted);margin-bottom:18px">Design your agent — name, look, and skills. Save then deploy to an office above.</div>
-  <div class="builder-grid">
-    <div class="builder-panel">
-      <div class="bp-title">Appearance</div>
-      <div class="bp-label">Name</div>
-      <input class="bp-name" id="ab-name" type="text" placeholder="e.g. Scout, Atlas, Nova..." oninput="abUpdatePreview()"/>
-      <div class="bp-preview" id="ab-preview"></div>
-      <div class="bp-section">
-        <div class="bp-label">Body shape</div>
-        <div class="bp-opts">
-          <button class="bp-opt on" data-group="shape" data-val="round" onclick="abSet('shape','round',this)">Round</button>
-          <button class="bp-opt" data-group="shape" data-val="square" onclick="abSet('shape','square',this)">Square</button>
-          <button class="bp-opt" data-group="shape" data-val="tall" onclick="abSet('shape','tall',this)">Tall</button>
-          <button class="bp-opt" data-group="shape" data-val="wide" onclick="abSet('shape','wide',this)">Wide</button>
+<div class="collapsible" id="agent-builder-body" style="max-height:2000px">
+  <div class="builder-wrap" id="agent-builder-section" style="padding-top:14px">
+    <div style="font-size:12px;color:var(--muted);margin-bottom:18px">Design your agent — name, look, and skills. Save then deploy to an office above.</div>
+    <div class="builder-grid">
+      <div class="builder-panel">
+        <div class="bp-title">Appearance</div>
+        <div class="bp-label">Name</div>
+        <input class="bp-name" id="ab-name" type="text" placeholder="e.g. Scout, Atlas, Nova..." oninput="abUpdatePreview()"/>
+        <div class="bp-preview" id="ab-preview"></div>
+        <div class="bp-section">
+          <div class="bp-label">Body shape</div>
+          <div class="bp-opts">
+            <button class="bp-opt on" data-group="shape" data-val="round" onclick="abSet('shape','round',this)">Round</button>
+            <button class="bp-opt" data-group="shape" data-val="square" onclick="abSet('shape','square',this)">Square</button>
+            <button class="bp-opt" data-group="shape" data-val="tall" onclick="abSet('shape','tall',this)">Tall</button>
+            <button class="bp-opt" data-group="shape" data-val="wide" onclick="abSet('shape','wide',this)">Wide</button>
+          </div>
+        </div>
+        <div class="bp-section">
+          <div class="bp-label">Head style</div>
+          <div class="bp-opts">
+            <button class="bp-opt on" data-group="head" data-val="visor" onclick="abSet('head','visor',this)">Visor</button>
+            <button class="bp-opt" data-group="head" data-val="square" onclick="abSet('head','square',this)">Square</button>
+            <button class="bp-opt" data-group="head" data-val="round" onclick="abSet('head','round',this)">Round</button>
+            <button class="bp-opt" data-group="head" data-val="dome" onclick="abSet('head','dome',this)">Dome</button>
+          </div>
+        </div>
+        <div class="bp-section">
+          <div class="bp-label">Accessory</div>
+          <div class="bp-opts">
+            <button class="bp-opt on" data-group="acc" data-val="antenna" onclick="abSet('acc','antenna',this)">Antenna</button>
+            <button class="bp-opt" data-group="acc" data-val="beanie" onclick="abSet('acc','beanie',this)">Beanie</button>
+            <button class="bp-opt" data-group="acc" data-val="halo" onclick="abSet('acc','halo',this)">Halo</button>
+            <button class="bp-opt" data-group="acc" data-val="cap" onclick="abSet('acc','cap',this)">Cap</button>
+            <button class="bp-opt" data-group="acc" data-val="none" onclick="abSet('acc','none',this)">None</button>
+          </div>
+        </div>
+        <div class="bp-section">
+          <div class="bp-label">Color</div>
+          <div class="bp-swatches" id="ab-swatches">
+            <div class="bp-swatch on" style="background:#3b82f6" data-c="#3b82f6" onclick="abSetColor(this)"></div>
+            <div class="bp-swatch" style="background:#22c55e" data-c="#22c55e" onclick="abSetColor(this)"></div>
+            <div class="bp-swatch" style="background:#f59e0b" data-c="#f59e0b" onclick="abSetColor(this)"></div>
+            <div class="bp-swatch" style="background:#ef4444" data-c="#ef4444" onclick="abSetColor(this)"></div>
+            <div class="bp-swatch" style="background:#8b5cf6" data-c="#8b5cf6" onclick="abSetColor(this)"></div>
+            <div class="bp-swatch" style="background:#ec4899" data-c="#ec4899" onclick="abSetColor(this)"></div>
+            <div class="bp-swatch" style="background:#14b8a6" data-c="#14b8a6" onclick="abSetColor(this)"></div>
+            <div class="bp-swatch" style="background:#f97316" data-c="#f97316" onclick="abSetColor(this)"></div>
+            <div class="bp-swatch" style="background:#64748b" data-c="#64748b" onclick="abSetColor(this)"></div>
+          </div>
         </div>
       </div>
-      <div class="bp-section">
-        <div class="bp-label">Head style</div>
-        <div class="bp-opts">
-          <button class="bp-opt on" data-group="head" data-val="visor" onclick="abSet('head','visor',this)">Visor</button>
-          <button class="bp-opt" data-group="head" data-val="square" onclick="abSet('head','square',this)">Square</button>
-          <button class="bp-opt" data-group="head" data-val="round" onclick="abSet('head','round',this)">Round</button>
-          <button class="bp-opt" data-group="head" data-val="dome" onclick="abSet('head','dome',this)">Dome</button>
+      <div class="builder-panel">
+        <div class="bp-title">Skills — select all that apply</div>
+        <div class="item-grid" id="ab-skills-grid">
+          <div class="item-card on" data-skill="market-research" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#eff6ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6" cy="6" r="4" stroke="#3b82f6" stroke-width="1.4"/><line x1="9.5" y1="9.5" x2="14" y2="14" stroke="#3b82f6" stroke-width="1.4" stroke-linecap="round"/></svg></div><div class="item-name">Market research</div><div class="item-desc">Scan Polymarket for open markets and surface edges</div></div>
+          <div class="item-card" data-skill="edge-detection" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#f0fdf4"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><polyline points="2,12 5,8 8,10 11,5 14,7" stroke="#22c55e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="5" r="1.5" fill="#22c55e"/></svg></div><div class="item-name">Edge detection</div><div class="item-desc">Compare model probability to market odds</div></div>
+          <div class="item-card" data-skill="news-sentiment" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#faf5ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="#8b5cf6" stroke-width="1.4"/><line x1="4" y1="6" x2="12" y2="6" stroke="#8b5cf6" stroke-width="1" opacity=".6"/><line x1="4" y1="9" x2="9" y2="9" stroke="#8b5cf6" stroke-width="1" opacity=".6"/></svg></div><div class="item-name">News sentiment</div><div class="item-desc">Analyze headlines for market-moving signals</div></div>
+          <div class="item-card" data-skill="kelly-sizing" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#fffbeb"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="10" width="3" height="4" fill="#f59e0b" opacity=".7"/><rect x="6.5" y="7" width="3" height="7" fill="#f59e0b" opacity=".85"/><rect x="11" y="4" width="3" height="10" fill="#f59e0b"/></svg></div><div class="item-name">Kelly sizing</div><div class="item-desc">Calculate optimal stake using Kelly criterion</div></div>
+          <div class="item-card" data-skill="bet-execution" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#f0fdf4"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#22c55e" stroke-width="1.4"/><polyline points="5,8 7,10 11,6" stroke="#22c55e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-name">Bet execution</div><div class="item-desc">Place approved bets on-chain via Polygon</div></div>
+          <div class="item-card" data-skill="outcome-review" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#faf5ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#8b5cf6" stroke-width="1.4"/><line x1="8" y1="5" x2="8" y2="8.5" stroke="#8b5cf6" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="11" r=".8" fill="#8b5cf6"/></svg></div><div class="item-name">Outcome review</div><div class="item-desc">Analyse resolved bets, ROI, win rate, drift</div></div>
+          <div class="item-card" data-skill="model-improvement" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#fff1f2"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="4" stroke="#ef4444" stroke-width="1.4"/><line x1="8" y1="2" x2="8" y2="4" stroke="#ef4444" stroke-width="1.2"/><line x1="8" y1="12" x2="8" y2="14" stroke="#ef4444" stroke-width="1.2"/><line x1="2" y1="8" x2="4" y2="8" stroke="#ef4444" stroke-width="1.2"/><line x1="12" y1="8" x2="14" y2="8" stroke="#ef4444" stroke-width="1.2"/></svg></div><div class="item-name">Model improvement</div><div class="item-desc">Push parameter updates to research agents</div></div>
+          <div class="item-card" data-skill="cross-market" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#eff6ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="#3b82f6" stroke-width="1.2"/><circle cx="12" cy="8" r="2.5" stroke="#3b82f6" stroke-width="1.2"/><line x1="6.5" y1="8" x2="9.5" y2="8" stroke="#3b82f6" stroke-width="1.2"/></svg></div><div class="item-name">Cross-market arb</div><div class="item-desc">Compare odds across Polymarket, Metaculus</div></div>
         </div>
-      </div>
-      <div class="bp-section">
-        <div class="bp-label">Accessory</div>
-        <div class="bp-opts">
-          <button class="bp-opt on" data-group="acc" data-val="antenna" onclick="abSet('acc','antenna',this)">Antenna</button>
-          <button class="bp-opt" data-group="acc" data-val="beanie" onclick="abSet('acc','beanie',this)">Beanie</button>
-          <button class="bp-opt" data-group="acc" data-val="halo" onclick="abSet('acc','halo',this)">Halo</button>
-          <button class="bp-opt" data-group="acc" data-val="cap" onclick="abSet('acc','cap',this)">Cap</button>
-          <button class="bp-opt" data-group="acc" data-val="none" onclick="abSet('acc','none',this)">None</button>
+        <div class="builder-actions">
+          <button class="btn-save" id="ab-save-btn" onclick="abSave()">Save agent</button>
+          <button class="btn-new" onclick="abNew()">+ New</button>
         </div>
+        <div class="bp-confirm" id="ab-confirm"></div>
       </div>
-      <div class="bp-section">
-        <div class="bp-label">Color</div>
-        <div class="bp-swatches" id="ab-swatches">
-          <div class="bp-swatch on" style="background:#3b82f6" data-c="#3b82f6" onclick="abSetColor(this)"></div>
-          <div class="bp-swatch" style="background:#22c55e" data-c="#22c55e" onclick="abSetColor(this)"></div>
-          <div class="bp-swatch" style="background:#f59e0b" data-c="#f59e0b" onclick="abSetColor(this)"></div>
-          <div class="bp-swatch" style="background:#ef4444" data-c="#ef4444" onclick="abSetColor(this)"></div>
-          <div class="bp-swatch" style="background:#8b5cf6" data-c="#8b5cf6" onclick="abSetColor(this)"></div>
-          <div class="bp-swatch" style="background:#ec4899" data-c="#ec4899" onclick="abSetColor(this)"></div>
-          <div class="bp-swatch" style="background:#14b8a6" data-c="#14b8a6" onclick="abSetColor(this)"></div>
-          <div class="bp-swatch" style="background:#f97316" data-c="#f97316" onclick="abSetColor(this)"></div>
-          <div class="bp-swatch" style="background:#64748b" data-c="#64748b" onclick="abSetColor(this)"></div>
-        </div>
-      </div>
-    </div>
-    <div class="builder-panel">
-      <div class="bp-title">Skills — select all that apply</div>
-      <div class="item-grid" id="ab-skills-grid">
-        <div class="item-card on" data-skill="market-research" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#eff6ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6" cy="6" r="4" stroke="#3b82f6" stroke-width="1.4"/><line x1="9.5" y1="9.5" x2="14" y2="14" stroke="#3b82f6" stroke-width="1.4" stroke-linecap="round"/></svg></div><div class="item-name">Market research</div><div class="item-desc">Scan Polymarket for open markets and surface edges</div></div>
-        <div class="item-card" data-skill="edge-detection" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#f0fdf4"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><polyline points="2,12 5,8 8,10 11,5 14,7" stroke="#22c55e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="5" r="1.5" fill="#22c55e"/></svg></div><div class="item-name">Edge detection</div><div class="item-desc">Compare model probability to market odds</div></div>
-        <div class="item-card" data-skill="news-sentiment" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#faf5ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="#8b5cf6" stroke-width="1.4"/><line x1="4" y1="6" x2="12" y2="6" stroke="#8b5cf6" stroke-width="1" opacity=".6"/><line x1="4" y1="9" x2="9" y2="9" stroke="#8b5cf6" stroke-width="1" opacity=".6"/></svg></div><div class="item-name">News sentiment</div><div class="item-desc">Analyze headlines for market-moving signals</div></div>
-        <div class="item-card" data-skill="kelly-sizing" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#fffbeb"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="10" width="3" height="4" fill="#f59e0b" opacity=".7"/><rect x="6.5" y="7" width="3" height="7" fill="#f59e0b" opacity=".85"/><rect x="11" y="4" width="3" height="10" fill="#f59e0b"/></svg></div><div class="item-name">Kelly sizing</div><div class="item-desc">Calculate optimal stake using Kelly criterion</div></div>
-        <div class="item-card" data-skill="bet-execution" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#f0fdf4"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#22c55e" stroke-width="1.4"/><polyline points="5,8 7,10 11,6" stroke="#22c55e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="item-name">Bet execution</div><div class="item-desc">Place approved bets on-chain via Polygon</div></div>
-        <div class="item-card" data-skill="outcome-review" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#faf5ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#8b5cf6" stroke-width="1.4"/><line x1="8" y1="5" x2="8" y2="8.5" stroke="#8b5cf6" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="11" r=".8" fill="#8b5cf6"/></svg></div><div class="item-name">Outcome review</div><div class="item-desc">Analyse resolved bets, ROI, win rate, drift</div></div>
-        <div class="item-card" data-skill="model-improvement" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#fff1f2"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="4" stroke="#ef4444" stroke-width="1.4"/><line x1="8" y1="2" x2="8" y2="4" stroke="#ef4444" stroke-width="1.2"/><line x1="8" y1="12" x2="8" y2="14" stroke="#ef4444" stroke-width="1.2"/><line x1="2" y1="8" x2="4" y2="8" stroke="#ef4444" stroke-width="1.2"/><line x1="12" y1="8" x2="14" y2="8" stroke="#ef4444" stroke-width="1.2"/></svg></div><div class="item-name">Model improvement</div><div class="item-desc">Push parameter updates to research agents</div></div>
-        <div class="item-card" data-skill="cross-market" onclick="abToggleSkill(this)"><div class="item-icon" style="background:#eff6ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="2.5" stroke="#3b82f6" stroke-width="1.2"/><circle cx="12" cy="8" r="2.5" stroke="#3b82f6" stroke-width="1.2"/><line x1="6.5" y1="8" x2="9.5" y2="8" stroke="#3b82f6" stroke-width="1.2"/></svg></div><div class="item-name">Cross-market arb</div><div class="item-desc">Compare odds across Polymarket, Metaculus</div></div>
-      </div>
-      <div class="builder-actions">
-        <button class="btn-save" id="ab-save-btn" onclick="abSave()">Save agent</button>
-        <button class="btn-new" onclick="abNew()">+ New</button>
-      </div>
-      <div class="bp-confirm" id="ab-confirm"></div>
     </div>
   </div>
 </div>
@@ -323,67 +441,75 @@ body{font-family:var(--f);background:#fff;color:var(--text);min-height:100vh;-we
   <div class="tray" id="agent-tray"><div class="tray-empty">No agents yet — build your first one above.</div></div>
 </div>
 
-<!-- ROOM BUILDER -->
+<!-- ROOM BUILDER — collapsible -->
 <div class="divider" style="margin-top:20px"></div>
-<div class="builder-wrap" id="room-builder-section">
-  <div class="slabel">Room builder</div>
-  <div style="font-size:12px;color:var(--muted);margin-bottom:18px">Design each office room — wall color, floor, desk, and decorations. Save then assign to an office slot.</div>
-  <div class="builder-grid">
-    <div class="builder-panel">
-      <div class="bp-title">Room appearance</div>
-      <div class="bp-label">Room name</div>
-      <input class="bp-name" id="rb-name" type="text" placeholder="e.g. Research Lab, War Room..." oninput="rbUpdatePreview()"/>
-      <div class="bp-preview" id="rb-preview" style="height:170px;padding:0;overflow:hidden;background:#fff;align-items:stretch;justify-content:stretch"></div>
-      <div class="bp-section">
-        <div class="bp-label">Wall color</div>
-        <div class="bp-swatches" id="rb-wall-swatches">
-          <div class="bp-swatch on" style="background:#ffffff;border:1px solid #e8e8e8" data-c="#ffffff" onclick="rbSetWall(this)" title="White"></div>
-          <div class="bp-swatch" style="background:#fdf3e3" data-c="#fdf3e3" onclick="rbSetWall(this)" title="Warm"></div>
-          <div class="bp-swatch" style="background:#f0f6ff" data-c="#f0f6ff" onclick="rbSetWall(this)" title="Blue"></div>
-          <div class="bp-swatch" style="background:#f0fdf4" data-c="#f0fdf4" onclick="rbSetWall(this)" title="Green"></div>
-          <div class="bp-swatch" style="background:#faf5ff" data-c="#faf5ff" onclick="rbSetWall(this)" title="Purple"></div>
-          <div class="bp-swatch" style="background:#fff1f2" data-c="#fff1f2" onclick="rbSetWall(this)" title="Red"></div>
-          <div class="bp-swatch" style="background:#fffbeb" data-c="#fffbeb" onclick="rbSetWall(this)" title="Amber"></div>
-          <div class="bp-swatch" style="background:#1e293b" data-c="#1e293b" onclick="rbSetWall(this)" title="Night"></div>
-          <div class="bp-swatch" style="background:#f1f5f9" data-c="#f1f5f9" onclick="rbSetWall(this)" title="Slate"></div>
+<div class="section-header" onclick="toggleSection('room-builder-body','room-builder-toggle')">
+  <div class="slabel" style="margin-bottom:0">Room builder</div>
+  <div class="section-toggle open" id="room-builder-toggle">
+    <span id="room-builder-toggle-label">Collapse</span>
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4 L6 8 L10 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</div>
+<div class="collapsible" id="room-builder-body" style="max-height:2000px">
+  <div class="builder-wrap" id="room-builder-section" style="padding-top:14px">
+    <div style="font-size:12px;color:var(--muted);margin-bottom:18px">Design each office room — wall color, floor, desk, and decorations. Save then assign to an office slot.</div>
+    <div class="builder-grid">
+      <div class="builder-panel">
+        <div class="bp-title">Room appearance</div>
+        <div class="bp-label">Room name</div>
+        <input class="bp-name" id="rb-name" type="text" placeholder="e.g. Research Lab, War Room..." oninput="rbUpdatePreview()"/>
+        <div class="bp-preview" id="rb-preview" style="height:170px;padding:0;overflow:hidden;background:#fff;align-items:stretch;justify-content:stretch"></div>
+        <div class="bp-section">
+          <div class="bp-label">Wall color</div>
+          <div class="bp-swatches" id="rb-wall-swatches">
+            <div class="bp-swatch on" style="background:#ffffff;border:1px solid #e8e8e8" data-c="#ffffff" onclick="rbSetWall(this)"></div>
+            <div class="bp-swatch" style="background:#fdf3e3" data-c="#fdf3e3" onclick="rbSetWall(this)"></div>
+            <div class="bp-swatch" style="background:#f0f6ff" data-c="#f0f6ff" onclick="rbSetWall(this)"></div>
+            <div class="bp-swatch" style="background:#f0fdf4" data-c="#f0fdf4" onclick="rbSetWall(this)"></div>
+            <div class="bp-swatch" style="background:#faf5ff" data-c="#faf5ff" onclick="rbSetWall(this)"></div>
+            <div class="bp-swatch" style="background:#fff1f2" data-c="#fff1f2" onclick="rbSetWall(this)"></div>
+            <div class="bp-swatch" style="background:#fffbeb" data-c="#fffbeb" onclick="rbSetWall(this)"></div>
+            <div class="bp-swatch" style="background:#1e293b" data-c="#1e293b" onclick="rbSetWall(this)"></div>
+            <div class="bp-swatch" style="background:#f1f5f9" data-c="#f1f5f9" onclick="rbSetWall(this)"></div>
+          </div>
+        </div>
+        <div class="bp-section">
+          <div class="bp-label">Floor style</div>
+          <div class="bp-opts" id="rb-floor-opts">
+            <button class="bp-opt on" data-group="floor" data-val="wood" onclick="rbSet('floor','wood',this)">Wood</button>
+            <button class="bp-opt" data-group="floor" data-val="tile" onclick="rbSet('floor','tile',this)">Tile</button>
+            <button class="bp-opt" data-group="floor" data-val="carpet" onclick="rbSet('floor','carpet',this)">Carpet</button>
+            <button class="bp-opt" data-group="floor" data-val="concrete" onclick="rbSet('floor','concrete',this)">Concrete</button>
+          </div>
+        </div>
+        <div class="bp-section">
+          <div class="bp-label">Desk style</div>
+          <div class="bp-opts" id="rb-desk-opts">
+            <button class="bp-opt on" data-group="desk" data-val="standard" onclick="rbSet('desk','standard',this)">Standard</button>
+            <button class="bp-opt" data-group="desk" data-val="l-shape" onclick="rbSet('desk','l-shape',this)">L-shape</button>
+            <button class="bp-opt" data-group="desk" data-val="standing" onclick="rbSet('desk','standing',this)">Standing</button>
+            <button class="bp-opt" data-group="desk" data-val="none" onclick="rbSet('desk','none',this)">None</button>
+          </div>
         </div>
       </div>
-      <div class="bp-section">
-        <div class="bp-label">Floor style</div>
-        <div class="bp-opts" id="rb-floor-opts">
-          <button class="bp-opt on" data-group="floor" data-val="wood" onclick="rbSet('floor','wood',this)">Wood</button>
-          <button class="bp-opt" data-group="floor" data-val="tile" onclick="rbSet('floor','tile',this)">Tile</button>
-          <button class="bp-opt" data-group="floor" data-val="carpet" onclick="rbSet('floor','carpet',this)">Carpet</button>
-          <button class="bp-opt" data-group="floor" data-val="concrete" onclick="rbSet('floor','concrete',this)">Concrete</button>
+      <div class="builder-panel">
+        <div class="bp-title">Decorations &amp; furniture</div>
+        <div class="item-grid" id="rb-items-grid">
+          <div class="item-card on" data-item="monitor" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#eff6ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="10" rx="1.5" stroke="#3b82f6" stroke-width="1.3"/><line x1="5" y1="12" x2="11" y2="12" stroke="#3b82f6" stroke-width="1.3"/><line x1="8" y1="12" x2="8" y2="14" stroke="#3b82f6" stroke-width="1.3"/></svg></div><div class="item-name">Monitor</div><div class="item-desc">Desktop screen for data and charts</div></div>
+          <div class="item-card" data-item="bookshelf" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#fffbeb"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="3" height="14" rx="0.5" stroke="#f59e0b" stroke-width="1.2"/><rect x="5" y="4" width="3" height="11" rx="0.5" stroke="#f59e0b" stroke-width="1.2"/><rect x="9" y="2" width="3" height="13" rx="0.5" stroke="#f59e0b" stroke-width="1.2"/><rect x="13" y="5" width="2" height="10" rx="0.5" stroke="#f59e0b" stroke-width="1.2"/></svg></div><div class="item-name">Bookshelf</div><div class="item-desc">Wall shelves with research materials</div></div>
+          <div class="item-card" data-item="plant" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#f0fdf4"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><ellipse cx="8" cy="6" rx="5" ry="4" stroke="#22c55e" stroke-width="1.3"/><line x1="8" y1="10" x2="8" y2="15" stroke="#22c55e" stroke-width="1.3"/><line x1="8" y1="12" x2="5" y2="10" stroke="#22c55e" stroke-width="1"/></svg></div><div class="item-name">Plant</div><div class="item-desc">A small potted plant</div></div>
+          <div class="item-card" data-item="whiteboard" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#faf5ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="10" rx="1" stroke="#8b5cf6" stroke-width="1.3"/><line x1="4" y1="6" x2="12" y2="6" stroke="#8b5cf6" stroke-width="0.8" opacity=".5"/><line x1="4" y1="9" x2="9" y2="9" stroke="#8b5cf6" stroke-width="0.8" opacity=".5"/><line x1="3" y1="12" x2="13" y2="12" stroke="#8b5cf6" stroke-width="1.3"/></svg></div><div class="item-name">Whiteboard</div><div class="item-desc">Wall whiteboard for analysis</div></div>
+          <div class="item-card" data-item="window" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#f0f6ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="1" width="12" height="11" rx="1" stroke="#3b82f6" stroke-width="1.3"/><line x1="8" y1="1" x2="8" y2="12" stroke="#3b82f6" stroke-width="1"/><line x1="2" y1="6" x2="14" y2="6" stroke="#3b82f6" stroke-width="1"/><line x1="5" y1="14" x2="11" y2="14" stroke="#3b82f6" stroke-width="1.3"/></svg></div><div class="item-name">Window</div><div class="item-desc">Back wall window with outside view</div></div>
+          <div class="item-card" data-item="lamp" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#fffbeb"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 8 L8 2 L11 8 Z" stroke="#f59e0b" stroke-width="1.2" fill="none"/><line x1="8" y1="8" x2="8" y2="14" stroke="#f59e0b" stroke-width="1.3"/><line x1="5" y1="14" x2="11" y2="14" stroke="#f59e0b" stroke-width="1.3"/></svg></div><div class="item-name">Floor lamp</div><div class="item-desc">Standing lamp for warm lighting</div></div>
+          <div class="item-card" data-item="rug" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#fff1f2"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><ellipse cx="8" cy="10" rx="6" ry="3" stroke="#ef4444" stroke-width="1.2"/><ellipse cx="8" cy="10" rx="4" ry="2" stroke="#ef4444" stroke-width="0.7" opacity=".5"/></svg></div><div class="item-name">Rug</div><div class="item-desc">Decorative center rug</div></div>
+          <div class="item-card" data-item="corkboard" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#fffbeb"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="10" rx="1" stroke="#f59e0b" stroke-width="1.2"/><circle cx="5" cy="5" r="1" fill="#ef4444"/><circle cx="11" cy="4" r="1" fill="#3b82f6"/><line x1="4" y1="7" x2="8" y2="7" stroke="#f59e0b" stroke-width="0.7" opacity=".6"/></svg></div><div class="item-name">Cork board</div><div class="item-desc">Pinboard with notes and charts</div></div>
         </div>
-      </div>
-      <div class="bp-section">
-        <div class="bp-label">Desk style</div>
-        <div class="bp-opts" id="rb-desk-opts">
-          <button class="bp-opt on" data-group="desk" data-val="standard" onclick="rbSet('desk','standard',this)">Standard</button>
-          <button class="bp-opt" data-group="desk" data-val="l-shape" onclick="rbSet('desk','l-shape',this)">L-shape</button>
-          <button class="bp-opt" data-group="desk" data-val="standing" onclick="rbSet('desk','standing',this)">Standing</button>
-          <button class="bp-opt" data-group="desk" data-val="none" onclick="rbSet('desk','none',this)">None</button>
+        <div class="builder-actions">
+          <button class="btn-save" id="rb-save-btn" onclick="rbSave()">Save room</button>
+          <button class="btn-new" onclick="rbNew()">+ New</button>
         </div>
+        <div class="bp-confirm" id="rb-confirm"></div>
       </div>
-    </div>
-    <div class="builder-panel">
-      <div class="bp-title">Decorations &amp; furniture</div>
-      <div class="item-grid" id="rb-items-grid">
-        <div class="item-card on" data-item="monitor" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#eff6ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="10" rx="1.5" stroke="#3b82f6" stroke-width="1.3"/><line x1="5" y1="12" x2="11" y2="12" stroke="#3b82f6" stroke-width="1.3"/><line x1="8" y1="12" x2="8" y2="14" stroke="#3b82f6" stroke-width="1.3"/></svg></div><div class="item-name">Monitor</div><div class="item-desc">Desktop screen for data and charts</div></div>
-        <div class="item-card" data-item="bookshelf" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#fffbeb"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="3" height="14" rx="0.5" stroke="#f59e0b" stroke-width="1.2"/><rect x="5" y="4" width="3" height="11" rx="0.5" stroke="#f59e0b" stroke-width="1.2"/><rect x="9" y="2" width="3" height="13" rx="0.5" stroke="#f59e0b" stroke-width="1.2"/><rect x="13" y="5" width="2" height="10" rx="0.5" stroke="#f59e0b" stroke-width="1.2"/></svg></div><div class="item-name">Bookshelf</div><div class="item-desc">Wall shelves with research materials</div></div>
-        <div class="item-card" data-item="plant" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#f0fdf4"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><ellipse cx="8" cy="6" rx="5" ry="4" stroke="#22c55e" stroke-width="1.3"/><line x1="8" y1="10" x2="8" y2="15" stroke="#22c55e" stroke-width="1.3"/><line x1="8" y1="12" x2="5" y2="10" stroke="#22c55e" stroke-width="1"/></svg></div><div class="item-name">Plant</div><div class="item-desc">A small potted plant</div></div>
-        <div class="item-card" data-item="whiteboard" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#faf5ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="10" rx="1" stroke="#8b5cf6" stroke-width="1.3"/><line x1="4" y1="6" x2="12" y2="6" stroke="#8b5cf6" stroke-width="0.8" opacity=".5"/><line x1="4" y1="9" x2="9" y2="9" stroke="#8b5cf6" stroke-width="0.8" opacity=".5"/><line x1="3" y1="12" x2="13" y2="12" stroke="#8b5cf6" stroke-width="1.3"/></svg></div><div class="item-name">Whiteboard</div><div class="item-desc">Wall whiteboard for analysis</div></div>
-        <div class="item-card" data-item="window" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#f0f6ff"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="1" width="12" height="11" rx="1" stroke="#3b82f6" stroke-width="1.3"/><line x1="8" y1="1" x2="8" y2="12" stroke="#3b82f6" stroke-width="1"/><line x1="2" y1="6" x2="14" y2="6" stroke="#3b82f6" stroke-width="1"/><line x1="5" y1="14" x2="11" y2="14" stroke="#3b82f6" stroke-width="1.3"/></svg></div><div class="item-name">Window</div><div class="item-desc">Back wall window with outside view</div></div>
-        <div class="item-card" data-item="lamp" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#fffbeb"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 8 L8 2 L11 8 Z" stroke="#f59e0b" stroke-width="1.2" fill="none"/><line x1="8" y1="8" x2="8" y2="14" stroke="#f59e0b" stroke-width="1.3"/><line x1="5" y1="14" x2="11" y2="14" stroke="#f59e0b" stroke-width="1.3"/></svg></div><div class="item-name">Floor lamp</div><div class="item-desc">Standing lamp for warm lighting</div></div>
-        <div class="item-card" data-item="rug" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#fff1f2"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><ellipse cx="8" cy="10" rx="6" ry="3" stroke="#ef4444" stroke-width="1.2"/><ellipse cx="8" cy="10" rx="4" ry="2" stroke="#ef4444" stroke-width="0.7" opacity=".5"/></svg></div><div class="item-name">Rug</div><div class="item-desc">Decorative center rug</div></div>
-        <div class="item-card" data-item="corkboard" onclick="rbToggleItem(this)"><div class="item-icon" style="background:#fffbeb"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="10" rx="1" stroke="#f59e0b" stroke-width="1.2"/><circle cx="5" cy="5" r="1" fill="#ef4444"/><circle cx="11" cy="4" r="1" fill="#3b82f6"/><line x1="4" y1="7" x2="8" y2="7" stroke="#f59e0b" stroke-width="0.7" opacity=".6"/></svg></div><div class="item-name">Cork board</div><div class="item-desc">Pinboard with notes and charts</div></div>
-      </div>
-      <div class="builder-actions">
-        <button class="btn-save" id="rb-save-btn" onclick="rbSave()">Save room</button>
-        <button class="btn-new" onclick="rbNew()">+ New</button>
-      </div>
-      <div class="bp-confirm" id="rb-confirm"></div>
     </div>
   </div>
 </div>
@@ -403,8 +529,40 @@ const bets=[{name:'Fed cut Jul',short:'Fed Jul',edge:18,model:52,market:34,color
 function now(){const d=new Date();return`${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`}
 function buildBars(){const el=document.getElementById('bar-chart');if(!el)return;const max=Math.max(...bets.map(b=>b.edge));el.innerHTML=bets.map(b=>`<div class="bar-col"><div class="bar-val" style="color:${b.color}">+${b.edge}%</div><div class="bar-fill" style="height:${Math.round(b.edge/max*88)}px;background:${b.color}"></div><div class="bar-label">${b.short}</div></div>`).join('')}
 function buildScatter(){const el=document.getElementById('scatter-area');if(!el)return;const W=el.offsetWidth||200,H=100;bets.forEach(b=>{const x=Math.round((b.market/100)*W*0.85+W*0.07),y=Math.round(H-(b.model/100)*H*0.85-H*0.07),size=10+b.edge*0.5;const d=document.createElement('div');d.className='scatter-dot';d.style.cssText=`width:${size}px;height:${size}px;background:${b.color};opacity:.7;left:${x}px;bottom:${H-y}px;`;el.appendChild(d)})}
-function buildSpark(){const canvas=document.getElementById('spark-canvas');if(!canvas)return;const W=canvas.parentElement.offsetWidth||300;canvas.width=W;const ctx=canvas.getContext('2d'),rois=[0.05,0.12,-0.04,0.18,0.08,0.22,-0.06,0.15,0.19,0.07,0.25,0.14];const pad=14,H=100,xStep=(W-pad*2)/(rois.length-1),min=Math.min(...rois),max2=Math.max(...rois);const scale=v=>Math.round(pad+(H-pad*2)*(1-(v-min)/(max2-min)));ctx.clearRect(0,0,W,H);ctx.strokeStyle='#f0f0f0';ctx.lineWidth=1;ctx.setLineDash([4,4]);ctx.beginPath();ctx.moveTo(pad,scale(0));ctx.lineTo(W-pad,scale(0));ctx.stroke();ctx.setLineDash([]);ctx.beginPath();ctx.moveTo(pad,scale(rois[0]));rois.forEach((v,i)=>{if(i>0)ctx.lineTo(pad+i*xStep,scale(v))});ctx.lineTo(pad+(rois.length-1)*xStep,H-pad);ctx.lineTo(pad,H-pad);ctx.closePath();ctx.fillStyle='rgba(139,92,246,0.07)';ctx.fill();ctx.beginPath();ctx.moveTo(pad,scale(rois[0]));rois.forEach((v,i)=>{if(i>0)ctx.lineTo(pad+i*xStep,scale(v))});ctx.strokeStyle='#8b5cf6';ctx.lineWidth=1.5;ctx.stroke();rois.forEach((v,i)=>{ctx.beginPath();ctx.arc(pad+i*xStep,scale(v),3,0,Math.PI*2);ctx.fillStyle=v>=0?'#22c55e':'#ef4444';ctx.fill()});let sum=0;ctx.beginPath();rois.forEach((v,i)=>{sum+=v;const avg=sum/(i+1);i===0?ctx.moveTo(pad,scale(avg)):ctx.lineTo(pad+i*xStep,scale(avg))});ctx.strokeStyle='#f59e0b';ctx.lineWidth=1;ctx.setLineDash([3,3]);ctx.stroke();ctx.setLineDash([])}
-window.addEventListener('load',()=>{buildBars();setTimeout(()=>{buildScatter();buildSpark();abUpdatePreview();setTimeout(rbUpdatePreview,100)},50)})
+function buildSpark(){
+  const canvas=document.getElementById('spark-canvas');if(!canvas)return
+  const W=canvas.parentElement.offsetWidth||300;canvas.width=W
+  const ctx=canvas.getContext('2d')
+  const data=simBankrollHistory.length>1?simBankrollHistory:[1240,1240]
+  const pad=14,H=160,xStep=(W-pad*2)/Math.max(data.length-1,1)
+  const min=Math.min(...data)*0.995,max2=Math.max(...data)*1.005
+  const scale=v=>Math.round(pad+(H-pad*2)*(1-(v-min)/(max2-min||1)))
+  ctx.clearRect(0,0,W,H)
+  // baseline
+  const base=scale(1240)
+  ctx.strokeStyle='#f0f0f0';ctx.lineWidth=1;ctx.setLineDash([4,4])
+  ctx.beginPath();ctx.moveTo(pad,base);ctx.lineTo(W-pad,base);ctx.stroke();ctx.setLineDash([])
+  // fill
+  const lineColor=data[data.length-1]>=1240?'#22c55e':'#ef4444'
+  ctx.beginPath();ctx.moveTo(pad,scale(data[0]))
+  data.forEach((v,i)=>{if(i>0)ctx.lineTo(pad+i*xStep,scale(v))})
+  ctx.lineTo(pad+(data.length-1)*xStep,H-pad);ctx.lineTo(pad,H-pad);ctx.closePath()
+  ctx.fillStyle=lineColor.replace(')',',0.08)').replace('rgb','rgba').replace('#22c55e','rgba(34,197,94,0.08)').replace('#ef4444','rgba(239,68,68,0.08)')
+  ctx.fill()
+  // line
+  ctx.beginPath();ctx.moveTo(pad,scale(data[0]))
+  data.forEach((v,i)=>{if(i>0)ctx.lineTo(pad+i*xStep,scale(v))})
+  ctx.strokeStyle=lineColor;ctx.lineWidth=2;ctx.stroke()
+  // dots
+  data.forEach((v,i)=>{
+    ctx.beginPath();ctx.arc(pad+i*xStep,scale(v),3,0,Math.PI*2)
+    ctx.fillStyle=v>=1240?'#22c55e':'#ef4444';ctx.fill()
+  })
+  // starting bankroll label
+  ctx.font='9px Geist,sans-serif';ctx.fillStyle='#bbb';ctx.textAlign='left'
+  ctx.fillText('$'+data[data.length-1].toFixed(0),pad+2,scale(data[data.length-1])-5)
+}
+window.addEventListener('load',()=>{buildBars();setTimeout(()=>{buildScatter();buildSpark();abUpdatePreview();simInit();setTimeout(rbUpdatePreview,100)},50)})
 window.addEventListener('resize',()=>{document.getElementById('scatter-area').innerHTML='';buildScatter();buildSpark()})
 function approveBet(){document.getElementById('approval-zone').innerHTML=`<div class="no-pending"><div class="ld" style="flex-shrink:0"></div>No bets awaiting approval</div>`;document.getElementById('t-pending').textContent='0';document.getElementById('t-bal').textContent='$1,192';showToast('Banker deployed — $48.00 USDC placed on Polygon.')}
 function rejectBet(){document.getElementById('approval-zone').innerHTML=`<div class="no-pending">Bet rejected.</div>`;document.getElementById('t-pending').textContent='0';showToast('Bet rejected.')}
@@ -415,7 +573,167 @@ function getResp(q){const l=q.toLowerCase();if(l.includes('fed')||l.includes('ra
 function sendMessage(){const input=document.getElementById('chat-input'),msg=input.value.trim();if(!msg)return;input.value='';const c=document.getElementById('chat-messages');const u=document.createElement('div');u.className='msg user';u.innerHTML=`<div class="msg-bubble">${msg}</div><div class="msg-time">${now()}</div>`;c.appendChild(u);const ty=document.createElement('div');ty.className='msg agent';ty.innerHTML=`<div class="typing"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;c.appendChild(ty);c.scrollTop=c.scrollHeight;setTimeout(()=>{ty.remove();const a=document.createElement('div');a.className='msg agent';a.innerHTML=`<div class="msg-bubble">${getResp(msg)}</div><div class="msg-time">${now()}</div>`;c.appendChild(a);c.scrollTop=c.scrollHeight},800+Math.random()*500)}
 document.getElementById('chat-input').addEventListener('keydown',e=>{if(e.key==='Enter')sendMessage()})
 
-/* ROBOT */
+/* COLLAPSE */
+function toggleSection(bodyId, toggleId){
+  const body=document.getElementById(bodyId)
+  const toggle=document.getElementById(toggleId)
+  const label=document.getElementById(toggleId+'-label')
+  const isOpen=!body.classList.contains('collapsed')
+  if(isOpen){
+    body.style.maxHeight=body.scrollHeight+'px'
+    requestAnimationFrame(()=>{body.style.maxHeight='0px';body.style.opacity='0'})
+    body.classList.add('collapsed')
+    toggle.classList.remove('open')
+    if(label)label.textContent='Expand'
+  } else {
+    body.classList.remove('collapsed')
+    body.style.maxHeight='2000px';body.style.opacity='1'
+    toggle.classList.add('open')
+    if(label)label.textContent='Collapse'
+  }
+}
+
+/* SIMULATION */
+const SIM_MARKETS=[
+  {id:'fed-cut',name:'Fed rate cut — July 2025',side:'YES',market:34,model:52,edge:18,category:'Macro',color:'#22c55e'},
+  {id:'ai-eo',name:'AI Executive Order by Q3 2025',side:'YES',market:61,model:74,edge:13,category:'Policy',color:'#3b82f6'},
+  {id:'btc-100k',name:'BTC reaches $100K by Q2 2025',side:'YES',market:42,model:55,edge:13,category:'Crypto',color:'#8b5cf6'},
+  {id:'senate-rec',name:'Senate reconciliation vote passes',side:'YES',market:22,model:28,edge:6,category:'Politics',color:'#f59e0b'},
+  {id:'inflation-5',name:'CPI below 2.5% by Dec 2025',side:'YES',market:58,model:71,edge:13,category:'Macro',color:'#14b8a6'},
+  {id:'sp500-atm',name:'S&P 500 above 5,800 at year end',side:'YES',market:48,model:61,edge:13,category:'Finance',color:'#f97316'},
+]
+
+let simBankroll=1240
+let simBets=[]
+let selectedMarket=null
+const simBankrollHistory=[1240]
+
+function simInit(){
+  const list=document.getElementById('sim-market-list')
+  if(!list)return
+  list.innerHTML=SIM_MARKETS.map(m=>`
+    <div class="sim-market-row" id="simrow-${m.id}" onclick="simSelectMarket('${m.id}')">
+      <div>
+        <div class="sim-market-name">${m.name}</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:2px">${m.category} · Market ${m.market}¢ · Model ${m.model}%</div>
+      </div>
+      <div class="sim-market-meta">
+        <span class="sim-tag" style="background:${m.color}18;color:${m.color};border:1px solid ${m.color}40">+${m.edge}pt edge</span>
+      </div>
+    </div>`).join('')
+}
+
+function simSelectMarket(id){
+  selectedMarket=SIM_MARKETS.find(m=>m.id===id)
+  if(!selectedMarket)return
+  document.querySelectorAll('.sim-market-row').forEach(r=>r.classList.remove('selected'))
+  document.getElementById('simrow-'+id)?.classList.add('selected')
+  const kelly=((selectedMarket.edge/100)*1.0).toFixed(3)
+  const kellySt=(simBankroll*(selectedMarket.edge/100)/100).toFixed(2)
+  document.getElementById('sim-bet-title').textContent=selectedMarket.name
+  document.getElementById('sim-mkt-price').textContent=selectedMarket.market+'¢'
+  document.getElementById('sim-model-conf').innerHTML=`<span style="color:#15803d">${selectedMarket.model}%</span>`
+  document.getElementById('sim-edge-val').innerHTML=`<span style="color:#15803d">+${selectedMarket.edge} pts</span>`
+  document.getElementById('sim-kelly').textContent=`$${kellySt} (${selectedMarket.edge}% of bankroll)`
+  document.getElementById('sim-stake-input').value=Math.round(parseFloat(kellySt))
+  document.getElementById('sim-yes-btn').style.fontWeight=selectedMarket.side==='YES'?'700':'400'
+  document.getElementById('sim-no-btn').style.fontWeight=selectedMarket.side==='NO'?'700':'400'
+}
+
+function simPlaceBet(side){
+  if(!selectedMarket){showToast('Select a market first');return}
+  const stake=parseFloat(document.getElementById('sim-stake-input').value)||10
+  if(stake>simBankroll){showToast('Stake exceeds paper bankroll');return}
+  const price=side==='YES'?selectedMarket.market:(100-selectedMarket.market)
+  const payout=Math.round((stake/price*100)*100)/100
+  simBankroll=Math.round((simBankroll-stake)*100)/100
+  const bet={id:Date.now(),market:selectedMarket.name,side,stake,price,payout,model:selectedMarket.model,edge:selectedMarket.edge,color:selectedMarket.color,status:'pending',pnl:null,placedAt:now()}
+  simBets.unshift(bet)
+  simBankrollHistory.push(simBankroll)
+  simUpdateStats()
+  simRenderResults()
+  buildSpark()
+  showToast(`Paper bet placed: ${side} @ ${price}¢ — $${stake} risked`)
+  // auto-resolve after 3s with probability-weighted outcome
+  setTimeout(()=>simResolve(bet.id),3000)
+}
+
+function simRun(){
+  if(!selectedMarket){showToast('Select a market first');return}
+  const stake=parseFloat(document.getElementById('sim-stake-input').value)||10
+  simPlaceBet(selectedMarket.side)
+}
+
+function simResolve(betId){
+  const bet=simBets.find(b=>b.id===betId)
+  if(!bet||bet.status!=='pending')return
+  // Weighted resolution: model confidence determines win probability
+  const winProb=bet.side==='YES'?bet.model/100:(1-bet.model/100)
+  const won=Math.random()<winProb
+  bet.status=won?'win':'loss'
+  bet.pnl=won?Math.round((bet.payout-bet.stake)*100)/100:-bet.stake
+  simBankroll=Math.round((simBankroll+(won?bet.payout:0))*100)/100
+  simBankrollHistory.push(simBankroll)
+  simUpdateStats()
+  simRenderResults()
+  buildSpark()
+  showToast(`${won?'✓ Win':'✗ Loss'}: ${bet.market} ${bet.side} — P&L ${won?'+':''}$${bet.pnl}`)
+}
+
+function simUpdateStats(){
+  const resolved=simBets.filter(b=>b.status!=='pending')
+  const wins=resolved.filter(b=>b.status==='win')
+  const totalPnl=resolved.reduce((s,b)=>s+(b.pnl||0),0)
+  const wr=resolved.length>0?Math.round(wins.length/resolved.length*100)+'%':'—'
+  document.getElementById('ss-bankroll').textContent='$'+simBankroll.toFixed(0)
+  const pnlEl=document.getElementById('ss-pnl')
+  pnlEl.textContent=(totalPnl>=0?'+':'')+'$'+totalPnl.toFixed(0)
+  pnlEl.className='sim-stat-v '+(totalPnl>0?'g':totalPnl<0?'r':'')
+  document.getElementById('ss-bets').textContent=simBets.length
+  document.getElementById('ss-wr').textContent=wr
+  // update topbar + metrics
+  document.getElementById('t-bal').textContent='$'+simBankroll.toFixed(0)
+  document.getElementById('m-bal').textContent='$'+simBankroll.toFixed(0)
+  document.getElementById('m-open').textContent=simBets.filter(b=>b.status==='pending').length+' open'
+  document.getElementById('m-resolved').textContent=resolved.length
+  const roiPct=resolved.length>0?Math.round(totalPnl/1240*100):0
+  const roiStr=(roiPct>=0?'+':'')+roiPct+'%'
+  document.getElementById('t-roi').textContent=roiStr
+  document.getElementById('m-roi').textContent=roiStr
+  document.getElementById('t-wr').textContent=wr
+  document.getElementById('m-edge').textContent=SIM_MARKETS[0].edge+'pt'
+}
+
+function simRenderResults(){
+  const el=document.getElementById('sim-results')
+  if(simBets.length===0){el.innerHTML='<div style="font-size:11px;color:var(--faint);padding:8px 0">No bets placed yet.</div>';return}
+  el.innerHTML=simBets.map(b=>{
+    const cls=b.status==='win'?'win':b.status==='loss'?'loss':'pending'
+    const pnlStr=b.status==='pending'?'Resolving...':(b.pnl>=0?'+':'')+'$'+b.pnl?.toFixed(2)
+    const pnlCls=b.status==='pending'?'neu':b.pnl>0?'pos':'neg'
+    return`<div class="sim-result-row ${cls}">
+      <div>
+        <div class="sim-result-name">${b.market}</div>
+        <div class="sim-result-meta"><span>${b.side} @ ${b.price}¢</span><span>$${b.stake} staked</span><span>${b.placedAt}</span></div>
+      </div>
+      <div class="sim-result-pnl ${pnlCls}">${pnlStr}</div>
+    </div>`}).join('')
+}
+
+function simReset(){
+  simBets=[];simBankroll=1240;simBankrollHistory.length=0;simBankrollHistory.push(1240)
+  selectedMarket=null
+  document.querySelectorAll('.sim-market-row').forEach(r=>r.classList.remove('selected'))
+  document.getElementById('sim-bet-title').textContent='No market selected'
+  document.getElementById('sim-mkt-price').textContent='—'
+  document.getElementById('sim-model-conf').textContent='—'
+  document.getElementById('sim-edge-val').textContent='—'
+  document.getElementById('sim-kelly').textContent='—'
+  simUpdateStats();simRenderResults();buildSpark()
+  showToast('Simulation reset — paper bankroll restored to $1,240')
+}
+
+
 const AB_COLORS={'#3b82f6':'#1d4ed8','#22c55e':'#15803d','#f59e0b':'#b45309','#ef4444':'#b91c1c','#8b5cf6':'#6d28d9','#ec4899':'#be185d','#14b8a6':'#0f766e','#f97316':'#c2410c','#64748b':'#334155'}
 function drawRobot(c,brd,shape,head,acc,w,h){
   const bodies={round:`<ellipse cx="50" cy="66" rx="22" ry="20" fill="${c}" stroke="${brd}" stroke-width="1.2"/><ellipse cx="50" cy="66" rx="14" ry="11" fill="${brd}" opacity=".14"/>`,square:`<rect x="28" y="46" width="44" height="38" rx="6" fill="${c}" stroke="${brd}" stroke-width="1.2"/><rect x="35" y="53" width="30" height="22" rx="2" fill="${brd}" opacity=".12"/>`,tall:`<rect x="32" y="40" width="36" height="48" rx="8" fill="${c}" stroke="${brd}" stroke-width="1.2"/><rect x="38" y="50" width="24" height="28" rx="2" fill="${brd}" opacity=".12"/>`,wide:`<rect x="18" y="54" width="64" height="30" rx="6" fill="${c}" stroke="${brd}" stroke-width="1.2"/><rect x="26" y="60" width="48" height="18" rx="2" fill="${brd}" opacity=".12"/>`}
